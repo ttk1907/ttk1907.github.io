@@ -85,8 +85,7 @@ ${user[a]}  此时输出的是123456
     3. 作用:用于多分支显示
     4. 格式:
 
-
-    ```jsp
+```jsp
 <% pageContext.setAttribute("flag",1);%>
 <kuming:choose>
     <kuming:when test="${flag==1}">
@@ -96,7 +95,7 @@ ${user[a]}  此时输出的是123456
         从前有座山3
     </kuming:otherwise>
 </kuming:choose>
-    ```
+```
 
 4. forEach标签
     1. 作用:用于遍历集合或数组元素
@@ -105,11 +104,11 @@ ${user[a]}  此时输出的是123456
         1. item:要遍历的数组或集合必须通过el表达式传递
         2. var:在循环遍历时,从数组或集合中取出的每一个元素会被存储到pageContext中,key就是var的值
         3. 案例:
-    ```jsp
+```jsp
 <kuming:forEach items="${data}" var="x">
     <h1>${x}</h1>
 </kuming:forEach>
-    ```
+```
 
 
 
