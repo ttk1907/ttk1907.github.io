@@ -26,7 +26,7 @@ tags: Java note
     1. 作用:用于将一个JSP或HTML文件引入到另一个JSP中
     2. 格式:`<%@ include file = "引入的路径"%>`
 2. include动作
-    1. 作用:用于讲一个JSP或HTML文件引入到另一个JSP中
+    1. 作用:用于将一个JSP或HTML文件引入到另一个JSP中
     2. 格式:`<jsp:include page="引入的路径" flush="true"/>`
 3. 二者的区别
     1. include指令:在JSP文件的转换时期,将被引入的JSP文件嵌入到include指令的位置,然后统一编译执行(最终生成了一个.java文件)
@@ -56,6 +56,7 @@ tags: Java note
     7. pageContext:
         1. 类型:PageContext
         2. 作用:页面的上下文,每个JSP都拥有一个上下文对象,用于多段代码之间进行通信
+        3. 使用场景:在自定义标签时会频繁使用到PageContext对象;或者是定义一个方法需要用到多个对象时,传一个pageContext对象就能解决问题. 
     8. exception:
         1. 类型:Throwable
         2. 作用:当页面的page指令中isErrorPage属性值为true时,才会存在此对象,用于收集错误信息!通常此对象为null.只有其他页面指定errorPage当前页面时,且其他页面发生BUG后,跳转到此页面时,对象才不为null.
@@ -64,11 +65,12 @@ tags: Java note
         2. 作用:指当前JSP页面自身,在JSP引擎生成的代码中,page对象的赋值代码为:Object page = this;
 
 ### JSP的四大域对象
-1. 概念:九大隐含对象中,包含了四个较为特殊的隐含对象,这四个对象我们称其为域对象,它们都具备存储数据/删除数据/获取数据的方法:
+1. 域对象的作用:保存数据,获取数据,共享数据.
+2. 概念:九大隐含对象中,包含了四个较为特殊的隐含对象,这四个对象我们称其为域对象,它们都具备存储数据/删除数据/获取数据的方法:
     1. 存储数据:`setAttribute(String key,Object value);`
     2. 获取数据:`Object value = getAttribute(String key);`
     3. 删除数据:`removeAttribute(String key);`
-2. 这四个域对象,`域`指的是作用域!分别是:
+3. 这四个域对象,`域`指的是作用域!分别是:
     1. pageContext:页面的上下文   作用域:一个JSP页面
     2. request:请求对象           作用域:一次请求(请求可以被转发,一次请求可能包含多个JSP页面)
     3. session:会话对象           作用域:一次会话(一次会话可能包含多次请求)
