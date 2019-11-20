@@ -83,7 +83,7 @@ ${user[a]}  此时输出的是123456
     1. 类似Java中的:switch+case+default
     2. 这三个标签,只有when是由test属性的,属性值是boolean值,允许使用el表达式传入
     3. 作用:用于多分支显示
-    4. 格式:  
+    4. 格式:
 ```jsp
 <% pageContext.setAttribute("flag",1);%>
 <kuming:choose>
