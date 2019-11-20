@@ -96,6 +96,7 @@ ${user[a]}  此时输出的是123456
     </kuming:otherwise>
 </kuming:choose>
     ```
+    
 4. forEach标签
     1. 作用:用于遍历集合或数组元素
     2. 格式:`<标签库名称:forEach item="" var=""></标签库名称:forEach>` 
