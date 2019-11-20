@@ -83,7 +83,8 @@ ${user[a]}  此时输出的是123456
     1. 类似Java中的:switch+case+default
     2. 这三个标签,只有when是由test属性的,属性值是boolean值,允许使用el表达式传入
     3. 作用:用于多分支显示
-    4. 格式: 
+    4. 格式:
+
 
     ```jsp
 <% pageContext.setAttribute("flag",1);%>
@@ -103,12 +104,12 @@ ${user[a]}  此时输出的是123456
     3. 属性:
         1. item:要遍历的数组或集合必须通过el表达式传递
         2. var:在循环遍历时,从数组或集合中取出的每一个元素会被存储到pageContext中,key就是var的值
-        3. 案例:    
-        ```jsp
+        3. 案例:
+    ```jsp
 <kuming:forEach items="${data}" var="x">
-        <h1>${x}</h1>
+    <h1>${x}</h1>
 </kuming:forEach>
-        ```
+    ```
 
 
 
