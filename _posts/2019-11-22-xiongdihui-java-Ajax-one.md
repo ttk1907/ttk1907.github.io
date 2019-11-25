@@ -176,8 +176,9 @@ System.out.println(user);
     2. 参数1.url:请求地址
     3. 参数2.data:请求时携带的参数,与网页?后的参数格式一致
     4. 参数3.success:当请求成功时,处理的函数.
-4. 案例:  
-```jsp
+4. 案例: 
+
+```js
 <script type="text/javascript">
     $(function(){
         $("button").click(function(){
@@ -189,7 +190,7 @@ System.out.println(user);
     <button>刷新数据</button>
     <div id="div1"></div>
 </body>
-```
+```  
 
 ### ajax请求数据缓存问题
 1. 在操作ajax时,浏览器对ajax请求的结果缓存以后,当我们再次向这个地址发起ajax时,浏览器有可能不会再请求服务器,采用上一次的缓存
