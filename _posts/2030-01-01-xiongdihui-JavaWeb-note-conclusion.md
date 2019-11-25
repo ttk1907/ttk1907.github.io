@@ -37,3 +37,7 @@ tags: Java note
 2. [JSP第2天](https://ttk1907.github.io/2019/11/19/xiongdihui-java-JSP-two/)：include、JSP的内置对象、JSP的四大域对象、useBean动作、setProperty动作、getProperty动作
 3. [JSP第3天](https://ttk1907.github.io/2019/11/20/xiongdihui-java-JSP-three/)：重写URL得到Session、EL表达式、EL表达式,取出数据的流程、taglib指令、JSTL标签库
 4. [JSP第4天](https://ttk1907.github.io/2019/11/21/xiongdihui-java-JSP-four/)：过滤器、过滤器链、Listener
+
+## 四、Ajax
+1. [Ajax第1天](https://ttk1907.github.io/2019/11/22/xiongdihui-java-Ajax-one/)：GET请求的使用步骤、POST请求的使用步骤、GSON.jar
+2. Ajax第2天：ajax函数、get函数与post函数、getJSON函数、Load与缓存问题
