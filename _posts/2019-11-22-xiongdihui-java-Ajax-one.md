@@ -93,19 +93,109 @@ User user = new Gson().fromJson(json,User.class);
 System.out.println(user);
     ```
 
+## Ajax第2天
+### ajax函数
+1. 函数名称:`$.ajax`
+2. 参数列表:长度为1,需要传递一个对象
+3. 通常传递到参数1的对象,我们使用JSON格式传输,属性与值描述如下:
 
+```java
+{
+    url:"请求的地址",
+    type:"请求方式GET/POST...",
+    async:"默认true,表示异步请求",
+    data:"请求的参数,格式与网址?后的格式一致",
+    dataType:"TEXT/JSON",//表示服务器返回的数据类型.如果编写JSON , 我们接收到的数据 就是一个对象
+    success:function(data){
+            //当服务器请求成功时, 这里执行
+            //参数data就是响应的内容.
+            //  当dataType的值为TEXT时,  data是一个string类型的数据
+            //  当dataType的值为JSON时,  data是一个对象.
+        },
+    error:function(){
+        //当服务器返回的状态码不再200-299的范围 , 则表示失败, 这里执行
+    }
+}
+```
 
+### get函数与post函数
+1. 两个函数的格式, 完全一致, 一个用于GET请求, 一个用于POST请求.
+2. 函数名称:`$.get`,`$.post`
+3. 参数列表:
+    1. 列表长度为4:
+    2. 参数1. url :请求地址
+    3. 参数2. data:请求时携带的参数,与网址?后的参数格式一致.
+    4. 参数3. success:当请求成功时,处理的函数
+    5. 参数4. 响应的数据类型:TEXT/JSON
+4. 格式示例:`$.get("s1.do","",function(data){},"JSON");`
 
+### getJSON函数
+1. 函数名称:`$.getJSON`
+2. 参数列表:
+    1. 参数列表长度为3
+    2. 参数1.url:请求地址
+    3. 参数2.data:请求时携带的参数,与网页?后的参数格式一致
+    4. 参数3.success:当请求成功时,处理的函数.
+3. 案例:
 
+```jsp
+<h3>快递查询2</h3>
+<input placeholder="请输入快递单号"><button onclick="x1()">查询</button>
+<script type="text/javascript">
+    function x1(){
+        $("#ul1").html("");
+        //1.    得到用户输入的快递单号
+        var number = $("input").val();
+        //2.    发送ajax请求
+        layer.msg("拼命查询中...",{icon:16,shade:0.01});
+        $.getJSON("s2.do","number="+number,function(data){
+            if(data.status == 0){
+                //查询成功
+                var arr = data.result.list;
+                for(var i=0;i<arr.length;i++){
+                    var $li = $("<li>时间:"+arr[i].time+"<br>进度:"+arr[i].status+"</li>");
+                    $("#ul1").append($li);
+                }
+            }else{
+                //查询失败
+                layer.msg("很遗憾, 查询失败了");
+            }
+        });
+    }
+</script>
+<ul id="ul1">
+</ul>
+```
 
+### Load与缓存问题
+1. jquery对象.load:通过jquery对象,调用load函数,将服务器返回的内容,直接嵌入到元素的内部,使用load函数访问的服务器通常返回的不是JSON,而是html标签
+2. 函数名称:`$obj.load`
+3. 参数列表:
+    1. 参数列表长度为3
+    2. 参数1.url:请求地址
+    3. 参数2.data:请求时携带的参数,与网页?后的参数格式一致
+    4. 参数3.success:当请求成功时,处理的函数.
+4. 案例:
 
+    ```html
+<script type="text/javascript">
+    $(function(){
+        $("button").click(function(){
+            $("#div1").load("s1.do","",function(data){});
+        });
+    });
+</script>
+<body>
+    <button>刷新数据</button>
+    <div id="div1"></div>
+</body>
+    ```
 
-
-
-
-
-
-
+### ajax请求数据缓存问题
+1. 在操作ajax时,浏览器对ajax请求的结果缓存以后,当我们再次向这个地址发起ajax时,浏览器有可能不会再请求服务器,采用上一次的缓存
+2. 解决缓存问题:需要先明白缓存的原理,浏览器是按照网址进行缓存的,比如:浏览器不会将百度的缓存给到京东.所以,我们想要浏览器不使用缓存,只需要保证网址不重复就可以了
+3. 格式:给请求地址字符串,添加一个时间戳参数
+4. 例如:`$.load("s1.do","time="new Date().getTime(),function(){})`
 
  
 
