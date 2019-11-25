@@ -10,6 +10,7 @@ tags: Ajax note
 {:toc}
 
 1. Ajax第1天：GET请求的使用步骤、POST请求的使用步骤、GSON.jar
+1. Ajax第2天：ajax函数、get函数与post函数、getJSON函数、Load与缓存问题
 
 
 
