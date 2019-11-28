@@ -9,7 +9,9 @@ tags: Spring note
 * content
 {:toc}
 
-1. Spring第1、2天：项目开发思路MVC、Spring
+1. 项目开发思路MVC
+2. Spring 框架的构成、什么是IOC、Spring 容器、使用Spring容器完成IOC的步骤、Spring容器创建对象的三种方式、Spring中对象的作用域
+3. Spring容器中的对象的初始化和销毁、bean对象的延迟实例化、什么是DI、DI的三种实现方式、组件扫描
 
 
 
@@ -55,7 +57,7 @@ SSM-Spring-SpringMVC-MyBatis
 
 ### 4.使用Spring容器完成IOC的步骤  
 1. 建立一个项目导入jar包(ioc相关jar包)拷贝Spring配置文件到src下
-2. 在SPring配置文件中 配置对象创建的说明`<bean id="对象的引用名" class="包名.类名"></bean>`
+2. 在Spring配置文件中 配置对象创建的说明`<bean id="对象的引用名" class="包名.类名"></bean>`
 3. 创建Spring容器对象和从容器中获取对象  
 
 ```java
