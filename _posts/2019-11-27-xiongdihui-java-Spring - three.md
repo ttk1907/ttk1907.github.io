@@ -75,7 +75,6 @@ tags: Spring note
 ## Spring MVC 的编程步骤2
 1. 建立一个项目,导入jar包(ioc aop mvc) 拷贝配置文件到src下,并在WEB-INF下建立一个login.jsp
 2. 在web.xml 中配置DispatcherServlet 并通过初始化参数contextConfigLocation  来指定spring配置文件的位置   
-
 ```xml
 <servlet>
     <servlet-name>Spring-MVC<servlet-name>
@@ -92,7 +91,6 @@ tags: Spring note
 ``` 
 
 3. 开启组件扫描和标注形式mvc:
-
 ```xml
 <context:component-scan base-package="包名"/>
 <mvc:annotation-driven/>
@@ -100,7 +98,6 @@ tags: Spring note
 ```  
 
 4. 编写一个控制器类,不用实现Controller接口,使用@Controller把普通java类转换成控制器,@RequestMapping("/请求路径"),返回值可以是String,也可以是ModelAndView 方法名自由(参数自由) 
-
 ```java  
 @Controller
 public class LoginController {
@@ -112,7 +109,6 @@ public class LoginController {
 ```
 
 5. 配置视图处理器,配置前缀和后
-
 ```xml  
 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/"/>
