@@ -65,61 +65,60 @@ tags: Spring note
     4. ModelAndView          模型和视图   封装了数据信息和视图信息
     5. ViewResolver          视图处理器  
   
-## Spring MVC 的编程步骤 
-1. Spring MVC编程步骤1 
-    1. 建立一个项目,导入jar包(ioc mvc),拷贝Spring配置文件到src下,在WEB-INF下建立 hello.jsp 
-    2. 在web.xml 中配置DispatcherServlet 并通过初始化参数contextConfigLocation  来指定spring配置文件的位置
-    3. 在Spring 配置文件中配置HandlerMapping的实现类SimpleUrlHandlerMapping,并通过mappings 属性让请求和控制器建立一一对应的关联关系
-    4. 编写一个java类,实现Controller接口,覆盖接口方法返回ModelAndView,同时在Spring 容器中创建 Controller 的实现类的对象 
-    5. 在Spring 配置文件中配置ViewResolver的实现类InternalResourceViewResolver,需要配置前缀和后缀 
+## Spring MVC 的编程步骤1 
+1. 建立一个项目,导入jar包(ioc mvc),拷贝Spring配置文件到src下,在WEB-INF下建立 hello.jsp 
+2. 在web.xml 中配置DispatcherServlet 并通过初始化参数contextConfigLocation  来指定spring配置文件的位置
+3. 在Spring 配置文件中配置HandlerMapping的实现类SimpleUrlHandlerMapping,并通过mappings 属性让请求和控制器建立一一对应的关联关系
+4. 编写一个java类,实现Controller接口,覆盖接口方法返回ModelAndView,同时在Spring 容器中创建 Controller 的实现类的对象 
+5. 在Spring 配置文件中配置ViewResolver的实现类InternalResourceViewResolver,需要配置前缀和后缀 
 
-2. 基于标注的SpringMVC编程步骤21
-    1. 建立一个项目,导入jar包(ioc aop mvc) 拷贝配置文件到src下,并在WEB-INF下建立一个login.jsp
-    2. 在web.xml 中配置DispatcherServlet 并通过初始化参数contextConfigLocation  来指定spring配置文件的位置  
-    
-    ```xml
+## Spring MVC 的编程步骤1 
+1. 建立一个项目,导入jar包(ioc aop mvc) 拷贝配置文件到src下,并在WEB-INF下建立一个login.jsp
+2. 在web.xml 中配置DispatcherServlet 并通过初始化参数contextConfigLocation  来指定spring配置文件的位置   
+
+```xml
 <servlet>
-    <servlet-name>Spring-MVC</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
-    </init-param>
+\<servlet-name>Spring-MVC<servlet-name>
+<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+<init-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+</init-param>
 </servlet>
 <servlet-mapping>
-    <servlet-name>Spring-MVC</servlet-name>
-    <url-pattern>*.do</url-pattern>
+<servlet-name>Spring-MVC</servlet-name>
+<url-pattern>*.do</url-pattern>
 </servlet-mapping>
-    ```  
+``` 
 
-    3. 开启组件扫描和标注形式mvc:
+3. 开启组件扫描和标注形式mvc:
 
-    ```xml  
+```xml
 <context:component-scan base-package="包名"/>
 <mvc:annotation-driven/>
 (这句配置帮你在Spring容器中创建了一个ReqeuestMappingHandlerMapping对象)
-    ```  
+```  
 
-    4. 编写一个控制器类,不用实现Controller接口,使用@Controller把普通java类转换成控制器,@RequestMapping("/请求路径"),返回值可以是String,也可以是ModelAndView 方法名自由(参数自由) 
+4. 编写一个控制器类,不用实现Controller接口,使用@Controller把普通java类转换成控制器,@RequestMapping("/请求路径"),返回值可以是String,也可以是ModelAndView 方法名自由(参数自由) 
 
-    ```java  
+```java  
 @Controller
 public class LoginController {
-    @RequestMapping("/toLogin.do")
-    public String toLogin(){
-        return "login";
-    }  
+@RequestMapping("/toLogin.do")
+public String toLogin(){
+    return "login";
+}  
 }
-    ```
+```
 
-    5. 配置视图处理器,配置前缀和后
+5. 配置视图处理器,配置前缀和后
 
-    ```xml  
+```xml  
 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
-    <property name="prefix" value="/WEB-INF/"/>
-    <property name="suffix" value=".jsp"/>
+<property name="prefix" value="/WEB-INF/"/>
+<property name="suffix" value=".jsp"/>
 </bean>
-    ```  
+```  
 
 ## Spring MVC接受请求的参数
 1. 之前的方式依然可以使用:通过request来获取,`request.getParameter("name")`
