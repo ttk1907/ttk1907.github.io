@@ -90,14 +90,14 @@ tags: Spring note
 </servlet-mapping>
 ``` 
 
-3. 开启组件扫描和标注形式mvc:
+3. 开启组件扫描和标注形式mvc:  
 ```xml
 <context:component-scan base-package="包名"/>
 <mvc:annotation-driven/>
 (这句配置帮你在Spring容器中创建了一个ReqeuestMappingHandlerMapping对象)
 ```  
 
-4. 编写一个控制器类,不用实现Controller接口,使用@Controller把普通java类转换成控制器,@RequestMapping("/请求路径"),返回值可以是String,也可以是ModelAndView 方法名自由(参数自由) 
+4. 编写一个控制器类,不用实现Controller接口,使用@Controller把普通java类转换成控制器,@RequestMapping("/请求路径"),返回值可以是String,也可以是ModelAndView 方法名自由(参数自由)   
 ```java  
 @Controller
 public class LoginController {
@@ -108,7 +108,7 @@ public class LoginController {
 }
 ```
 
-5. 配置视图处理器,配置前缀和后
+5. 配置视图处理器,配置前缀和后  
 ```xml  
 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/"/>
