@@ -72,7 +72,7 @@ tags: Spring note
 4. 编写一个java类,实现Controller接口,覆盖接口方法返回ModelAndView,同时在Spring 容器中创建 Controller 的实现类的对象 
 5. 在Spring 配置文件中配置ViewResolver的实现类InternalResourceViewResolver,需要配置前缀和后缀 
 
-## Spring MVC 的编程步骤1 
+## Spring MVC 的编程步骤2
 1. 建立一个项目,导入jar包(ioc aop mvc) 拷贝配置文件到src下,并在WEB-INF下建立一个login.jsp
 2. 在web.xml 中配置DispatcherServlet 并通过初始化参数contextConfigLocation  来指定spring配置文件的位置   
 
