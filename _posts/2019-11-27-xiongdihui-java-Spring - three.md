@@ -78,16 +78,16 @@ tags: Spring note
 
 ```xml
 <servlet>
-\<servlet-name>Spring-MVC<servlet-name>
-<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-<init-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml</param-value>
-</init-param>
+    <servlet-name>Spring-MVC<servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:applicationContext.xml</param-value>
+        </init-param>
 </servlet>
 <servlet-mapping>
-<servlet-name>Spring-MVC</servlet-name>
-<url-pattern>*.do</url-pattern>
+    <servlet-name>Spring-MVC</servlet-name>
+    <url-pattern>*.do</url-pattern>
 </servlet-mapping>
 ``` 
 
@@ -104,19 +104,19 @@ tags: Spring note
 ```java  
 @Controller
 public class LoginController {
-@RequestMapping("/toLogin.do")
-public String toLogin(){
-    return "login";
-}  
+    @RequestMapping("/toLogin.do")
+    public String toLogin(){
+        return "login";
+    }  
 }
 ```
 
 5. 配置视图处理器,配置前缀和后
 
 ```xml  
-<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
-<property name="prefix" value="/WEB-INF/"/>
-<property name="suffix" value=".jsp"/>
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/WEB-INF/"/>
+    <property name="suffix" value=".jsp"/>
 </bean>
 ```  
 
