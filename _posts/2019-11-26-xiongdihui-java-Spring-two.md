@@ -9,7 +9,7 @@ tags: Spring note
 * content
 {:toc}
 
-1. Spring第2天:参数的注入、Spring DAO、、
+1. Spring第2天:参数的注入、Spring DAO、Spring DAO完成增删改查、自定义模板
 
 
 
@@ -83,7 +83,9 @@ Properties
     5.  开启组件,在DAO实现类上打**持久层标注**,同时要 给JdbcDaoSupport注入一个dataSource 对象
     6. 创建Spring容器获取DAO并进行测试    
 
-4. 根据id查询银行账户:结果集到对象的转换,需要自己完成---实现RowMapper接口 
+## Spring DAO完成增删改(DML)
+### 查询银行账户 
+1. 根据id查询银行账户:结果集到对象的转换,需要自己完成---实现RowMapper接口 
     1. 要接收对象,先创建一个实现RowMapper接口的类,重写方法
 
     ```java
@@ -95,10 +97,66 @@ Properties
 
     2. 重写DAO接口的方法时,第二个参数传入上一个类:`return super.getJdbcTemplate().queryForObject(sql,new AccountMapper(),id);`
 
+### 增加银行账户 
+1. 建表:如果有需要建立对应的序列 
+2. 建立项目:导入jar包(ioc aop dao 数据库连接池和驱动),拷贝配置文件到src下 
+3. 编写一个实体bean
+4. 编写DAO接口 
+5. 编写DAO的实现类,继承JdbcDaoSupport,实现DAO接口,使用父类模板,根据sql完成对应的操作 
+6. 开启组件扫描,给DAO的父类注入dataSource 
+7. 封装一个Service,注入DAO,封装业务方法 ----测试   
 
+```java
+@Override
+public int insertAccount(Account account) {
+    try{
+        String sql = "insert into bank_account values(bank_account_id_seq.nextval,"+"?,?,?)";
+        return super.getJdbcTemplate().update(sql,account.getAcc_no(),account.getAcc_password(),account.getAcc_money());
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+    return 0;
+}
+```
 
+### 删除银行账户
+1. 步骤同上
 
+```java
+@Override
+public int deleteAccount(String acc_no) {
+    try{
+        String sql = "delete from bank_account where acc_no = ?";
+        return super.getJdbcTemplate().update(sql,acc_no);
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+    return 0;
+}
+```
 
+### 修改银行账户
 
+```java
+@Override
+public int updateAccountByAccount(Account account,int money) {
+    try{
+        String sql = "update bank_account set acc_money= acc_money + ? where acc_no = ?";
+        return jdbcTemplate.update(sql,money,account.getAcc_no());
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+    return 0;
+}
+```
 
+## 自定义模板
+1. 不继承JdbcDaoSupport的方式完成 Spring 对数据库的操作 
+2. 需要自己定义一个JdbcTemplate 类型的对象,然后注入给DAO的实现类 ,使用自定义的模板对象,完成对应的数据库操作。 
+3. 当然自定义模板对象 需要注入dataSource 
 
+```xml
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <constructor-arg index="0" ref="dataSource"/>
+</bean>
+```
