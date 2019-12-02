@@ -9,7 +9,7 @@ tags: Spring note
 * content
 {:toc}
 
-1. Spring第5天:Spring 的异常处理、文件上传、Spring MVC的控制器方法 如何返回 JSON
+1. Spring第5天:Spring 的异常处理、文件上传、Spring MVC的控制器方法 如何返回 JSON、rest、使用rest完成增加、使用rest完成更新
 
 
 
@@ -102,6 +102,117 @@ public  String  foo(Exception  e) {
     3. 获取路径变量上的值 : `@PathVariable("路径变量名")` , 加在控制器参数上 
     4. rest 请求的路径是没有后缀的 , 所以需要把DispatcherServlet 中的 url-parttern  改成  支持所有请求的`/`
     5. 如果 改成 `/` 则所有的静态资源被拦截 , 需要在application.xml中配置`<mvc:default-servlet-handler/>`
+
+## 使用rest 完成增加 
+1. js部分
+
+```js
+<script type="text/javascript">
+    function  addAccount(){
+        var  id = $("#id").val();
+        var  acc_no = $("#acc_no").val();
+        var  acc_password = $("#acc_password").val();
+        $.ajax({
+            url:"account/"+id,
+            type:"post",
+            success:function(res){
+                alert(res);
+            },
+            data:{id:id,acc_no:acc_no,acc_password:acc_password,
+                acc_money:10000+parseInt(id)},
+            dataType:"json"
+        });
+    }
+</script>
+```
+
+2. 控制器部分
+
+```java
+@RequestMapping(value="/account/{id}",method=RequestMethod.POST)
+@ResponseBody
+public  boolean   accountRemoveById(XdlBankAccount  account) {
+    System.out.println(account);
+    return  true;
+}   
+```
+
+## 使用rest 完成更新 
+1. 在完成增加的基础上完成更新 
+2. 前端ajax的处理 
+    1. 把post 改成  put
+    2. contentType:"application/json" , 要求参数必须以json字符串进行传递 
+    3. JSON.stringify : 可以把JSON对象转换成 JSON字符串 
+3. 控制器上的处理
+    1. 把POST 改成 PUT
+    2. 把JSON字符串 , 变成JAVA对象 : @RequestBody  
+  
+4. js部分
+
+```js
+<script type="text/javascript">
+    function  updateAccount(){
+        var  id = $("#id").val();
+        var  acc_no = $("#acc_no").val();
+        var  acc_password = $("#acc_password").val();
+        $.ajax({
+            url:"account/"+id,
+            type:"put",
+            success:function(res){
+                alert(res);
+            },
+            contentType:"application/json",  
+            data:JSON.stringify({id:id,acc_no:acc_no,acc_password:acc_password,
+                acc_money:10000+parseInt(id)}),
+            dataType:"json"
+        });
+    }
+</script>
+```
+
+5. 控制器部分
+
+```java
+@RequestMapping(value="/account/{id}",method=RequestMethod.PUT)
+@ResponseBody
+public  boolean   accountUpdate(@RequestBody XdlBankAccount  account) {
+    System.out.println(account);
+    return  true;
+} 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "数据结构与算法笔记"
-date:   2030-1-1
+date:   2019-1-1
 categories: algorithm
 tags: algorithm
 ---
@@ -13,9 +13,8 @@ tags: algorithm
 2. 学习的书籍:[大话数据结构](https://book.douban.com/subject/6424904/)
 3. 基础过一遍之后就可以开始刷题,每天一道题
 4. 做题的时候尽量不要使用IDEA来写代码,减少对IDEA的依赖
-5. 为了实现置顶,将时间设置为2030年1月1日
-6. 题目来源：[力扣(LeetCode)](https://leetcode-cn.com)
-7. [关于如何学习算法和数据结构](https://www.zhihu.com/question/313828787)
+5. 题目来源：[力扣(LeetCode)](https://leetcode-cn.com)
+6. [关于如何学习算法和数据结构](https://www.zhihu.com/question/313828787)
 
 
 
