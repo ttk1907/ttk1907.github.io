@@ -9,7 +9,7 @@ tags: Spring note
 * content
 {:toc}
 
-1. Spring第6天:Spring AOP、AOP中涉及到概念、Spring 实现AOP的步骤、切点表达式的写法、AOP中的五种通知类型、基于标注的AOP实现、环绕通知、异常通知
+1. Spring第6天:Spring AOP、AOP中涉及到概念、Spring 实现AOP的步骤、切点表达式的写法、AOP中的五种通知类型、基于标注的AOP实现、异常通知、环绕通知
 
 
 
