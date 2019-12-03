@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "JavaSpring框架阶段总结"
+title:  "Java框架阶段总结"
 date:   2030-01-01
 categories: Java
 tags: Java note
@@ -9,7 +9,7 @@ tags: Java note
 * content
 {:toc}
 
-1. JavaSpring框架阶段总结
+1. Java框架阶段总结
 2. 置顶以供查询笔记
 
 
