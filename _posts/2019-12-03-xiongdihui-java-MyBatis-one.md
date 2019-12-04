@@ -111,27 +111,29 @@ ss.close();
 </select>
     ```
 
-2. 分页插件1
+2. 分页插件
     1. 使用分页插件---根据某个字段排序查询表中的所有数据
     2. 拷贝分页插件的jar包(pageHelper.jar  jsqlparser.jar) 到lib  
     3. 在主配置文件中配置 分页插件的拦截器  
+
 ```xml
 1. sqlmap-config.xml文件中
 <plugins>
     <plugin interceptor="com.github.pagehelper.PageHelper"/>
 </plugins>
 ``` 
-    4. 使用分页插件的api 完成分页查询 
 
-    ```java
+3. 使用分页插件的api 完成分页查询 
+
+```java
 PageHelper.startPage(2,2);
 List<Account> datas = accountDAO.findAccountListByPageHelper();
 for (Account account:datas) {
     System.out.println(account);
 }
-    ```  
+```  
 
-3. 当数据库中的字段 表 实体类中属性不对应时如何解决?
+4. 当数据库中的字段 表 实体类中属性不对应时如何解决?
     1. 使用字段的别名 ,但是这样的话,在sql语句用不了`*`号,字段较少的时候可以使用
 
     ```xml
