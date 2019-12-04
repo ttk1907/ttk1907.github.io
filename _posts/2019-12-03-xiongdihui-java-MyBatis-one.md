@@ -9,7 +9,7 @@ tags: MyBatis note
 * content
 {:toc}
 
-1. MyBatis第1天:Mybatis的作用、MyBatis 框架的构成 、编写Mybatis程序、Mapper映射器
+1. MyBatis第1天:Mybatis的作用、MyBatis 框架的构成 、编写Mybatis程序、Mybatis多个参数的处理、Mapper映射器、分页的实现 
 
 
 
@@ -62,9 +62,20 @@ ss.close();
   resultType="xdl.bean.Account">
      select * from BANK_ACCOUNT where id = #{id}
 </select>
-2. 如果要传入的参数不止一个,要用对象或者map集合传入参数
-<select id="findAcc_NotByAcc_noAndAcc_Password" parameterType="map" resultType="xdl.bean.Account">
-    select * from BANK_ACCOUNT where ACC_NO = #{acc_no} AND ACC_PASSWORD = #{acc_password}
+```
+
+## Mybatis 多个参数的处理 
+1. 通过Map , 或者对象类型包装多个参数 
+2. 通过在sql 语句中 使用 index 对参数进行编号  编号从 0开始 
+3. 也可以使用 param1  等对参数进行编号 编号从 param1 开始  
+4. @Param("参数名") 设置在接口方法的参数上
+
+```xml
+<!--  根据账号 和 密码查询银行账户  -->
+<select id="findAccountByAccNoAndAccPassword2" 
+    resultType="com.xdl.bean.XdlBankAccount">
+    select * from xdl_bank_account_30 where acc_no = #{0} 
+        and  acc_password = #{1}    
 </select>
 ```
 
@@ -84,6 +95,68 @@ AccountDAO accountDAO = ss.getMapper(AccountDAO.class);
 System.out.println(accountDAO.findAccountById(2));
 ss.close();
 ```
+
+## 分页的实现 
+1. rownum
+    1. 按照acc_money排序 , 一页显示X条 , 显示第n页数据
+
+    ```xml
+<select id="findAccountListByPageInfo"
+    resultType="xdl.bean.Account">
+    select * from (
+        select rownum r,t.* from
+            (select * from BANK_ACCOUNT order by ACC_MONEY) t
+        where rownum &lt; #{pageSize}*#{pageNumber}+1)
+    where r > #{pageSize}*(#{pageNumber}-1)
+</select>
+    ```
+
+2. 分页插件
+    1. 使用分页插件---根据某个字段排序查询表中的所有数据
+    2. 拷贝分页插件的jar包(pageHelper.jar  jsqlparser.jar) 到lib  
+    3. 在主配置文件中配置 分页插件的拦截器
+
+    ```xml
+1. sqlmap-config.xml文件中
+<plugins>
+    <plugin interceptor="com.github.pagehelper.PageHelper"/>
+</plugins>
+    ``` 
+    4. 使用分页插件的api 完成分页查询 
+
+    ```java
+PageHelper.startPage(2,2);
+List<Account> datas = accountDAO.findAccountListByPageHelper();
+for (Account account:datas) {
+    System.out.println(account);
+}
+    ```  
+
+3. 当数据库中的字段 表 实体类中属性不对应时如何解决?
+    1. 使用字段的别名 ,但是这样的话,在sql语句用不了`*`号,字段较少的时候可以使用
+
+    ```xml
+<select id="findAccountById" parameterType="int" 
+      resultType="com.xdl.bean.XdlBankAccount">
+     select id acc_id,acc_no,acc_password,acc_money
+        from bank_account where  id = #{id}
+</select>
+    ```
+    
+    2. 使用resultMap , 让数据库字段和实体类中的属性对应
+
+    ```xml
+<select id="findAccountById" parameterType="int" 
+    resultMap="accountMap">
+     select * from xdl_bank_account_30 where  id = #{id}
+</select>
+<resultMap type="com.xdl.bean.XdlBankAccount" id="accountMap">
+     <!--  说明数据库中的字段 和 实体类中属性的对应关系 -->
+     <result  column="id"   property="acc_id"/>
+</resultMap>
+    ```  
+
+
 
 
 
