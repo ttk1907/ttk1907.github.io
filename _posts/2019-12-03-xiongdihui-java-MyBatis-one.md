@@ -111,18 +111,16 @@ ss.close();
 </select>
     ```
 
-2. 分页插件
+2. 分页插件1
     1. 使用分页插件---根据某个字段排序查询表中的所有数据
     2. 拷贝分页插件的jar包(pageHelper.jar  jsqlparser.jar) 到lib  
-    3. 在主配置文件中配置 分页插件的拦截器
-
-    ```xml
+    3. 在主配置文件中配置 分页插件的拦截器  
+```xml
 1. sqlmap-config.xml文件中
 <plugins>
     <plugin interceptor="com.github.pagehelper.PageHelper"/>
 </plugins>
-    ``` 
-    
+``` 
     4. 使用分页插件的api 完成分页查询 
 
     ```java
@@ -146,7 +144,7 @@ for (Account account:datas) {
     
     2. 使用resultMap , 让数据库字段和实体类中的属性对应
 
-    ```xml
+```xml
 <select id="findAccountById" parameterType="int" 
     resultMap="accountMap">
      select * from xdl_bank_account_30 where  id = #{id}
@@ -155,7 +153,7 @@ for (Account account:datas) {
      <!--  说明数据库中的字段 和 实体类中属性的对应关系 -->
      <result  column="id"   property="acc_id"/>
 </resultMap>
-    ```  
+```  
 
 
 
