@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "东哥分享好书笔记(每日更新)"
+title:  "东哥分享好书笔记"
 date:   2019-08-17
 categories: note
 tags: note share
@@ -9,7 +9,7 @@ tags: note share
 * content
 {:toc}
 
-东哥每日分享的好书
+东哥分享的好书
 
 
 
@@ -18,7 +18,7 @@ tags: note share
 
 
 
-<!-- ![燕十八](http://7q5cdt.com1.z0.glb.clouddn.com/teach-girlfriend-html-18swallows.png) -->
+
 # 好书笔记
 
 ## 一.《睡眠革命》
