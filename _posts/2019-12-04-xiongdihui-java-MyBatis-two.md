@@ -9,7 +9,7 @@ tags: MyBatis note
 * content
 {:toc}
 
-1. MyBatis第2天:Spring 和 Mybatis整合、第二种集成方案、、
+1. MyBatis第2天:Spring和Mybatis整合、第二种集成方案、SSM整合
 
 
 

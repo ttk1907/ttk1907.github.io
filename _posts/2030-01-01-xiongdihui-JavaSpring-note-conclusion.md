@@ -33,7 +33,7 @@ Spring容器中的对象的初始化和销毁、bean对象的延迟实例化、�
 
 ## 二、Java-MyBatis
 1. [MyBatis第1天](https://ttk1907.github.io/2019/12/03/xiongdihui-java-MyBatis-one/)：Mybatis的作用、MyBatis 框架的构成 、编写Mybatis程序、Mybatis多个参数的处理、Mapper映射器、分页的实现
-2. [MyBatis第2天](https://ttk1907.github.io/2019/12/04/xiongdihui-java-MyBatis-two/)：
+2. [MyBatis第2天](https://ttk1907.github.io/2019/12/04/xiongdihui-java-MyBatis-two/)：Spring和Mybatis整合、第二种集成方案、SSM整合
 
 
 
