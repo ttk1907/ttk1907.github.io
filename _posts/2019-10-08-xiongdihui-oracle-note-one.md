@@ -2,7 +2,7 @@
 layout: post
 title:  "Oracle基础学习笔记1"
 date:   2019-10-08
-categories: Oracle
+categories: Database
 tags: Oracle note
 ---
 

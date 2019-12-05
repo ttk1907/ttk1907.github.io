@@ -2,7 +2,7 @@
 layout: post
 title:  "数据库中锁的概念"
 date:   2019-10-14
-categories: note
+categories: Database
 tags: note
 ---
 

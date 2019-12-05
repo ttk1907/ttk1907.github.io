@@ -2,7 +2,7 @@
 layout: post
 title:  "Redis基础学习笔记1"
 date:   2019-10-14
-categories: Redis
+categories: Database
 tags: Redis note
 ---
 
