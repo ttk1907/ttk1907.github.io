@@ -2,7 +2,7 @@
 layout: post
 title:  "Java-MyBatis第一天"
 date:   2019-12-03
-categories: MyBatis
+categories: Frame
 tags: MyBatis note
 ---
 

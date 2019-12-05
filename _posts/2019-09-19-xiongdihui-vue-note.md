@@ -2,7 +2,7 @@
 layout: post
 title:  "Vue学习笔记"
 date:   2019-09-19
-categories: Vue
+categories: Frame
 tags: Vue note
 ---
 

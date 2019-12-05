@@ -2,7 +2,7 @@
 layout: post
 title:  "Java-Spring框架第一天"
 date:   2019-11-25
-categories: Spring
+categories: Frame
 tags: Spring note
 ---
 
