@@ -19,7 +19,22 @@ MySQL学习笔记
 
 
 ### MySQL基础操作命令
-##### 一、库和表的基础操作
+##### 一、SQL语句的分类
+1. DQL:data query lanuage
+    1. 包含select、where、from、order by
+2. DDL:data define language
+    1. create table
+    2. drop table
+    3. alter table
+3. DML:data manipulation language
+    1. insert
+    2. delete
+    3. update
+4. TCL:transaction control language
+    1. commit
+    2. roolback
+
+##### 二、库和表的基础操作
 1.如何使用cmd链接mysql服务,进入mysql数据库
 ```
 1.win+R输入cmd打开DOS窗口
@@ -114,7 +129,7 @@ create table user(
       `sex` char(1) DEFAULT NULL
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 |
 ```
-##### 二、对数据的基础操作（添加，删除，修改，查看）
+##### 三、对数据的基础操作（添加，删除，修改，查看）
 1.添加语句
 ```
 命令:{
@@ -149,7 +164,7 @@ create table user(
 注释:删除   从   表名 条件
 结果:Query OK, 1 row affected (0.07 sec)
 ```
-##### 三、MySQL中的存储引擎
+##### 四、MySQL中的存储引擎
 1.mysql中的存储引擎分类
 ```
 1.InnoDB{
@@ -193,7 +208,7 @@ create table user(
 结果:Query OK, 0 rows affected (0.45 sec)
      Records: 0  Duplicates: 0  Warnings: 0
 ```
-##### 四、数据类型
+##### 五、数据类型
 1.数据类型的分类
 ```
 1.字符串类型{
@@ -217,7 +232,7 @@ create table user(
     二进制（一般不再数据库中存储多媒体文件等二进制数据）
 }
 ```
-##### 五、MySQL类型约束
+##### 六、MySQL类型约束
 1.类型约束种类
 ```
 1.unsigned:无符号
@@ -243,7 +258,7 @@ create table user(
      | age   | tinyint(4)       | NO   |     | 20      |                |
      +-------+------------------+------+-----+---------+----------------+
 ```
-##### 六、修改表结构
+##### 七、修改表结构
 1.添加字段
 ```
 命令:alter table ayi add sex char(1) not null;
@@ -278,7 +293,7 @@ create table user(
 注释:删除表的关键字 表 表名
 结果:Query OK, 0 rows affected (0.24 sec)
 ```
-##### 七、MySQL中表的索引
+##### 八、MySQL中表的索引
 1.什么是索引，索引的作用是什么
 ```
 作用:提高（select）查询速度
@@ -328,6 +343,9 @@ create table user(
 }
 ```
 
+##### 九、MySQL中的分页
+1. select * from user order by id limit 2,2;
+2. 排完序后在limit后的第一个数字代表从哪里开始，编号从0开始，第二个数字代表显示多少个数据
 
 
 

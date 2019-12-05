@@ -78,7 +78,7 @@ tags: Spring note
 
 ```xml
 <servlet>
-    <servlet-name>Spring-MVC<servlet-name>
+    <servlet-name>Spring-MVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
@@ -111,7 +111,7 @@ public class LoginController {
 }
 ```
 
-5. 配置视图处理器,配置前缀和后  
+5. 配置视图处理器,配置前缀和后缀  
 
 ```xml  
 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
