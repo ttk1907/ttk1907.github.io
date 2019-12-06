@@ -9,7 +9,7 @@ tags: Java note
 * content
 {:toc}
 
-1. Maven笔记:、、、、、、
+1. Maven笔记
 
 
 
@@ -113,7 +113,7 @@ tags: Java note
 
    [7]部署: 将动态Web工程生成war包复制到Servlet容器的指定目录下, 使其可以运行. 
 
-4. 自动糊构建
+4. 自动化构建
 
 ## 4.安装Maven核心程序:
 
@@ -149,7 +149,6 @@ tags: Java note
 6. 声明周期/插件/目标
 7. 继承
 8. 聚合
-9. 999
 
 ## 6.第一个Maven工程:
 
@@ -369,7 +368,7 @@ org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.jar
 
    它们是相互独立的, 你可以仅仅调用clean来清理工作目录, 仅仅调用site来生成站点, 当然也可以直接运行mvn clean install site 运行所有的这三套生命周期
 
-   ```txt
+   ```
    clean：清理项目  
    pre-clean（执行一些清理前需要完成的工作） 
         clean （清理上一次构建生成的文件，最常用） 
