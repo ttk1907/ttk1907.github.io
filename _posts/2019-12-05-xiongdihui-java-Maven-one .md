@@ -191,53 +191,53 @@ tags: Java note
 
    - **约定 > 配置 > 编码**
 
-   ## 7.常用Maven命令
+## 7.常用Maven命令
 
-   1. 注意: 执行与构造相关的Maven命令, 必须进入pom.xml所在的目录
+1. 注意: 执行与构造相关的Maven命令, 必须进入pom.xml所在的目录
 
-      与构建过程相关: 编译, 测试, 打包...
+  与构建过程相关: 编译, 测试, 打包...
 
-   2. 常用的命令
+2. 常用的命令
 
-      [1]mvn clean: 清理
+  [1]mvn clean: 清理
 
-      [2]mvn compile: 编译主程序
+  [2]mvn compile: 编译主程序
 
-      [3]mvn test-compile: 编译测试程序
+  [3]mvn test-compile: 编译测试程序
 
-      [4]mvn test: 执行测试
+  [4]mvn test: 执行测试
 
-      [5]mvn package: 打包
+  [5]mvn package: 打包
 
-      [6]mvn install : 安装
+  [6]mvn install : 安装
 
-      [7]mvn site : 生成站点
+  [7]mvn site : 生成站点
 
-   ## 8.关于互联网的我问题:
+## 8.关于互联网的我问题:
 
-   1. Maven的核心程序中仅仅定义了抽象的声明周期, 但是具体的工作必须由特定的插件来完成, 而插件本身并不包含在Maven的核心程序中
+1. Maven的核心程序中仅仅定义了抽象的声明周期, 但是具体的工作必须由特定的插件来完成, 而插件本身并不包含在Maven的核心程序中
 
-   2. 当我们执行的Maven命令需要用到某个插件时, Maven核心城西会首先到本地仓库中查找
+2. 当我们执行的Maven命令需要用到某个插件时, Maven核心城西会首先到本地仓库中查找
 
-   3. 本地仓库的默认位置: `[系统中当前用户的家目录\..m2\repositoy)`
+3. 本地仓库的默认位置: `[系统中当前用户的家目录\..m2\repositoy)`
 
-      `C:\Users\Administrator\.m2\repository`
+  `C:\Users\Administrator\.m2\repository`
 
-   4. Maven核心程序如果在本地仓库中找不到, 那么它会自动连接外网, 到中央仓库下载
+4. Maven核心程序如果在本地仓库中找不到, 那么它会自动连接外网, 到中央仓库下载
 
-   5. 如果此时无法连接外网,则构建失败
+5. 如果此时无法连接外网,则构建失败
 
-   6. 修改默认的本地仓库的位置可以让Maven核心程序到我们事先准备好的目录下查找插件
+6. 修改默认的本地仓库的位置可以让Maven核心程序到我们事先准备好的目录下查找插件
 
-      [1]找到Maven解压目录\conf\settings.xml
+  [1]找到Maven解压目录\conf\settings.xml
 
-      [2]在settings.xml文件中找到 localRepository标签
+  [2]在settings.xml文件中找到 localRepository标签
 
-      [3]将< localRepository  >/path/to/local/repo< /localRepository  > 从注释中取出
+  [3]将< localRepository  >/path/to/local/repo< /localRepository  > 从注释中取出
 
-      [4]将标签体内容修改为准备好的Maven仓库目录
+  [4]将标签体内容修改为准备好的Maven仓库目录
 
-      ​ `<localRepository>D:\repository2</localRepository>`
+  ​ `<localRepository>D:\repository2</localRepository>`
 
 ## 9.POM
 
