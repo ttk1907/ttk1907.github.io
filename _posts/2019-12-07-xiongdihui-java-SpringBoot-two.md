@@ -9,7 +9,7 @@ tags: SpringBoot note
 * content
 {:toc}
 
-1. SpringBoot第2章:配置文件、YAML语法、配置文件值注入、、、、、、、、
+1. SpringBoot第2章:配置文件、YAML语法、配置文件值注入、配置文件占位符、Profile、配置文件加载位置、外部配置加载顺序、自动配置原理
 
 
 
