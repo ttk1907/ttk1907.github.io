@@ -59,6 +59,8 @@ tags: Java note
 
    Maven会自动将依赖的jar包导入进来.
 
+5. 自动测试,一键打包
+
 ## 3.Maven是什么(What)
 
 1. Maven是一款**服务于Java服务平台**的自动化**构建**工具
