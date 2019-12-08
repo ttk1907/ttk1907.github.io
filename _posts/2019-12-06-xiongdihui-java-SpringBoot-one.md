@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Java-SpringBoot第一天"
+title:  "Java-SpringBoot第一章"
 date:   2019-12-06
 categories: Frame
 tags: SpringBoot note
@@ -9,7 +9,7 @@ tags: SpringBoot note
 * content
 {:toc}
 
-1. SpringBoot第1天:Spring Boot简介、微服务、环境准备、MAVEN设置、IDEA设置、Spring Boot HelloWorld、Hello World探究、使用Spring Initializer快速创建Spring Boot项目
+1. SpringBoot第1章:Spring Boot简介、微服务、环境准备、MAVEN设置、IDEA设置、Spring Boot HelloWorld、Hello World探究、使用Spring Initializer快速创建Spring Boot项目
 
 
 
