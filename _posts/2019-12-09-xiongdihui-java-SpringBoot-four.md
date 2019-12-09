@@ -39,7 +39,6 @@ tags: SpringBoot note
 ```
 xxxxAutoConfiguration：帮我们给容器中自动配置组件；
 xxxxProperties:配置类来封装配置文件的内容；
-
 ```
 
 
@@ -124,7 +123,7 @@ public class ResourceProperties implements ResourceLoaderAware {
 
 
 
-**1）、所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源；**
+**1）、所有 `/webjars/**` ，都去 classpath:/META-INF/resources/webjars/ 找资源；**
 
 ​ webjars：以jar包的方式引入静态资源；
 
@@ -333,12 +332,12 @@ https://docs.spring.io/spring-boot/docs/1.5.10.RELEASE/reference/htmlsingle/#boo
 
 Spring Boot 自动配置好了SpringMVC
 
-以下是SpringBoot对SpringMVC的默认配置:**==（WebMvcAutoConfiguration）==**
+以下是SpringBoot对SpringMVC的默认配置:**（WebMvcAutoConfiguration）**
 
 - Inclusion of `ContentNegotiatingViewResolver` and `BeanNameViewResolver` beans.
   - 自动配置了ViewResolver（视图解析器：根据方法的返回值得到视图对象（View），视图对象决定如何渲染（转发？重定向？））
   - ContentNegotiatingViewResolver：组合所有的视图解析器的；
-  - ==如何定制：我们可以自己给容器中添加一个视图解析器；自动的将其组合进来；==
+  - 如何定制：我们可以自己给容器中添加一个视图解析器；自动的将其组合进来；
 
 - Support for serving static resources, including support for WebJars (see below).静态资源文件夹路径,webjars
 
@@ -361,7 +360,7 @@ Spring Boot 自动配置好了SpringMVC
     }
 ```
 
-​ ==自己添加的格式化器转换器，我们只需要放在容器中即可==
+​ **自己添加的格式化器转换器，我们只需要放在容器中即可**
 
 - Support for `HttpMessageConverters` (see below).
 
@@ -377,7 +376,7 @@ Spring Boot 自动配置好了SpringMVC
 
 - Automatic use of a `ConfigurableWebBindingInitializer` bean (see below).
 
-  ==我们可以配置一个ConfigurableWebBindingInitializer来替换默认的；（添加到容器）==
+  **我们可以配置一个ConfigurableWebBindingInitializer来替换默认的；（添加到容器）**
 
   ```
   初始化WebDataBinder；
