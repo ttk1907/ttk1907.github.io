@@ -328,7 +328,7 @@ public class MyAppConfig {
 }
 ```
 
-##4、配置文件占位符
+## 4、配置文件占位符
 
 ### 1、随机数
 
@@ -420,6 +420,7 @@ java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --spring.config.location=G
 **SpringBoot也可以从以下位置加载配置； 优先级从高到低；高优先级的配置覆盖低优先级的配置，所有的配置会形成互补配置**
 
 1. 命令行参数  
+
 所有的配置都可以在命令行上进行指定
 
 java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --server.port=8087  --server.servlet.context-path=/abc
