@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Java-SpringBoot第三章"
-date:   2019-12-09
+date:   2019-12-08
 categories: Frame
 tags: SpringBoot note
 ---
@@ -158,16 +158,17 @@ public abstract class LogFactory {
 ​     Spring框架用的是commons-logging；
 
 ```xml
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-core</artifactId>
+  <exclusions>
+    <exclusion>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+2.x版本以上Spring框架没有排除commons-logging,根本没加进去
 ```
 
 **SpringBoot能自动适配所有的日志，而且底层使用slf4j+logback的方式记录日志，引入其他框架的时候，只需要把这个框架依赖的日志框架排除掉即可；**
@@ -212,12 +213,12 @@ SpringBoot默认帮我们配置好了日志；
 SpringBoot修改日志的默认配置
 
 ```properties
-logging.level.com.atguigu=trace
+logging.level.com.xdl=trace
 
 #logging.path=
 # 不指定路径在当前项目下生成springboot.log日志
 # 可以指定完整的路径；
-#logging.file=G:/springboot.log
+#logging.file.name=G:/springboot.log
 
 # 在当前磁盘的根路径下创建spring文件夹和里面的log文件夹；使用 spring.log 作为默认文件
 logging.path=/spring/log
