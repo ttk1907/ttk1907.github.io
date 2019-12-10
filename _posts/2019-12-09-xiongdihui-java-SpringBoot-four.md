@@ -385,9 +385,9 @@ Spring Boot 自动配置好了SpringMVC
 
 **org.springframework.boot.autoconfigure.web：web的所有自动场景；**
 
-If you want to keep Spring Boot MVC features, and you just want to add additional [MVC configuration](https://docs.spring.io/spring/docs/4.3.14.RELEASE/spring-framework-reference/htmlsingle#mvc) (interceptors, formatters, view controllers etc.) you can add your own `@Configuration` class of type `WebMvcConfigurerAdapter`, but **without** `@EnableWebMvc`. If you wish to provide custom instances of `RequestMappingHandlerMapping`, `RequestMappingHandlerAdapter` or `ExceptionHandlerExceptionResolver` you can declare a `WebMvcRegistrationsAdapter` instance providing such components.
+如果您想保留Spring Boot MVC功能，而只想添加其他[MVC配置](https://docs.spring.io/spring/docs/4.3.14.RELEASE/spring-framework-reference/htmlsingle#mvc)（拦截器，格式化程序，视图控制器等），则可以添加自己的类型@WebMvcConfigurerAdapter的@Configuration类，但不包含@EnableWebMvc。 如果您希望提供`RequestMappingHandlerMapping`，`RequestMappingHandlerAdapter`或`ExceptionHandlerExceptionResolver`的自定义实例，则可以声明一个提供此类组件的`WebMvcRegistrationsAdapter`实例。
 
-If you want to take complete control of Spring MVC, you can add your own `@Configuration` annotated with `@EnableWebMvc`.
+如果您想完全控制Spring MVC，则可以添加带有@EnableWebMvc注释的自己的@Configuration。
 
 ### 2、扩展SpringMVC
 
@@ -462,7 +462,7 @@ SpringBoot对SpringMVC的自动配置不需要了，所有都是我们自己配�
 //使用WebMvcConfigurerAdapter可以来扩展SpringMVC的功能
 @EnableWebMvc
 @Configuration
-public class MyMvcConfig extends WebMvcConfigurerAdapter {
+public class MyMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -527,33 +527,22 @@ public class WebMvcAutoConfiguration {
 ### 1）、默认访问首页
 
 ```java
-
-//使用WebMvcConfigurerAdapter可以来扩展SpringMVC的功能
-//@EnableWebMvc   不要接管SpringMVC
+//使用WebMvcConfigurer可以来扩展SpringMVC的功能
 @Configuration
-public class MyMvcConfig extends WebMvcConfigurerAdapter {
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-       // super.addViewControllers(registry);
-        //浏览器发送 /atguigu 请求来到 success
-        registry.addViewController("/atguigu").setViewName("success");
-    }
-
+public class MyMvcConfig implements WebMvcConfigurer {
     //所有的WebMvcConfigurerAdapter组件都会一起起作用
-    @Bean //将组件注册在容器
-    public WebMvcConfigurerAdapter webMvcConfigurerAdapter(){
-        WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter() {
+    @Bean//将组件注册在容器
+    public WebMvcConfigurer webMvcConfigurer(){
+        return new WebMvcConfigurer(){
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
-                registry.addViewController("/").setViewName("login");
-                registry.addViewController("/index.html").setViewName("login");
+                registry.addViewController("/").setViewName("index");
+                registry.addViewController("/index.html").setViewName("index");
             }
         };
-        return adapter;
     }
-}
 
+}
 ```
 
 ### 2）、国际化
