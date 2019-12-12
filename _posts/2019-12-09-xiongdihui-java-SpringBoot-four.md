@@ -1055,7 +1055,7 @@ insert的公共片段在div标签中
 
 ​ 可以参照ErrorMvcAutoConfiguration；错误处理的自动配置；
 
-    给容器中添加了以下组件
+  给容器中添加了以下组件
 
 ​ 1、DefaultErrorAttributes：
 
