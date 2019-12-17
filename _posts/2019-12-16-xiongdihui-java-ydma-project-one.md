@@ -18,11 +18,11 @@ tags: project
 
 
 # 猿代码项目流程
-##项目需求
+## 项目需求
 1. www.ydma.cn
 2. 在线学习系统，课程浏览、学习、学习期间可以记录笔记、评价、提问、学习朋友圈。
 
-##项目涉及技术
+## 项目涉及技术
 1. 前端：Ajax、js、jQuery、Vue、BootStrap、HTML5、CSS3
 2. 后端：Spring、Mybatis、SpringBoot、SpringCloud、Spring Data、Spring Schedule、Spring Test、Spring Cache、Spring Task、Redis、MongoDB
 3. 架构：微服务架构（分布式）、Restful服务架构、前后分离架构
@@ -33,11 +33,13 @@ tags: project
 8. 流媒体服务器：red5或七牛
 9. 服务管理平台：SpringCloud
 
-##开发工具
+## 开发工具
 
 IDEA、MAVEN、Tomcat 9、JDK1.8
 
-###MAVEN继承应用
+## MAVEN应用
+
+### MAVEN继承应用
 
 ```xml
 <parent>
@@ -49,7 +51,7 @@ IDEA、MAVEN、Tomcat 9、JDK1.8
 
 当前project继承parent后，会将parent项目中的pom.xml定义引入到当前项目中。parent项目创建类型为pom类型。
 
-###MAVEN聚合应用
+### MAVEN聚合应用
 
 如果有多个project，对project进行编译、打包、发布等等过程一个一个做太繁琐了，此时可以使用聚合来统一编译、打包、发布。
 
