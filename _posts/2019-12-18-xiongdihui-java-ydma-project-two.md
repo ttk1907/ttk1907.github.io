@@ -21,9 +21,9 @@ tags: project
 
 ### 登录服务接口设计
 
-  请求地址: /user/login   POST
-  请求参数: 用户名name，密码password
-  响应结果: {"code":xx,"msg":xx,"data":xx}
+1. 请求地址: /user/login   POST  
+2. 请求参数: 用户名name，密码password  
+3. 响应结果: {"code":xx,"msg":xx,"data":xx}  
 
 ### 登录服务实现流程
 
