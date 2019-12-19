@@ -105,13 +105,13 @@ IDEA、MAVEN、Tomcat 9、JDK1.8
 
 <generatorConfiguration>
 <!-- 指定驱动包 -->
-  <classPathEntry location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar" />
+  <classPathEntry location="D:\Maven\repository\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar" />
 
   <context id="DB2Tables" targetRuntime="MyBatis3">
   
     <!-- 指定数据库连接参数 -->
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-        connectionURL="jdbc:mysql://localhost:3306/ydma"
+    <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/ttk?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=GMT%2B8"
         userId="root"
         password="123456">
     </jdbcConnection>
@@ -121,18 +121,18 @@ IDEA、MAVEN、Tomcat 9、JDK1.8
     </javaTypeResolver>
 
   <!-- 实体类 -->
-    <javaModelGenerator targetPackage="cn.xdl.ydma.entity" targetProject=".\src\main\java">
+    <javaModelGenerator targetPackage="cn.xdl.ydma.entity" targetProject="src\main\java">
       <property name="enableSubPackages" value="true" />
       <property name="trimStrings" value="true" />
     </javaModelGenerator>
 
   <!-- SQL定义XML文件 -->
-    <sqlMapGenerator targetPackage="cn.xdl.ydma.sql"  targetProject=".\src\main\resources">
+    <sqlMapGenerator targetPackage="cn.xdl.ydma.sql"  targetProject="src\main\resources">
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
 
   <!-- 与SQL映射Mapper接口,type=XMLMAPPER表示XML定义SQL语句；type="ANNOTATEDMAPPER"表示注解SQL -->
-    <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="cn.xdl.ydma.dao"  targetProject=".\src\main\java">
+    <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="cn.xdl.ydma.dao"  targetProject="src\main\java">
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
 
