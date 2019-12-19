@@ -17,7 +17,7 @@ tags: project
 
 
 
-####工作总结
+#### 工作总结
 
 登录注册服务：/user/regist   POST
 
@@ -31,7 +31,7 @@ SSM，基于SpringBoot的SSM使用，SpringBoot对Spring应用封装和简化。
 
 
 
-##MyBatis多表操作
+## MyBatis多表操作
 
 MyBatis关联查询，多表从查询数据。将多个表查询的记录映射成具有关联关系的对象。
 
@@ -46,7 +46,7 @@ public class Dept{
 }
 ```
 
-###基于关联查询加载章节相关的视频记录
+### 基于关联查询加载章节相关的视频记录
 
 1. 在章节对象类型中添加关联属性
 
@@ -94,18 +94,18 @@ List<Chapter> selectByChapterId(Integer id);
 List<Video> selectByChapterId(Integer id);
 ```
 
-###根据课程ID查询章节及视频列表
+### 根据课程ID查询章节及视频列表
 
   请求地址: /course/chapter/video
   请求参数：课程ID cid
   响应结果：{"code":xx,"msg":xx,"data":xx}
 
-##用户登录服务
+## 用户登录服务
 
 /user/login（post）  --> UserController --> UserService -->UserMapper-->DB(user) -->返回统一json结果
 
 
-##用户身份认证
+## 用户身份认证
 
 常用身份认证模式：
 
