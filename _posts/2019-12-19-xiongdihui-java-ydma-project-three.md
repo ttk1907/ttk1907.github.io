@@ -9,7 +9,7 @@ tags: project
 * content
 {:toc}
 
-1. Java猿代码学习平台3：工作总结、MyBatis多表操作、用户登录服务、用户身份认证、、、、
+1. Java猿代码学习平台3：工作总结、MyBatis多表操作、用户登录服务、用户身份认证
 
 
 
@@ -73,7 +73,7 @@ public class Chapter{
     @Result(property="videos",column="id"
         ,many=@Many(select="cn.xdl.ydma.dao.VideoMapper.selectByChapterId"))
 })
-List<Chapter> selectByChapterId(Integer id);
+List<Chapter> selectByCourseId(Integer id);
 ```
 
 3. 在VideoMapper中定义selectByChapterId方法

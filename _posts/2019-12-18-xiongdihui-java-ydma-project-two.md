@@ -73,25 +73,31 @@ jackson序列化时将某些null值排除
 
 ### 服务接口设计
 
-  请求地址： /course/subject
-  请求参数：学科ID sid 必须, 显示页数 page 可选，默认1，推荐数量 size 可选，默认4
-  响应结果：{"code":xx,"msg":xx,"data":xx}
+1. 请求地址： /course/subject
+2. 请求参数：学科ID sid 必须, 显示页数 page 可选，默认1，推荐数量 size 可选，默认4
+3. 响应结果：{"code":xx,"msg":xx,"data":xx}
 
 ### 服务实现
 
   /course/subject-->CourseController-->CourseService-->CourseMapper-->course查询-->返回JSON结果
 
-1. CourseMapper
+CourseMapper
 
   根据学科ID查询课程
 
-2. CourseService
+CourseService
 
   获取前size个，分页操作取第一页
 
-3. CourseController
+CourseController
 
   接收/course/subject请求及sid和size参数，返回json结果
+
+显示页数 page 可选，默认1，推荐数量 size 可选，默认4
+
+```java
+@RequestParam(name="size",required=false,defaultValue="4")int size
+```
 
 ## Json Web Token（JWT）
 
