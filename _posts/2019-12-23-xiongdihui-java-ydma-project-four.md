@@ -9,14 +9,13 @@ tags: project
 * content
 {:toc}
 
-1. Java猿代码学习平台4：SpringBoot访问Redis操作、、、、、
+1. Java猿代码学习平台4：SpringBoot访问Redis操作
 
 
 
 
 
-
-##SpringBoot访问Redis操作
+## SpringBoot访问Redis操作
 
 在spring-data-redis工具有一个RedisTemplate对象，可以使用该对象对redis操作。
 

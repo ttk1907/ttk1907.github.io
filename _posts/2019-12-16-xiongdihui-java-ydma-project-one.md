@@ -66,24 +66,24 @@ IDEA、MAVEN、Tomcat 9、JDK1.8
 
 提示：使用时，一般采用parent项目做聚合工程。
 
-###MAVEN jar包依赖传递、依赖排除、依赖范围
+### MAVEN jar包依赖传递、依赖排除、依赖范围
 
 1. 依赖传递： B包依赖A包，当C引入B包时，也会同时引入A包
 2. 依赖排除：如果C引入B包时，不想引入A包，可以使用`<exclusion>`定义排除A
 3. 依赖范围：jar包可以指定编译、测试、运行、发布阶段是否有效。通过`<scope>`可以指定compile、provided、runtime、test等，默认值为compile，各阶段都有效。
 
-###项目工程结构
+### 项目工程结构
 
 1. ydma-parent : 父工程、聚合工程
 2. ydma-course : 课程服务模块
 3. ydma-video : 视频服务模块
 4. ydma-user : 用户服务模块
 
-###项目数据库结构
+### 项目数据库结构
 
 ![项目数据库结构](/assets/项目图片/猿代码项目/e-r.png)
 
-###MyBatis Generator工具使用
+### MyBatis Generator工具使用
 
 **追加mybatis-generator-core工具包**
 
@@ -164,15 +164,15 @@ public class RunMyBatisGenerator {
 }
 ```
 
-##用户注册服务开发
+## 用户注册服务开发
 
-###注册服务接口设计
+### 注册服务接口设计
 
 1. 请求地址： http://localhost:7001/user/regist  POST
 2. 请求参数：用户名name、密码password
 3. 响应结果：json    {"code":xx,"msg":xx}
 
-###注册服务接口实现
+### 注册服务接口实现
 
 /user/regist-->UserController-->UserService-->UserMapper-->user表-->返回json结果
 
