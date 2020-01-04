@@ -166,6 +166,77 @@ if(course != null) {
 }
 ```
 
+## Redis存储和读取对象原始方法
+
+1. 工具类
+
+```java
+public class SerializedUtil {
+    /**
+     *  将对象转成字节数组
+     * @param obj
+     * @return
+     * @throws Exception
+     */
+    public static byte[] objToBytes(Object obj) throws Exception {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream out = new ObjectOutputStream(bos);
+        out.writeObject(obj);
+        byte[] bytes = bos.toByteArray();
+        out.close();
+        bos.close();
+        return bytes;
+    }
+    /**
+     *  将字节数组转成对象
+     * @param bytes
+     * @return
+     * @throws Exception
+     */
+    public static Object bytesToObject(byte[] bytes) throws Exception {
+        ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+        ObjectInputStream in = new ObjectInputStream(bis);
+        Object obj = in.readObject();
+        in.close();
+        bis.close();
+        return obj;
+    } 
+}
+```
+
+2. 将对象存入redis
+
+```java
+public void test5() throws Exception {
+    Direction direction = new Direction();
+    direction.setId(1);
+    direction.setName("前端开发");
+    //写入redis
+    Jedis jedis = new Jedis("localhost", 6379);
+    byte[] value = SerializedUtil.objToBytes(direction);
+    jedis.set("direction1".getBytes(),value);
+    jedis.close();
+}
+```
+
+3. 从redis中取出对象
+
+```java
+public void test6() throws Exception {
+    Jedis jedis = new Jedis("localhost", 6379);
+    byte[] value = jedis.get("direction1".getBytes());
+    Direction d = (Direction)SerializedUtil.bytesToObject(value);
+    System.out.println(d.getId()+" "+d.getName());
+    jedis.close();
+}
+```
+
+4. 原理
+    1. 其实就是将对象转换成字节数组存入到redis,取出的时候再将字符数组转换成对象
+    2. 存入redis的对象必须实现Serializable序列化接口,因为在将对象转换成字符数组的时候用到对象输出流,对象输出流写入的时候,要求被写入的对象实现序列化接口
+
+
+
 
 
 
