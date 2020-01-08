@@ -140,3 +140,37 @@ for(Cookie cookie:cookies){
 }
     ```
 
+8. 前端用form表单向控制器传输多个数据时,用map集合接受多个数据
+
+```java
+控制器代码
+@PostMapping(path = "/demo2")
+public String demo2(@RequestBody Map<String,Object> map) {
+    System.out.println(map);
+    return "teacher/exam/TestPaperAdd";
+}
+```
+
+```js
+前段+js代码
+<form id="form" action="/demo2">
+    <input type="text" name="ttk" value="456">
+    <input type="text" name="yfm" value="789">
+    <button type="button" id="submit">tijiao</button>
+</form>
+<script>
+    $("#submit").click(function () {
+        var data = {};
+        $("#form").serializeArray().map(function (x) {
+            data[x.name] = x.value;
+        });
+        $.ajax({
+            url:"/demo2",
+            data:JSON.stringify(data),
+            type:"POST",
+            contentType: "application/json;charset=UTF-8"
+        });
+    });
+</script>
+```
+
