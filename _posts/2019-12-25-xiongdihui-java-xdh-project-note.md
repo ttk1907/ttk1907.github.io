@@ -28,6 +28,10 @@ tags: project note
     insert into Products (ProductID, ProductName, Price, ProductDescription)
     values (#{ProductID},#{ProductName},#{Price},#{ProductDescription})
 </insert>
+
+SELECT * from xdh_teacher A ,
+(SELECT MAX(id) id FROM xdh_teacher)B 
+where A.id=B.id
 ```
 
 2. jquery
