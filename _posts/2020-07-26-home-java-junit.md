@@ -30,6 +30,7 @@ tags: junit
 ```
 
 2. 然后在每个创建出来的测试类上加对应的标注
+
 ```java
 @RunWith(SpringRunner.class)
 @SpringBootTest
