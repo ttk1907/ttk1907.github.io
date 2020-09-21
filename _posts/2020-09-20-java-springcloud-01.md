@@ -80,7 +80,6 @@ mybatis:
     ![sc的9](/assets/springcloud/sc的10.jpg)
 
     7. controller
-
     ![](/assets/springcloud/sc的11.jpg)
     ![](/assets/springcloud/sc的12.jpg)
 
@@ -97,6 +96,7 @@ mybatis:
 1. pom       
 2. yml配置文件
 ![](/assets/springcloud/order模块1.jpg)
+
 3. 主启动类
 4. 复制pay模块的实体类,entity类
 5. 写controller类
