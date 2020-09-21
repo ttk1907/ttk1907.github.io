@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "springcloud微服务架构"
+title:  "springcloud微服务架构01"
 date:   2020-09-20
 categories: springcloud
 tags: springcloud
@@ -32,7 +32,7 @@ tags: springcloud
 ## 1.创建父工程,pom依赖
 
 ## 2.创建子模块,pay模块
-![](/assets/springcloud/sc的3.png)
+![](/assets/springcloud/sc的3.jpg)
 ### 1.子模块名字:
 ​   cloud_pay_8001
 
@@ -67,54 +67,54 @@ mybatis:
 
 #### 1.sql
 
-![](/assets/springcloud/sc的4.png)
+![](/assets/springcloud/sc的4.jpg)
 
 #### 2.实体类
 
-![](/assets/springcloud/sc的5.png)
+![](/assets/springcloud/sc的5.jpg)
 
 #### 3.entity类
 
-![](/assets/springcloud/sc的6.png)
+![](/assets/springcloud/sc的6.jpg)
 
 #### 4.dao层:
 
-![](/assets/springcloud/sc的7.png)
+![](/assets/springcloud/sc的7.jpg)
 
 #### 5.mapper配置文件类
 
 ​   **在resource下,创建mapper/PayMapper.xml**
 
-![](/assets/springcloud/sc的8.png)
+![](/assets/springcloud/sc的8.jpg)
 
 #### 6.写service和serviceImpl
 
-![](/assets/springcloud/sc的9.png)
+![](/assets/springcloud/sc的9.jpg)
 
-![sc的9](/assets/springcloud/sc的10.png)
+![sc的9](/assets/springcloud/sc的10.jpg)
 
 #### 7.controller
 
-![](/assets/springcloud/sc的11.png)
+![](/assets/springcloud/sc的11.jpg)
 
-![](/assets/springcloud/sc的12.png)
+![](/assets/springcloud/sc的12.jpg)
 
 
 ## 3.热部署:
 
-![](/assets/springcloud/sc的13.png)
+![](/assets/springcloud/sc的13.jpg)
 
-![](/assets/springcloud/sc的14.png)
+![](/assets/springcloud/sc的14.jpg)
 
 ## 4.order模块
 
-![](/assets/springcloud/sc的3.png)
+![](/assets/springcloud/sc的3.jpg)
 
 ### **1.pom**       
 
 ### **2.yml配置文件**
 
-![](/assets/springcloud/order模块1.png)
+![](/assets/springcloud/order模块1.jpg)
 
 ### **3.主启动类**
 
@@ -125,17 +125,17 @@ mybatis:
 1. 因为这里是消费者类,主要是消费,那么就没有service和dao,需要调用pay模块的方法,并且这里还没有微服务的远程调用,那么如果要调用另外一个模块,则需要使用基本的api调用
 2. 使用RestTemplate调用pay模块,
 
-​![](/assets/springcloud/order模块2.png)
+​![](/assets/springcloud/order模块2.jpg)
 
-![](/assets/springcloud/order模块3.png)
+![](/assets/springcloud/order模块3.jpg)
 
 3. 将restTemplate注入到容器
 
-![](/assets/springcloud/order模块4.png)
+![](/assets/springcloud/order模块4.jpg)
 
 4. 编写controller:
 
-![](/assets/springcloud/order模块5.png)
+![](/assets/springcloud/order模块5.jpg)
 
 
 
@@ -147,10 +147,10 @@ mybatis:
 
 ### 2.抽取公共pom
 
-![](/assets/springcloud/commons模块.png)
+![](/assets/springcloud/commons模块.jpg)
 
 ### 3.entity和实体类放入commons中
 
-![](/assets/springcloud/commons模块2.png)
+![](/assets/springcloud/commons模块2.jpg)
 
 ### 4.使用mavne,将commone模块打包(install),其他模块引入commons

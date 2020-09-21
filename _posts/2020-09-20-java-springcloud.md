@@ -47,7 +47,7 @@ tags: springcloud
 
 ## 2,创建子模块,pay模块
 
-![](/assets/springcloud/sc的3.png)
+![](/assets/springcloud/sc的3.jpg)
 
 ### 1,子模块名字:
 
@@ -86,37 +86,37 @@ mybatis:
 
 #### 1,sql
 
-![](/assets/springcloud/sc的4.png)
+![](/assets/springcloud/sc的4.jpg)
 
 ####    2,实体类
 
-![](/assets/springcloud/sc的5.png)
+![](/assets/springcloud/sc的5.jpg)
 
 #### 3,.entity类
 
-![](/assets/springcloud/sc的6.png)
+![](/assets/springcloud/sc的6.jpg)
 
 #### 4,dao层:
 
-![](/assets/springcloud/sc的7.png)
+![](/assets/springcloud/sc的7.jpg)
 
 #### 5,mapper配置文件类
 
 ​               **在resource下,创建mapper/PayMapper.xml**
 
-![](/assets/springcloud/sc的8.png)
+![](/assets/springcloud/sc的8.jpg)
 
 #### 6,写service和serviceImpl
 
-![](/assets/springcloud/sc的9.png)
+![](/assets/springcloud/sc的9.jpg)
 
-![sc的9](/assets/springcloud/sc的10.png)
+![sc的9](/assets/springcloud/sc的10.jpg)
 
 #### 7,controller
 
-![](/assets/springcloud/sc的11.png)
+![](/assets/springcloud/sc的11.jpg)
 
-![](/assets/springcloud/sc的12.png)
+![](/assets/springcloud/sc的12.jpg)
 
 
 
@@ -126,9 +126,9 @@ mybatis:
 
 ## 3,热部署:
 
-![](/assets/springcloud/sc的13.png)
+![](/assets/springcloud/sc的13.jpg)
 
-![](/assets/springcloud/sc的14.png)
+![](/assets/springcloud/sc的14.jpg)
 
 .....
 
@@ -142,13 +142,13 @@ mybatis:
 
 ## 4,order模块
 
-![](/assets/springcloud/sc的3.png)
+![](/assets/springcloud/sc的3.jpg)
 
 ### **1,pom**       
 
 ### **2,yml配置文件**
 
-![](/assets/springcloud/order模块1.png)
+![](/assets/springcloud/order模块1.jpg)
 
 ### **3,主启动类**
 
@@ -162,19 +162,19 @@ mybatis:
 
 使用RestTemplate调用pay模块,
 
-​   ![](/assets/springcloud/order模块2.png)
+​   ![](/assets/springcloud/order模块2.jpg)
 
-![](/assets/springcloud/order模块3.png)
+![](/assets/springcloud/order模块3.jpg)
 
 
 
 ​   将restTemplate注入到容器
 
-![](/assets/springcloud/order模块4.png)
+![](/assets/springcloud/order模块4.jpg)
 
 编写controller:
 
-![](/assets/springcloud/order模块5.png)
+![](/assets/springcloud/order模块5.jpg)
 
 
 
@@ -186,11 +186,11 @@ mybatis:
 
 ### 2,抽取公共pom
 
-![](/assets/springcloud/commons模块.png)
+![](/assets/springcloud/commons模块.jpg)
 
 ### 3,entity和实体类放入commons中
 
-![](/assets/springcloud/commons模块2.png)
+![](/assets/springcloud/commons模块2.jpg)
 
 ### 4,使用mavne,将commone模块打包(install),
 
@@ -214,17 +214,17 @@ mybatis:
 
 Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
-​   ![](/assets/springcloud/Eureka的1.png)
+​   ![](/assets/springcloud/Eureka的1.jpg)
 
 
 
-![](/assets/springcloud/Eureka的2.png)
+![](/assets/springcloud/Eureka的2.jpg)
 
-![](/assets/springcloud/Eureka的3.png)
+![](/assets/springcloud/Eureka的3.jpg)
 
 
 
-![](/assets/springcloud/Eureka的4.png)
+![](/assets/springcloud/Eureka的4.jpg)
 
 
 
@@ -236,15 +236,15 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 ​       eurka最新的依赖变了
 
-![](/assets/springcloud/Eureka的5.png)
+![](/assets/springcloud/Eureka的5.jpg)
 
 #### 3,配置文件:
 
-![](/assets/springcloud/Eureka的6.png)
+![](/assets/springcloud/Eureka的6.jpg)
 
 #### 4,主启动类 
 
-![](/assets/springcloud/Eureka的7.png)
+![](/assets/springcloud/Eureka的7.jpg)
 
 #### **5,此时就可以启动当前项目了**
 
@@ -254,15 +254,15 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 ##### 1.主启动类上,加注解,表示当前是eureka客户端
 
-![](/assets/springcloud/Eureka的10.png)
+![](/assets/springcloud/Eureka的10.jpg)
 
 ##### 2,修改pom,引入
 
-![](/assets/springcloud/Eureka的8.png)
+![](/assets/springcloud/Eureka的8.jpg)
 
 ##### 3,修改配置文件:
 
-![](/assets/springcloud/Eureka的9.png)
+![](/assets/springcloud/Eureka的9.jpg)
 
 ##### 4,pay模块重启,就可以注册到eureka中了
 
@@ -280,7 +280,7 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 #### 集群原理:
 
-![](/assets/springcloud/Eureka的11.png)
+![](/assets/springcloud/Eureka的11.jpg)
 
 ```java
 1,就是pay模块启动时,注册自己,并且自身信息也放入eureka
@@ -289,13 +289,13 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
     并且还会缓存一份到本地,每30秒更新一次
 ```
 
-![](/assets/springcloud/Eureka的12.png)
+![](/assets/springcloud/Eureka的12.jpg)
 
 **集群构建原理:**
 
 ​       互相注册
 
-![](/assets/springcloud/Eureka的13.png)
+![](/assets/springcloud/Eureka的13.jpg)
 
 
 
@@ -311,11 +311,11 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 ​       在写配置文件前,修改一下主机的hosts文件
 
-![](/assets/springcloud/Eureka的14.png)
+![](/assets/springcloud/Eureka的14.jpg)
 
 首先修改之前的7001的eureka项目,因为多个eureka需要互相注册
 
-![](/assets/springcloud/Eureka的15.png)
+![](/assets/springcloud/Eureka的15.jpg)
 
 然后修改7002
 
@@ -327,7 +327,7 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 ##### 4,然后启动7001,7002即可
 
-*![](/assets/springcloud/Eureka的16.png)*
+*![](/assets/springcloud/Eureka的16.jpg)*
 
 
 
@@ -337,7 +337,7 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 ##### 1,只需要修改配置文件即可:
 
-![](/assets/springcloud/Eureka的17.png)
+![](/assets/springcloud/Eureka的17.jpg)
 
 ##### 2,两个模块都修改上面的都一样即可
 
@@ -373,11 +373,11 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 ​       虽然我们是使用RestTemplate访问的微服务,但是也可以负载均衡的
 
-​       ![](/assets/springcloud/Eureka的18.png)
+​       ![](/assets/springcloud/Eureka的18.jpg)
 
 **注意这样还不可以,需要让RestTemplate开启负载均衡注解,还可以指定负载均衡算法,默认轮询**
 
-![](/assets/springcloud/Eureka的19.png)
+![](/assets/springcloud/Eureka的19.jpg)
 
 
 
@@ -391,7 +391,7 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 #### 1,修改配置文件:
 
-![](/assets/springcloud/Eureka的20.png)
+![](/assets/springcloud/Eureka的20.jpg)
 
 
 
@@ -399,21 +399,21 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 ### 5,eureka服务发现:
 
-![](/assets/springcloud/Eureka的21.png)
+![](/assets/springcloud/Eureka的21.jpg)
 
 以pay模块为例
 
 #### 1,首先添加一个注解,在controller中
 
-![](/assets/springcloud/Eureka的22.png)
+![](/assets/springcloud/Eureka的22.jpg)
 
-![](/assets/springcloud/Eureka的23.png)
+![](/assets/springcloud/Eureka的23.jpg)
 
 
 
 #### 2,在主启动类上添加一个注解
 
-![](/assets/springcloud/Eureka的24.png)
+![](/assets/springcloud/Eureka的24.jpg)
 
 **然后重启8001.访问/payment/discover**y
 
@@ -423,23 +423,23 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 ### 6,Eureka自我保护:
 
-![](/assets/springcloud/Eureka的26.png)
+![](/assets/springcloud/Eureka的26.jpg)
 
-![](/assets/springcloud/Eureka的27.png)
+![](/assets/springcloud/Eureka的27.jpg)
 
-![](/assets/springcloud/Eureka的25.png)
+![](/assets/springcloud/Eureka的25.jpg)
 
 
 
-![](/assets/springcloud/Eureka的28.png)
+![](/assets/springcloud/Eureka的28.jpg)
 
 
 
 **eureka服务端配置:**
 
-![](/assets/springcloud/Eureka的29.png)
+![](/assets/springcloud/Eureka的29.jpg)
 
-![](/assets/springcloud/Eureka的30.png)
+![](/assets/springcloud/Eureka的30.jpg)
 
 ​           **设置接受心跳时间间隔**
 
@@ -447,7 +447,7 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 **客户端(比如pay模块):**
 
-![](/assets/springcloud/Eureka的31.png)
+![](/assets/springcloud/Eureka的31.jpg)
 
 
 
@@ -479,15 +479,15 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 #### 2,配置文件
 
-![](/assets/springcloud/zookeeper的3.png)
+![](/assets/springcloud/zookeeper的3.jpg)
 
 #### 3,主启动类
 
-![](/assets/springcloud/zookeeper的1.png)
+![](/assets/springcloud/zookeeper的1.jpg)
 
 #### 4,controller
 
-![](/assets/springcloud/zookeeper的2.png)
+![](/assets/springcloud/zookeeper的2.jpg)
 
 #### 5,然后就可以启动
 
@@ -496,7 +496,7 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 解决:
         修改pom文件,改为与我们zk版本匹配的jar包
 
-![](/assets/springcloud/zookeeper的4.png)
+![](/assets/springcloud/zookeeper的4.jpg)
 
 **此时8003就注册到zk中了**
 
@@ -527,19 +527,19 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 #### 3,配置文件
 
-![](/assets/springcloud/zookeeper的5.png)
+![](/assets/springcloud/zookeeper的5.jpg)
 
 #### 4主启动类:
 
-![](/assets/springcloud/zookeeper的1.png)
+![](/assets/springcloud/zookeeper的1.jpg)
 
 #### 5,RestTemolate
 
-![注意,这里使用RestTemolate,要先注册它](/assets/springcloud/zookeeper的6.png)
+![注意,这里使用RestTemolate,要先注册它](/assets/springcloud/zookeeper的6.jpg)
 
 #### 6,controller
 
-![](/assets/springcloud/zookeeper的7.png)
+![](/assets/springcloud/zookeeper的7.jpg)
 
 **然后启动即可注册到zk**
 
@@ -547,7 +547,7 @@ Eureka用于**==服务注册==**,目前官网**已经停止更新**
 
 只需要修改配置文件:
 
-![](/assets/springcloud/zookeeper的5.png)
+![](/assets/springcloud/zookeeper的5.jpg)
 
 这个connect-string指定多个zk地址即可
 
@@ -575,11 +575,11 @@ connect-string: 1.2.3.4,2.3.4.5
 
 ## 8,Consul:
 
-![](/assets/springcloud/consul的1.png)
+![](/assets/springcloud/consul的1.jpg)
 
 
 
-![](/assets/springcloud/consul的2.png)
+![](/assets/springcloud/consul的2.jpg)
 
 
 
@@ -589,7 +589,7 @@ connect-string: 1.2.3.4,2.3.4.5
 
 需要下载一个安装包
 
-![](/assets/springcloud/consul的3.png)
+![](/assets/springcloud/consul的3.jpg)
 
 启动是一个命令行界面,需要输入consul agen-dev启动
 
@@ -605,15 +605,15 @@ cloud_consule_pay_8006
 
 #### 3,配置文件
 
-![](/assets/springcloud/consul的4.png)
+![](/assets/springcloud/consul的4.jpg)
 
 #### 4,主启动类
 
-![](/assets/springcloud/consul的5.png)
+![](/assets/springcloud/consul的5.jpg)
 
 #### 5,controller
 
-![](/assets/springcloud/consul的6.png)
+![](/assets/springcloud/consul的6.jpg)
 
 #### 6,启动服务
 
@@ -633,11 +633,11 @@ cloud-consul-order-80
 
 #### 2,配置文件
 
-![](/assets/springcloud/consul的7.png)
+![](/assets/springcloud/consul的7.jpg)
 
 #### 3,主启动类
 
-![](/assets/springcloud/consul的5.png)
+![](/assets/springcloud/consul的5.jpg)
 
 #### 4,RestTemplate注册
 
@@ -645,7 +645,7 @@ cloud-consul-order-80
 
 #### 5,controller
 
-![](/assets/springcloud/consul的8.png)
+![](/assets/springcloud/consul的8.jpg)
 
 #### 6,启动服务,测试
 
@@ -657,11 +657,11 @@ cloud-consul-order-80
 
 ## 9,三个注册中心的异同:
 
-![](/assets/springcloud/consul的9.png)
+![](/assets/springcloud/consul的9.jpg)
 
-![](/assets/springcloud/consul的10.png)
+![](/assets/springcloud/consul的10.jpg)
 
-![](/assets/springcloud/consul的11.png)
+![](/assets/springcloud/consul的11.jpg)
 
 
 
@@ -675,15 +675,15 @@ cloud-consul-order-80
 
 ## 10,Ribbon负载均衡:
 
-![](/assets/springcloud/Ribbon.png)
+![](/assets/springcloud/Ribbon.jpg)
 
 **Ribbon目前也进入维护,基本上不准备更新了**
 
-![](/assets/springcloud/Ribbon的2.png)
+![](/assets/springcloud/Ribbon的2.jpg)
 
 **进程内LB(本地负载均衡)**
 
-![](/assets/springcloud/Ribbon的5.png)
+![](/assets/springcloud/Ribbon的5.jpg)
 
 
 
@@ -691,7 +691,7 @@ cloud-consul-order-80
 
 **集中式LB(服务端负载均衡)**
 
-![](/assets/springcloud/Ribbon的4.png)
+![](/assets/springcloud/Ribbon的4.jpg)
 
 
 
@@ -701,21 +701,21 @@ cloud-consul-order-80
 
 **区别**
 
-![](/assets/springcloud/Ribbon的3.png)
+![](/assets/springcloud/Ribbon的3.jpg)
 
 
 
 **Ribbon就是负载均衡+RestTemplate**
 
-![](/assets/springcloud/Ribbon的6.png)
+![](/assets/springcloud/Ribbon的6.jpg)
 
 
 
-![](/assets/springcloud/Ribbon的7.png)
+![](/assets/springcloud/Ribbon的7.jpg)
 
 
 
-![](/assets/springcloud/Ribbon的8.png)
+![](/assets/springcloud/Ribbon的8.jpg)
 
 
 
@@ -727,7 +727,7 @@ cloud-consul-order-80
 
 #### 1,默认我们使用eureka的新版本时,它默认集成了ribbon:
 
-![](/assets/springcloud/Ribbon的9.png)
+![](/assets/springcloud/Ribbon的9.jpg)
 
 **==这个starter中集成了reibbon了==**
 
@@ -737,15 +737,15 @@ cloud-consul-order-80
 
 **放到order模块中,因为只有order访问pay时需要负载均衡**
 
-![](/assets/springcloud/Ribbon的10.png)
+![](/assets/springcloud/Ribbon的10.jpg)
 
 
 
 #### 3,RestTemplate类:
 
-![](/assets/springcloud/Ribbon的11.png)
+![](/assets/springcloud/Ribbon的11.jpg)
 
-![](/assets/springcloud/Ribbon的12.png)
+![](/assets/springcloud/Ribbon的12.jpg)
 
 ```java
 RestTemplate的:
@@ -763,7 +763,7 @@ RestTemplate的:
 
 **Rule接口有7个实现类,每个实现类代表一个负载均衡算法**
 
-![](/assets/springcloud/Ribbon的14.png)
+![](/assets/springcloud/Ribbon的14.jpg)
 
 
 
@@ -775,7 +775,7 @@ RestTemplate的:
 
 **==这里使用eureka的那一套服务==**
 
-![](/assets/springcloud/Ribbon的15.png)
+![](/assets/springcloud/Ribbon的15.jpg)
 
 **==也就是不能放在主启动类所在的包及子包下==**
 
@@ -783,15 +783,15 @@ RestTemplate的:
 
 ##### 2,额外创建一个包
 
-![](/assets/springcloud/Ribbon的16.png)
+![](/assets/springcloud/Ribbon的16.jpg)
 
 ##### 3,创建配置类,指定负载均衡算法
 
-![](/assets/springcloud/Ribbon的17.png)
+![](/assets/springcloud/Ribbon的17.jpg)
 
 ##### 4,在主启动类上加一个注解
 
-![](/assets/springcloud/Ribbon的18.png)
+![](/assets/springcloud/Ribbon的18.jpg)
 
 **表示,访问CLOUD_pAYMENT_SERVICE的服务时,使用我们自定义的负载均衡算法**
 
@@ -805,9 +805,9 @@ RestTemplate的:
 
 ##### 1,ribbon的轮询算法原理
 
-![](/assets/springcloud/Ribbon的19.png)
+![](/assets/springcloud/Ribbon的19.jpg)
 
-![](/assets/springcloud/Ribbon的21.png)
+![](/assets/springcloud/Ribbon的21.jpg)
 
 
 
@@ -815,37 +815,37 @@ RestTemplate的:
 
 **1,给**pay模块(8001,8002),的controller方法添加一个方法,返回当前节点端口
 
-![](/assets/springcloud/Ribbon的23.png)
+![](/assets/springcloud/Ribbon的23.jpg)
 
-![](/assets/springcloud/Ribbon的22.png)
+![](/assets/springcloud/Ribbon的22.jpg)
 
 **2,修改order模块**
 
 去掉@LoadBalanced
 
-![](/assets/springcloud/Ribbon的24.png)
+![](/assets/springcloud/Ribbon的24.jpg)
 
 
 
 ##### 3,自定义接口
 
-![](/assets/springcloud/Ribbon的29.png)
+![](/assets/springcloud/Ribbon的29.jpg)
 
 ​                   ==具体的算法在实现类中实现==
 
 ##### 4,接口实现类
 
-![](/assets/springcloud/Ribbon的25.png)
+![](/assets/springcloud/Ribbon的25.jpg)
 
-![](/assets/springcloud/Ribbon的26.png)
+![](/assets/springcloud/Ribbon的26.jpg)
 
 
 
 ##### 5,修改controller:
 
-![](/assets/springcloud/Ribbon的27.png)
+![](/assets/springcloud/Ribbon的27.jpg)
 
-![](/assets/springcloud/Ribbon的28.png)
+![](/assets/springcloud/Ribbon的28.jpg)
 
 
 
@@ -881,13 +881,13 @@ RestTemplate的:
 
 ## 11,OpenFeign
 
-![](/assets/springcloud/Feign的1.png)
+![](/assets/springcloud/Feign的1.jpg)
 
 **是一个声明式的web客户端,只需要创建一个接口,添加注解即可完成微服务之间的调用**
 
 
 
-![](/assets/springcloud/Feign的2.png)
+![](/assets/springcloud/Feign的2.jpg)
 
 ==就是A要调用B,Feign就是在A中创建一个一模一样的B对外提供服务的的接口,我们调用这个接口,就可以服务到B==
 
@@ -895,7 +895,7 @@ RestTemplate的:
 
 ### **Feign与OpenFeign区别**
 
-![](/assets/springcloud/Feign的3.png)
+![](/assets/springcloud/Feign的3.jpg)
 
 
 
@@ -916,19 +916,19 @@ RestTemplate的:
 
 #### 3,配置文件
 
-![](/assets/springcloud/Feign的4.png)
+![](/assets/springcloud/Feign的4.jpg)
 
 #### 4,主启动类
 
-![](/assets/springcloud/Feign的5.png)
+![](/assets/springcloud/Feign的5.jpg)
 
 #### 5,fegin需要调用的其他的服务的接口
 
-![](/assets/springcloud/Feign的6.png)
+![](/assets/springcloud/Feign的6.jpg)
 
 #### 6,controller
 
-![](/assets/springcloud/Feign的7.png)
+![](/assets/springcloud/Feign的7.jpg)
 
 #### 7测试:
 
@@ -954,7 +954,7 @@ RestTemplate的:
 
 **因为OpenFeign的底层是ribbon进行负载均衡,所以它的超时时间是由ribbon控制**
 
-![](/assets/springcloud/Feign的8.png)
+![](/assets/springcloud/Feign的8.jpg)
 
 
 
@@ -962,12 +962,12 @@ RestTemplate的:
 
 ### OpenFeign日志:
 
-![](/assets/springcloud/Feign的9.png)
+![](/assets/springcloud/Feign的9.jpg)
 
 
 
 **OpenFeign的日志级别有:**
-![](/assets/springcloud/Feign的10.png)
+![](/assets/springcloud/Feign的10.jpg)
 
 
 
@@ -977,15 +977,15 @@ RestTemplate的:
 
 **实现在配置类中添加OpenFeign的日志类**
 
-![](/assets/springcloud/Feign的11.png)
+![](/assets/springcloud/Feign的11.jpg)
 
 #### 2,为指定类设置日志级别:
 
-![](/assets/springcloud/Feign的13.png)
+![](/assets/springcloud/Feign的13.jpg)
 
 **配置文件中:**
 
-![](/assets/springcloud/Feign的12.png)
+![](/assets/springcloud/Feign的12.jpg)
 
 
 
@@ -999,17 +999,17 @@ RestTemplate的:
 
 ## 12,Hystrix服务降级
 
-![](/assets/springcloud/Hystrix的2.png)
+![](/assets/springcloud/Hystrix的2.jpg)
 
 
 
-![](/assets/springcloud/Hystrix的3.png)
+![](/assets/springcloud/Hystrix的3.jpg)
 
 
 
 
 
-![](/assets/springcloud/Hystrix的4.png)
+![](/assets/springcloud/Hystrix的4.jpg)
 
 
 
@@ -1051,19 +1051,19 @@ RestTemplate的:
 
 ##### 3,配置文件
 
-![](/assets/springcloud/Hystrix的5.png)
+![](/assets/springcloud/Hystrix的5.jpg)
 
 ##### 4,主启动类
 
-![](/assets/springcloud/Hystrix的8.png)
+![](/assets/springcloud/Hystrix的8.jpg)
 
 ##### 5,service
 
-![](/assets/springcloud/Hystrix的6.png)
+![](/assets/springcloud/Hystrix的6.jpg)
 
 ##### 6controller
 
-![](/assets/springcloud/Hystrix的7.png)
+![](/assets/springcloud/Hystrix的7.jpg)
 
 ##### 7,先测试:
 
@@ -1087,19 +1087,19 @@ RestTemplate的:
 
 ##### 3,配置文件
 
-![](/assets/springcloud/Hystrix的9.png)
+![](/assets/springcloud/Hystrix的9.jpg)
 
 ##### 4,主启动类
 
-![](/assets/springcloud/Hystrix的11.png)
+![](/assets/springcloud/Hystrix的11.jpg)
 
 ##### 5,远程调用pay模块的接口:
 
-![](/assets/springcloud/Hystrix的12.png)
+![](/assets/springcloud/Hystrix的12.jpg)
 
 ##### 6,controller:
 
-![](/assets/springcloud/Hystrix的13.png)
+![](/assets/springcloud/Hystrix的13.jpg)
 
 ##### 7,测试
 
@@ -1107,15 +1107,15 @@ RestTemplate的:
 
 ​           再次压测2万并发,发现order访问也变慢了
 
-![](/assets/springcloud/Hystrix的14.png)
+![](/assets/springcloud/Hystrix的14.jpg)
 
 
 
 **解决:**
 
-![](/assets/springcloud/Hystrix的15.png)
+![](/assets/springcloud/Hystrix的15.jpg)
 
-##### ![](/assets/springcloud/Hystrix的16.png)
+##### ![](/assets/springcloud/Hystrix的16.jpg)
 
 
 
@@ -1129,17 +1129,17 @@ RestTemplate的:
 
 ###### 1,为service的指定方法(会延迟的方法)添加@HystrixCommand注解
 
-![](/assets/springcloud/Hystrix的17.png)
+![](/assets/springcloud/Hystrix的17.jpg)
 
 ###### 2,主启动类上,添加激活hystrix的注解
 
-![](/assets/springcloud/Hystrix的18.png)
+![](/assets/springcloud/Hystrix的18.jpg)
 
 ###### 3,触发异常
 
-![](/assets/springcloud/Hystrix的19.png)
+![](/assets/springcloud/Hystrix的19.jpg)
 
-![](/assets/springcloud/Hystrix的20.png)**可以看到,也触发了降级**
+![](/assets/springcloud/Hystrix的20.jpg)**可以看到,也触发了降级**
 
 
 
@@ -1147,21 +1147,21 @@ RestTemplate的:
 
 一般服务降级,都是放在客户端(order模块),
 
-![](/assets/springcloud/Hystrix的21.png)
+![](/assets/springcloud/Hystrix的21.jpg)
 
 ###### 1,修改配置文件:
 
-![](/assets/springcloud/Hystrix的22.png)
+![](/assets/springcloud/Hystrix的22.jpg)
 
 ###### **2,主启动类添加直接,启用hystrix:**
 
-![](/assets/springcloud/Hystrix的23.png)
+![](/assets/springcloud/Hystrix的23.jpg)
 
 ​   
 
 ###### 3,修改controller,添加降级方法什么的
 
-![](/assets/springcloud/Hystrix的24.png)
+![](/assets/springcloud/Hystrix的24.jpg)
 
 
 
@@ -1188,25 +1188,25 @@ RestTemplate的:
 
 ###### 1,创建一个全局方法
 
-![](/assets/springcloud/Hystrix的26.png)
+![](/assets/springcloud/Hystrix的26.jpg)
 
 ###### 2,使用注解指定其为全局降级方法(默认降级方法)
 
-![](/assets/springcloud/Hystrix的27.png)
+![](/assets/springcloud/Hystrix的27.jpg)
 
-![](/assets/springcloud/Hystrix的25.png)
+![](/assets/springcloud/Hystrix的25.jpg)
 
 
 
 ###### 3,业务方法使用默认降级方法:
 
-![](/assets/springcloud/Hystrix的28.png)
+![](/assets/springcloud/Hystrix的28.jpg)
 
 
 
 ###### 4,测试:
 
-![](/assets/springcloud/Hystrix的29.png)
+![](/assets/springcloud/Hystrix的29.jpg)
 
 
 
@@ -1224,15 +1224,15 @@ RestTemplate的:
 
 ###### 1,Payservice接口是远程调用pay模块的,我们这里创建一个类实现service接口,在实现类中统一处理异常
 
-![](/assets/springcloud/Hystrix的30.png)
+![](/assets/springcloud/Hystrix的30.jpg)
 
 ###### 2,修改配置文件:添加:
 
-![](/assets/springcloud/Hystrix的31.png)
+![](/assets/springcloud/Hystrix的31.jpg)
 
 ######  3,让PayService的实现类生效:
 
-![](/assets/springcloud/Hystrix的32.png)
+![](/assets/springcloud/Hystrix的32.jpg)
 
 ```java
 它的运行逻辑是:
@@ -1247,7 +1247,7 @@ RestTemplate的:
 
 ==此时将pay服务关闭,order再次访问==
 
-![](/assets/springcloud/Hystrix的33.png)
+![](/assets/springcloud/Hystrix的33.jpg)
 
 可以看到,并没有报500错误,而是降级访问==实现类==的同名方法
 
@@ -1265,13 +1265,13 @@ RestTemplate的:
 
 ### 使用服务熔断:
 
-![](/assets/springcloud/Hystrix的34.png)
+![](/assets/springcloud/Hystrix的34.jpg)
 
 **比如并发达到1000,我们就拒绝其他用户访问,在有用户访问,就访问降级方法**
 
 
 
-![](/assets/springcloud/Hystrix的35.png)
+![](/assets/springcloud/Hystrix的35.jpg)
 
 
 
@@ -1279,12 +1279,12 @@ RestTemplate的:
 
 ##### **1,修改Payservice接口,添加服务熔断相关的方法:**
 
-![](/assets/springcloud/Hystrix的37.png)
+![](/assets/springcloud/Hystrix的37.jpg)
 
 这里属性整体意思是:
             10秒之内(窗口,会移动),如果并发==超过==10个,或者10个并发中,失败了6个,就开启熔断器
 
-![image-20200414152637247](/assets/springcloud/Hystrix的43.png)
+![image-20200414152637247](/assets/springcloud/Hystrix的43.jpg)
 
 
 
@@ -1294,7 +1294,7 @@ IdUtil是Hutool包下的类,这个Hutool就是整合了所有的常用方法,比
 
 
 
-![](/assets/springcloud/Hystrix的36.png)
+![](/assets/springcloud/Hystrix的36.jpg)
 
 ```java
 断路器的打开和关闭,是按照一下5步决定的
@@ -1312,7 +1312,7 @@ IdUtil是Hutool包下的类,这个Hutool就是整合了所有的常用方法,比
 
 添加一个测试方法;
 
-![](/assets/springcloud/Hystrix的39.png)
+![](/assets/springcloud/Hystrix的39.jpg)
 
 
 
@@ -1322,11 +1322,11 @@ IdUtil是Hutool包下的类,这个Hutool就是整合了所有的常用方法,比
 
 ==多次访问,并且错误率超过60%:==
 
-![](/assets/springcloud/Hystrix的40.png)
+![](/assets/springcloud/Hystrix的40.jpg)
 
 此时服务熔断,此时即使访问正确的也会报错:
 
-![](/assets/springcloud/Hystrix的41.png)
+![](/assets/springcloud/Hystrix的41.jpg)
 
 **但是,当过了几秒后,又恢复了**
 
@@ -1348,7 +1348,7 @@ IdUtil是Hutool包下的类,这个Hutool就是整合了所有的常用方法,比
 
 ​       以后需要什么属性,查看这个类即可
 
-![](/assets/springcloud/Hystrix的38.png)
+![](/assets/springcloud/Hystrix的38.jpg)
 
 
 
@@ -1360,25 +1360,25 @@ IdUtil是Hutool包下的类,这个Hutool就是整合了所有的常用方法,比
 
 ### 总结:
 
-![](/assets/springcloud/Hystrix的42.png)
+![](/assets/springcloud/Hystrix的42.jpg)
 
 **==当断路器开启后:==**
 
-​   ![](/assets/springcloud/Hystrix的44.png)
+​   ![](/assets/springcloud/Hystrix的44.jpg)
 
 
 
 **==其他参数:==**
 
-![](/assets/springcloud/Hystrix的45.png)
+![](/assets/springcloud/Hystrix的45.jpg)
 
-![](/assets/springcloud/Hystrix的46.png)
+![](/assets/springcloud/Hystrix的46.jpg)
 
-![](/assets/springcloud/Hystrix的47.png)
+![](/assets/springcloud/Hystrix的47.jpg)
 
-![](/assets/springcloud/Hystrix的48.png)
+![](/assets/springcloud/Hystrix的48.jpg)
 
-![](/assets/springcloud/Hystrix的49.png)
+![](/assets/springcloud/Hystrix的49.jpg)
 
 
 
@@ -1413,7 +1413,7 @@ IdUtil是Hutool包下的类,这个Hutool就是整合了所有的常用方法,比
 
 #### HystrixDashboard
 
-![](/assets/springcloud/Hystrix的51.png)
+![](/assets/springcloud/Hystrix的51.jpg)
 
 #### 2,使用HystrixDashboard:
 
@@ -1425,17 +1425,17 @@ IdUtil是Hutool包下的类,这个Hutool就是整合了所有的常用方法,比
 
 ##### 3,配置文件
 
-![](/assets/springcloud/Hystrix的52.png)
+![](/assets/springcloud/Hystrix的52.jpg)
 
 ##### 4,主启动类
 
-![](/assets/springcloud/Hystrix的53.png)
+![](/assets/springcloud/Hystrix的53.jpg)
 
 ##### 5,修改所有pay模块(8001,8002,8003...)
 
 **他们都添加一个pom依赖:**
 
-![](/assets/springcloud/Hystrix的54.png)
+![](/assets/springcloud/Hystrix的54.jpg)
 
 之前的pom文件中都添加过了,==这个是springboot的监控组件==
 
@@ -1449,7 +1449,7 @@ IdUtil是Hutool包下的类,这个Hutool就是整合了所有的常用方法,比
 
 ==8001的主启动类添加:==
 
-![](/assets/springcloud/Hystrix的55.png)
+![](/assets/springcloud/Hystrix的55.jpg)
 
 **其他8002,8003都是一样的**
 
@@ -1459,21 +1459,21 @@ IdUtil是Hutool包下的类,这个Hutool就是整合了所有的常用方法,比
 
 **然后在web界面,指定9001要监控8001:**
 
-##### ![](/assets/springcloud/Hystrix的56.png)
+##### ![](/assets/springcloud/Hystrix的56.jpg)
 
 
 
-![](/assets/springcloud/Hystrix的57.png)
+![](/assets/springcloud/Hystrix的57.jpg)
 
-![](/assets/springcloud/Hystrix的59.png)
+![](/assets/springcloud/Hystrix的59.jpg)
 
-![](/assets/springcloud/Hystrix的58.png)
+![](/assets/springcloud/Hystrix的58.jpg)
 
-![](/assets/springcloud/Hystrix的60.png)
+![](/assets/springcloud/Hystrix的60.jpg)
 
-![](/assets/springcloud/Hystrix的61.png)
+![](/assets/springcloud/Hystrix的61.jpg)
 
-![](/assets/springcloud/Hystrix的62.png)
+![](/assets/springcloud/Hystrix的62.jpg)
 
 
 
@@ -1501,35 +1501,35 @@ zuul停更了,
 
 
 
-![](/assets/springcloud/gateway的1.png)
+![](/assets/springcloud/gateway的1.jpg)
 
-![](/assets/springcloud/gateway的2.png)
+![](/assets/springcloud/gateway的2.jpg)
 
 **gateway之所以性能号,因为底层使用WebFlux,而webFlux底层使用netty通信(NIO)**
 
 
 
-![](/assets/springcloud/gateway的3.png)
+![](/assets/springcloud/gateway的3.jpg)
 
 
 
 ### GateWay的特性:
 
-![](/assets/springcloud/gateway的4.png)
+![](/assets/springcloud/gateway的4.jpg)
 
 
 
 ### GateWay与zuul的区别:
 
-![](/assets/springcloud/gateway的5.png)
+![](/assets/springcloud/gateway的5.jpg)
 
 
 
 ### zuul1.x的模型:
 
-![](/assets/springcloud/gateway的6.png)
+![](/assets/springcloud/gateway的6.jpg)
 
-![](/assets/springcloud/gateway的7.png)
+![](/assets/springcloud/gateway的7.jpg)
 
 
 
@@ -1539,7 +1539,7 @@ zuul停更了,
 
 **是一个非阻塞的web框架,类似springmvc这样的**
 
-![](/assets/springcloud/gateway的8.png)
+![](/assets/springcloud/gateway的8.jpg)
 
 
 
@@ -1547,7 +1547,7 @@ zuul停更了,
 
 #### 1,路由:
 
-![](/assets/springcloud/gateway的9.png)
+![](/assets/springcloud/gateway的9.jpg)
 
 就是根据某些规则,将请求发送到指定服务上
 
@@ -1555,7 +1555,7 @@ zuul停更了,
 
 #### 2,断言:
 
-![](/assets/springcloud/gateway的10.png)
+![](/assets/springcloud/gateway的10.jpg)
 
 就是判断,如果符合条件就是xxxx,反之yyyy
 
@@ -1563,7 +1563,7 @@ zuul停更了,
 
 #### 3,过滤:
 
-![](/assets/springcloud/gateway的11.png)
+![](/assets/springcloud/gateway的11.jpg)
 
 ​   **路由前后,过滤请求**
 
@@ -1573,9 +1573,9 @@ zuul停更了,
 
 ### GateWay的工作原理:
 
-![](/assets/springcloud/gateway的12.png)
+![](/assets/springcloud/gateway的12.jpg)
 
-![](/assets/springcloud/gateway的13.png)
+![](/assets/springcloud/gateway的13.jpg)
 
 
 
@@ -1591,21 +1591,21 @@ zuul停更了,
 
 #### 2,配置文件
 
-![](/assets/springcloud/gateway的14.png)
+![](/assets/springcloud/gateway的14.jpg)
 
 #### 3,主启动类
 
-![](/assets/springcloud/gateway的15.png)
+![](/assets/springcloud/gateway的15.jpg)
 
 #### 4,针对pay模块,设置路由:
 
-![](/assets/springcloud/gateway的16.png)
+![](/assets/springcloud/gateway的16.jpg)
 
-![](/assets/springcloud/gateway的18.png)
+![](/assets/springcloud/gateway的18.jpg)
 
 **==修改GateWay模块(9527)的配置文件==:**
 
-![](/assets/springcloud/gateway的17.png)
+![](/assets/springcloud/gateway的17.jpg)
 
 这里表示,
 
@@ -1628,7 +1628,7 @@ zuul停更了,
 
 ​       localhost:9527/payment/get/1
 
-![](/assets/springcloud/gateway的19.png)
+![](/assets/springcloud/gateway的19.jpg)
 
 
 
@@ -1644,7 +1644,7 @@ zuul停更了,
 
 ##### 创建配置类:
 
-![](/assets/springcloud/gateway的20.png)
+![](/assets/springcloud/gateway的20.jpg)
 
 #### 8,然后重启服务即可
 
@@ -1664,7 +1664,7 @@ zuul停更了,
 
 #### 修改GateWay模块的配置文件:
 
-![](/assets/springcloud/gateway的21.png)
+![](/assets/springcloud/gateway的21.jpg)
 
 
 
@@ -1678,17 +1678,17 @@ zuul停更了,
 
 ### Pridicate断言:
 
-![](/assets/springcloud/gateway的24.png)
+![](/assets/springcloud/gateway的24.jpg)
 
 **我们之前在配置文件中配置了断言:**
 
-![](/assets/springcloud/gateway的22.png)
+![](/assets/springcloud/gateway的22.jpg)
 
 **这个断言表示,如果外部访问路径是指定路径,就路由到指定微服务上**
 
 可以看到,这里有一个Path,这个是断言的一种,==断言的类型==:
 
-![](/assets/springcloud/gateway的23.png)
+![](/assets/springcloud/gateway的23.jpg)
 
 
 
@@ -1697,7 +1697,7 @@ After:
         可以指定,只有在指定时间后,才可以路由到指定微服务
 ```
 
-![](/assets/springcloud/gateway的26.png)
+![](/assets/springcloud/gateway的26.jpg)
 
 ​               这里表示,只有在==2020年的2月21的15点51分37秒==之后,访问==才可以路由==
 
@@ -1705,7 +1705,7 @@ After:
 
 如何获取当前时区?**
 
-![](/assets/springcloud/gateway的25.png)
+![](/assets/springcloud/gateway的25.jpg)
 
 
 
@@ -1716,7 +1716,7 @@ between:
         需要指定两个时间,在他们之间的时间才可以访问
 ```
 
-![](/assets/springcloud/gateway的27.png)
+![](/assets/springcloud/gateway的27.jpg)
 
 
 
@@ -1727,9 +1727,9 @@ cookie:
         只有包含某些指定cookie(key,value),的请求才可以路由
 ```
 
-![](/assets/springcloud/gateway的28.png)
+![](/assets/springcloud/gateway的28.jpg)
 
-![](/assets/springcloud/gateway的29.png)
+![](/assets/springcloud/gateway的29.jpg)
 
 
 
@@ -1738,12 +1738,12 @@ Header:
         只有包含指定请求头的请求,才可以路由
 ```
 
-![](/assets/springcloud/gateway的31.png)
+![](/assets/springcloud/gateway的31.jpg)
 
-![](/assets/springcloud/gateway的32.png)
+![](/assets/springcloud/gateway的32.jpg)
 
 测试:
-![](/assets/springcloud/gateway的33.png)
+![](/assets/springcloud/gateway的33.jpg)
 
 
 
@@ -1758,13 +1758,13 @@ host:
     那么这里就可以设置,只有用户是www.aa.com的请求,才进行路由
 ```
 
-![](/assets/springcloud/gateway的34.png)
+![](/assets/springcloud/gateway的34.jpg)
 
-![gateway的34](/assets/springcloud/gateway的35.png)
+![gateway的34](/assets/springcloud/gateway的35.jpg)
 
-![](/assets/springcloud/gateway的36.png)
+![](/assets/springcloud/gateway的36.jpg)
 
-![](/assets/springcloud/gateway的37.png)
+![](/assets/springcloud/gateway的37.jpg)
 
 可以看到,如果带了域名访问,就可以,但是直接访问ip地址.就报错了
 
@@ -1779,7 +1779,7 @@ method:
         只有指定请求才可以路由,比如get请求...
 ```
 
-![](/assets/springcloud/gateway的38.png)
+![](/assets/springcloud/gateway的38.jpg)
 
 ```java
 path:
@@ -1787,7 +1787,7 @@ path:
      比如访问,/abc才路由
 ```
 
-![](/assets/springcloud/gateway的39.png)
+![](/assets/springcloud/gateway的39.jpg)
 
 
 
@@ -1796,7 +1796,7 @@ Query:
         必须带有请求参数才可以访问
 ```
 
-![](/assets/springcloud/gateway的40.png)
+![](/assets/springcloud/gateway的40.jpg)
 
 
 
@@ -1806,7 +1806,7 @@ Query:
 
 ### Filter过滤器:
 
-![](/assets/springcloud/gateway的41.png)
+![](/assets/springcloud/gateway的41.jpg)
 
 
 
@@ -1818,13 +1818,13 @@ Query:
 
 #### 种类:
 
-![](/assets/springcloud/gateway的42.png)
+![](/assets/springcloud/gateway的42.jpg)
 
 GateWayFilter,单一的过滤器
 
 **与断言类似,比如闲置,请求头,只有特定的请求头才放行,反之就过滤**:
 
-![](/assets/springcloud/gateway的43.png)
+![](/assets/springcloud/gateway的43.jpg)
 
 GlobalFilter,全局过滤器:
 
@@ -1836,13 +1836,13 @@ GlobalFilter,全局过滤器:
 
 实现两个接口
 
-![](/assets/springcloud/gateway的44.png)
+![](/assets/springcloud/gateway的44.jpg)
 
 ​   **然后启动服务,即可,因为过滤器通过@COmponet已经加入到容器了**
 
-![](/assets/springcloud/gateway的46.png)
+![](/assets/springcloud/gateway的46.jpg)
 
-![](/assets/springcloud/gateway的45.png)
+![](/assets/springcloud/gateway的45.jpg)
 
 
 
@@ -1883,13 +1883,13 @@ GlobalFilter,全局过滤器:
 
 所以有了springconfig配置中心
 
-![](/assets/springcloud/springconfig的1.png)
+![](/assets/springcloud/springconfig的1.jpg)
 
-![](/assets/springcloud/springconfig的2.png)
+![](/assets/springcloud/springconfig的2.jpg)
 
-![](/assets/springcloud/springconfig的3.png)
+![](/assets/springcloud/springconfig的3.jpg)
 
-![](/assets/springcloud/springconfig的4.png)
+![](/assets/springcloud/springconfig的4.jpg)
 
 
 
@@ -1901,7 +1901,7 @@ GlobalFilter,全局过滤器:
 
 **初始化git环境:**
 
-![](/assets/springcloud/springconfig的5.png)
+![](/assets/springcloud/springconfig的5.jpg)
 
 
 
@@ -1913,15 +1913,15 @@ GlobalFilter,全局过滤器:
 
 #### 3,配置文件
 
-![](/assets/springcloud/springconfig的6.png)
+![](/assets/springcloud/springconfig的6.jpg)
 
 #### 4,主启动类
 
-![](/assets/springcloud/springconfig的7.png)
+![](/assets/springcloud/springconfig的7.jpg)
 
 #### 5,修改hosts:
 
-![](/assets/springcloud/springconfig的8.png)
+![](/assets/springcloud/springconfig的8.jpg)
 
 #### 6,配置完成
 
@@ -1929,33 +1929,33 @@ GlobalFilter,全局过滤器:
 
 启动3344  (要先启动eureka)
 
-![](/assets/springcloud/springconfig的9.png)
+![](/assets/springcloud/springconfig的9.jpg)
 
 它实际上就是,读取到配置文件中的GitHub的地址,然后拼接上/master/config-dev.yml
 
 #### 7,读取配置文件的规则:
 
-![](/assets/springcloud/springconfig的10.png)
+![](/assets/springcloud/springconfig的10.jpg)
 
 
 
 ==2,==
 
-![](/assets/springcloud/springconfig的11.png)
+![](/assets/springcloud/springconfig的11.jpg)
 
 **这里默认会读取master分支,因为我们配置文件中配置了**
 
-![](/assets/springcloud/springconfig的12.png)
+![](/assets/springcloud/springconfig的12.jpg)
 
 ==3==
 
-![](/assets/springcloud/springconfig的13.png)
+![](/assets/springcloud/springconfig的13.jpg)
 
 注意,这个方式读取到的配置是==json格式==的
 
 **所有规则:**
 
-![](/assets/springcloud/springconfig的14.png)
+![](/assets/springcloud/springconfig的14.jpg)
 
 
 
@@ -1975,23 +1975,23 @@ GlobalFilter,全局过滤器:
 
 这个配置文件的作用是,先到配置中心加载配置,然后加载到application.yml中
 
-![](/assets/springcloud/springconfig的15.png)
+![](/assets/springcloud/springconfig的15.jpg)
 
-![](/assets/springcloud/springconfig的16.png)
+![](/assets/springcloud/springconfig的16.jpg)
 
 
 
 #### 4,主启动类:
 
-![](/assets/springcloud/springconfig的17.png)
+![](/assets/springcloud/springconfig的17.jpg)
 
 #### 5,controller类
 
 就是上面提到的,以rest风格将配置对外暴露
 
-![](/assets/springcloud/springconfig的18.png)
+![](/assets/springcloud/springconfig的18.jpg)
 
-![](/assets/springcloud/springconfig的19.png)
+![](/assets/springcloud/springconfig的19.jpg)
 
 **如果客户端运行正常,就会读取到github上配置文件的,config.info下的配置**
 
@@ -2001,7 +2001,7 @@ GlobalFilter,全局过滤器:
 
 ​   访问3355的  /configInfo
 
-![](/assets/springcloud/springconfig的21.png)
+![](/assets/springcloud/springconfig的21.jpg)
 
 
 
@@ -2019,15 +2019,15 @@ GlobalFilter,全局过滤器:
 
 ##### 1,修改3355,添加一个pom依赖:
 
-![](/assets/springcloud/springconfig的22.png)
+![](/assets/springcloud/springconfig的22.jpg)
 
 ##### 2,修改配置文件,添加一个配置:
 
-![](/assets/springcloud/springconfig的23.png)
+![](/assets/springcloud/springconfig的23.jpg)
 
 ##### 3,修改controller:
 
-![](/assets/springcloud/springconfig的24.png)
+![](/assets/springcloud/springconfig的24.jpg)
 
 
 
@@ -2037,7 +2037,7 @@ GlobalFilter,全局过滤器:
 
 因为此时,还需要==外部==发送post请求通知3355
 
-![](/assets/springcloud/springconfig的25.png)
+![](/assets/springcloud/springconfig的25.jpg)
 
 **此时在刷新3355,发现可以获取到最新的配置文件了,这就实现了动态获取配置文件,因为3355并没有重启**
 
@@ -2075,7 +2075,7 @@ GlobalFilter,全局过滤器:
 
 ## SpringCloud Bus:
 
-![](/assets/springcloud/springconfig的26.png)
+![](/assets/springcloud/springconfig的26.jpg)
 
 
 
@@ -2083,9 +2083,9 @@ GlobalFilter,全局过滤器:
 
 
 
-![](/assets/springcloud/springconfig的27.png)
+![](/assets/springcloud/springconfig的27.jpg)
 
-![](/assets/springcloud/springconfig的31.png)
+![](/assets/springcloud/springconfig的31.jpg)
 
 注意,这里年张图片,就代表两种广播方式
 
@@ -2099,7 +2099,7 @@ GlobalFilter,全局过滤器:
 
 **为什么被称为总线?**
 
-![](/assets/springcloud/springconfig的28.png)
+![](/assets/springcloud/springconfig的28.jpg)
 
 ```java
 就是通过消息队列达到广播的效果
@@ -2114,7 +2114,7 @@ GlobalFilter,全局过滤器:
 
 #### 1,配置rabbitmq环境:
 
-![](/assets/springcloud/springconfig的29.png)
+![](/assets/springcloud/springconfig的29.jpg)
 
 
 
@@ -2122,7 +2122,7 @@ GlobalFilter,全局过滤器:
 
 ​       ==**复制3355即可,创建为3366**==
 
-![](/assets/springcloud/springconfig的30.png)
+![](/assets/springcloud/springconfig的30.jpg)
 
 全部复制3355的即可
 
@@ -2134,13 +2134,13 @@ GlobalFilter,全局过滤器:
 
 ​       ==就是上面两个图片的两种方式==
 
-![](/assets/springcloud/springconfig的32.png)
+![](/assets/springcloud/springconfig的32.jpg)
 
 **这两种方式,第二种跟合适,因为:**
 
 ​           ==第一种的缺点:==
 
-![](/assets/springcloud/springconfig的33.png)
+![](/assets/springcloud/springconfig的33.jpg)
 
 
 
@@ -2152,15 +2152,15 @@ GlobalFilter,全局过滤器:
 
 ###### 1,修改配置文件:
 
-![](/assets/springcloud/Bus的1.png)
+![](/assets/springcloud/Bus的1.jpg)
 
 ###### 2,添加pom
 
 **springboot的监控组件,和消息总线**
 
-![](/assets/springcloud/Bus的3.png)
+![](/assets/springcloud/Bus的3.jpg)
 
-![](/assets/springcloud/Bus的2.png)
+![](/assets/springcloud/Bus的2.jpg)
 
 
 
@@ -2168,9 +2168,9 @@ GlobalFilter,全局过滤器:
 
 ###### 1,pom:
 
-![](/assets/springcloud/Bus的3.png)
+![](/assets/springcloud/Bus的3.jpg)
 
-![Bus的2](/assets/springcloud/Bus的2.png)
+![Bus的2](/assets/springcloud/Bus的2.jpg)
 
 
 
@@ -2178,7 +2178,7 @@ GlobalFilter,全局过滤器:
 
 ==注意配置文件的名字,要改为bootstrap.yml==
 
-![](/assets/springcloud/Bus的5.png)
+![](/assets/springcloud/Bus的5.jpg)
 
 ![image-20200415102708661](/assets/springcloud/Bus的4)
 
@@ -2204,13 +2204,13 @@ GlobalFilter,全局过滤器:
 
 ==此时只需要刷新3344,即可让3355,3366动态获取最新的配置文件==
 
-![](/assets/springcloud/Bus的6.png)
+![](/assets/springcloud/Bus的6.jpg)
 
 
 
 其原理就是:
 
-![](/assets/springcloud/Bus的7.png)
+![](/assets/springcloud/Bus的7.jpg)
 
 **所有客户端都监听了一个rabbitMq的topic,我们将信息放入这个topic,所有客户端都可以送到,从而实时更新**
 
@@ -2226,17 +2226,17 @@ GlobalFilter,全局过滤器:
 
 ​       就是只通知部分服务,比如只通知3355,不通知3366
 
-![](/assets/springcloud/Bus的8.png)
+![](/assets/springcloud/Bus的8.jpg)
 
-![Bus的8](/assets/springcloud/Bus的9.png)
+![Bus的8](/assets/springcloud/Bus的9.jpg)
 
 
 
 **只通知3355**
 
-![](/assets/springcloud/Bus的11.png)
+![](/assets/springcloud/Bus的11.jpg)
 
-​   ![](/assets/springcloud/Bus的12.png)
+​   ![](/assets/springcloud/Bus的12.jpg)
 
 **可以看到,实际上就是通过==微服务的名称+端口号==进行指定**
 
@@ -2274,21 +2274,21 @@ GlobalFilter,全局过滤器:
 
 ​           不需要管底层是kafka还是rabbitMq
 
-![](/assets/springcloud/SpringCloudStream的1.png)
+![](/assets/springcloud/SpringCloudStream的1.jpg)
 
 ### ==什么是Spring Cloud Stream==
 
-![](/assets/springcloud/SpringCloudStream的2.png)
+![](/assets/springcloud/SpringCloudStream的2.jpg)
 
 
 
 
 
-![](/assets/springcloud/SpringCloudStream的3.png)
+![](/assets/springcloud/SpringCloudStream的3.jpg)
 
-![](/assets/springcloud/SpringCloudStream的4.png)
+![](/assets/springcloud/SpringCloudStream的4.jpg)
 
-![](/assets/springcloud/SpringCloudStream的5.png)
+![](/assets/springcloud/SpringCloudStream的5.jpg)
 
 
 
@@ -2296,7 +2296,7 @@ GlobalFilter,全局过滤器:
 
 ### ==**Spring Cloud Stream是怎么屏蔽底层差异的?**==
 
-![](/assets/springcloud/SpringCloudStream的6.png)
+![](/assets/springcloud/SpringCloudStream的6.jpg)
 
 
 
@@ -2304,11 +2304,11 @@ GlobalFilter,全局过滤器:
 
 **绑定器:**
 
-![](/assets/springcloud/SpringCloudStream的7.png)
+![](/assets/springcloud/SpringCloudStream的7.jpg)
 
-![](/assets/springcloud/SpringCloudStream的8.png)
+![](/assets/springcloud/SpringCloudStream的8.jpg)
 
-![](/assets/springcloud/SpringCloudStream的9.png)
+![](/assets/springcloud/SpringCloudStream的9.jpg)
 
 
 
@@ -2316,7 +2316,7 @@ GlobalFilter,全局过滤器:
 
 ### **Spring Cloud Streamd 通信模式:**
 
-![](/assets/springcloud/SpringCloudStream的10.png)![](/assets/springcloud/SpringCloudStream的11.png)
+![](/assets/springcloud/SpringCloudStream的10.jpg)![](/assets/springcloud/SpringCloudStream的11.jpg)
 
 
 
@@ -2324,11 +2324,11 @@ GlobalFilter,全局过滤器:
 
 ### Spring Cloud Stream的业务流程:
 
-![](/assets/springcloud/SpringCloudStream的12.png)
+![](/assets/springcloud/SpringCloudStream的12.jpg)
 
-![](/assets/springcloud/SpringCloudStream的14.png)
+![](/assets/springcloud/SpringCloudStream的14.jpg)
 
-![](/assets/springcloud/SpringCloudStream的13.png)
+![](/assets/springcloud/SpringCloudStream的13.jpg)
 
 ```java
 类似flume中的channel,source,sink  估计是借鉴(抄袭)的
@@ -2344,7 +2344,7 @@ GlobalFilter,全局过滤器:
 
 ### 常用注解和api:
 
-![](/assets/springcloud/SpringCloudStream的15.png)
+![](/assets/springcloud/SpringCloudStream的15.jpg)
 
 
 
@@ -2354,7 +2354,7 @@ GlobalFilter,全局过滤器:
 
 需要创建三个项目,一个生产者,两个消费者
 
-![](/assets/springcloud/SpringCloudStream的16.png)
+![](/assets/springcloud/SpringCloudStream的16.jpg)
 
 ### 1,创建生产者
 
@@ -2364,19 +2364,19 @@ GlobalFilter,全局过滤器:
 
 ![image-20200415114816133](/assets/springcloud/SpringCloudStream的17)
 
-![](/assets/springcloud/SpringCloudStream的18.png)
+![](/assets/springcloud/SpringCloudStream的18.jpg)
 
 #### 3,主启动类
 
-![](/assets/springcloud/SpringCloudStream的19.png)
+![](/assets/springcloud/SpringCloudStream的19.jpg)
 
 #### 4,service和实现类
 
 service定义发送消息
 
-![](/assets/springcloud/SpringCloudStream的20.png)
+![](/assets/springcloud/SpringCloudStream的20.jpg)
 
-![](/assets/springcloud/SpringCloudStream的21.png)
+![](/assets/springcloud/SpringCloudStream的21.jpg)
 
 **这里,就会调用send方法,将消息发送给channel,**
 
@@ -2384,7 +2384,7 @@ service定义发送消息
 
 #### 5,controller
 
-![](/assets/springcloud/SpringCloudStream的22.png)
+![](/assets/springcloud/SpringCloudStream的22.jpg)
 
 #### 6,可以测试
 
@@ -2412,17 +2412,17 @@ service定义发送消息
 
 **==input==就表示,当前服务是一个消费者,需要消费消息,下面就是指定消费哪个Exchange中的消息**
 
-![](/assets/springcloud/SpringCloudStream的23.png)
+![](/assets/springcloud/SpringCloudStream的23.jpg)
 
-![](/assets/springcloud/SpringCloudStream的24.png)
+![](/assets/springcloud/SpringCloudStream的24.jpg)
 
 #### 3,主启动类
 
-![](/assets/springcloud/SpringCloudStream的25.png)
+![](/assets/springcloud/SpringCloudStream的25.jpg)
 
 #### 4,业务类(消费数据)
 
-![](/assets/springcloud/SpringCloudStream的26.png)
+![](/assets/springcloud/SpringCloudStream的26.jpg)
 
 **生产者发送消息时,使用send方法发送,send方法发送的是一个个Message,里面封装了数据**
 
@@ -2432,7 +2432,7 @@ service定义发送消息
 
 **此时使用生产者生产消息**
 
-![](/assets/springcloud/SpringCloudStream的27.png)
+![](/assets/springcloud/SpringCloudStream的27.jpg)
 
 ==可以看到,消费者已经接收到消息了==
 
@@ -2466,17 +2466,17 @@ service定义发送消息
 
 但是此时查询消费者,发现8802,8803==都消费到了同一条数据==
 
-![](/assets/springcloud/SpringCloudStream的28.png)
+![](/assets/springcloud/SpringCloudStream的28.jpg)
 
-![](/assets/springcloud/SpringCloudStream的29.png)
+![](/assets/springcloud/SpringCloudStream的29.jpg)
 
 #### 1,自定义分组
 
 **修改8802,8803的配置文件**
 
-![](/assets/springcloud/SpringCloudStream的30.png)
+![](/assets/springcloud/SpringCloudStream的30.jpg)
 
-![](/assets/springcloud/SpringCloudStream的31 - 副本.png)
+![](/assets/springcloud/SpringCloudStream的31 - 副本.jpg)
 
 **现在将8802,8803都分到了A组**
 
@@ -2484,11 +2484,11 @@ service定义发送消息
 
 **然后此时生产者生产两条消息**
 
-![](/assets/springcloud/SpringCloudStream的33.png)
+![](/assets/springcloud/SpringCloudStream的33.jpg)
 
-![](/assets/springcloud/SpringCloudStream的34.png)
+![](/assets/springcloud/SpringCloudStream的34.jpg)
 
-![](/assets/springcloud/SpringCloudStream的35.png)
+![](/assets/springcloud/SpringCloudStream的35.jpg)
 
 **可以看到,每人只消费了一条消息,并且没有重复消费**
 
@@ -2541,11 +2541,11 @@ service定义发送消息
 
 **sleuth要解决的问题:**
 
-![](/assets/springcloud/sleuth的1.png)
+![](/assets/springcloud/sleuth的1.jpg)
 
 **而来sleuth就是用于追踪每个请求的整体链路**
 
-![](/assets/springcloud/sleuth的2.png)
+![](/assets/springcloud/sleuth的2.jpg)
 
 
 
@@ -2553,7 +2553,7 @@ service定义发送消息
 
 #### 1,安装zipkin:
 
-![](/assets/springcloud/sleuth的3.png)
+![](/assets/springcloud/sleuth的3.jpg)
 
 **运行jar包**
 
@@ -2563,17 +2563,17 @@ service定义发送消息
 
 ​           localhost:9411/zipkin/
 
-![](/assets/springcloud/sleuth的4.png)
+![](/assets/springcloud/sleuth的4.jpg)
 
 
 
 **一条链路完整图片:**
 
-![](/assets/springcloud/sleuth的5.png)
+![](/assets/springcloud/sleuth的5.jpg)
 
 **精简版:**
 
-![](/assets/springcloud/sleuth的6.png)
+![](/assets/springcloud/sleuth的6.jpg)
 
 **可以看到,类似链表的形式**
 
@@ -2593,13 +2593,13 @@ service定义发送消息
 
 **引入pom:**
 
-![](/assets/springcloud/sleuth的7.png)
+![](/assets/springcloud/sleuth的7.jpg)
 
 这个包虽然叫zipkin但是,里面包含了zpikin与sleuth
 
 **修改配置文件:**
 
-![](/assets/springcloud/sleuth的8.png)
+![](/assets/springcloud/sleuth的8.jpg)
 
 
 
@@ -2625,7 +2625,7 @@ service定义发送消息
 
 启动7001.8001,80,9411
 
-![](/assets/springcloud/sleuth的9.png)
+![](/assets/springcloud/sleuth的9.jpg)
 
 
 
@@ -2647,7 +2647,7 @@ service定义发送消息
 
 ==支持的功能==
 
-![](/assets/springcloud/Alibaba的1.png)
+![](/assets/springcloud/Alibaba的1.jpg)
 
 几乎可以将之前的Spring Cloud代替
 
@@ -2658,7 +2658,7 @@ service定义发送消息
 
 
 ==具体组件==:
-![](/assets/springcloud/Alibaba的2.png)
+![](/assets/springcloud/Alibaba的2.jpg)
 
 
 
@@ -2718,9 +2718,9 @@ service定义发送消息
 
 父项目管理alibaba的依赖:
 
-![](/assets/springcloud/Alibaba的4.png)
+![](/assets/springcloud/Alibaba的4.jpg)
 
-![](/assets/springcloud/Alibaba的3.png)
+![](/assets/springcloud/Alibaba的3.jpg)
 
 ==9001的pom==:
 
@@ -2728,15 +2728,15 @@ service定义发送消息
 
 #### 2,配置文件
 
-![](/assets/springcloud/Alibaba的5.png)
+![](/assets/springcloud/Alibaba的5.jpg)
 
 #### 3,启动类
 
-![](/assets/springcloud/Alibaba的6.png)
+![](/assets/springcloud/Alibaba的6.jpg)
 
 #### 4,controller:
 
-![](/assets/springcloud/Alibaba的7.png)
+![](/assets/springcloud/Alibaba的7.jpg)
 
 #### 5,测试
 
@@ -2770,7 +2770,7 @@ service定义发送消息
 
 #### 2,配置文件
 
-![](/assets/springcloud/Alibaba的8.png)
+![](/assets/springcloud/Alibaba的8.jpg)
 
 **这个server-url的作用是,我们在controller,需要使用RestTempalte远程调用9001,**
 
@@ -2780,17 +2780,17 @@ service定义发送消息
 
 #### 3,主启动类
 
-![](/assets/springcloud/Alibaba的9.png)
+![](/assets/springcloud/Alibaba的9.jpg)
 
 #### 4,编写配置类
 
 ​   ==因为Naocs要使用Ribbon进行负载均衡,那么就需要使用RestTemplate==
 
-![](/assets/springcloud/Alibaba的10.png)
+![](/assets/springcloud/Alibaba的10.jpg)
 
 #### 5,controller:
 
-![](/assets/springcloud/Alibaba的11.png)
+![](/assets/springcloud/Alibaba的11.jpg)
 
 
 
@@ -2806,9 +2806,9 @@ service定义发送消息
 
 Nacos它既可以支持CP,也可以支持AP,可以切换
 
-![](/assets/springcloud/Alibaba的12.png)
+![](/assets/springcloud/Alibaba的12.jpg)
 
-![](/assets/springcloud/Alibaba的13.png)
+![](/assets/springcloud/Alibaba的13.jpg)
 
 ==下面这个curl命令,就是切换模式==
 
@@ -2818,7 +2818,7 @@ Nacos它既可以支持CP,也可以支持AP,可以切换
 
 ### 使用Nacos作为配置中心:
 
-![](/assets/springcloud/Alibaba的14.png)
+![](/assets/springcloud/Alibaba的14.jpg)
 
 **==需要创建配置中心的客户端模块==**
 
@@ -2832,23 +2832,23 @@ cloudalibaba-Nacos-config-client-3377
 
 ​           主要是为了可以与spring clodu config无缝迁移
 
-![](/assets/springcloud/Alibaba的15.png)
+![](/assets/springcloud/Alibaba的15.jpg)
 
 ```java
 可以看到
 ```
 
-![](/assets/springcloud/Alibaba的16.png)
+![](/assets/springcloud/Alibaba的16.jpg)
 
 
 
 #### 3,主启动类
 
-![](/assets/springcloud/Alibaba的18.png)
+![](/assets/springcloud/Alibaba的18.jpg)
 
 #### 4,controller
 
-![](/assets/springcloud/Alibaba的17.png)
+![](/assets/springcloud/Alibaba的17.jpg)
 
 ```java
 可以看到,这里也添加了@RefreshScope
@@ -2856,19 +2856,19 @@ cloudalibaba-Nacos-config-client-3377
   
 ```
 
-![](/assets/springcloud/Alibaba的19.png)
+![](/assets/springcloud/Alibaba的19.jpg)
 
 #### 5,在Nacos添加配置信息:
 
 ==**Nacos的配置规则:**==
 
-![](/assets/springcloud/Alibaba的20.png)
+![](/assets/springcloud/Alibaba的20.jpg)
 
 **配置规则,就是我们在客户端如何指定读取配置文件,配置文件的命名的规则**
 
 默认的命名方式:
 
-![](/assets/springcloud/Alibaba的21.png)
+![](/assets/springcloud/Alibaba的21.jpg)
 
 ```java
 prefix:
@@ -2881,15 +2881,15 @@ file-extension
      就是当前文件的格式(后缀),目前只支持yml和properties
 ```
 
-![](/assets/springcloud/Alibaba的24.png)
+![](/assets/springcloud/Alibaba的24.jpg)
 
-![](/assets/springcloud/Alibaba的25.png)
+![](/assets/springcloud/Alibaba的25.jpg)
 
 ==在web UI上创建配置文件:==
 
-![](/assets/springcloud/Alibaba的22.png)
+![](/assets/springcloud/Alibaba的22.jpg)
 
-![](/assets/springcloud/Alibaba的23.png)
+![](/assets/springcloud/Alibaba的23.jpg)
 
 注意,DataId就是配置文件名字:
 
@@ -2901,7 +2901,7 @@ file-extension
 
 访问3377
 
-![](/assets/springcloud/Alibaba的26.png)
+![](/assets/springcloud/Alibaba的26.jpg)
 
 **拿到了配置文件中的值**
 
@@ -2921,25 +2921,25 @@ file-extension
 
 ### Nacos配置中心之分类配置:
 
-![](/assets/springcloud/Alibaba的27.png)
+![](/assets/springcloud/Alibaba的27.jpg)
 
 
 
 
 
-![](/assets/springcloud/Alibaba的28.png)
+![](/assets/springcloud/Alibaba的28.jpg)
 
-![](/assets/springcloud/Alibaba的29.png)
+![](/assets/springcloud/Alibaba的29.jpg)
 
 NameSpace默认有一个:public名称空间
 
 这三个类似java的: 包名 + 类名 + 方法名
 
-![](/assets/springcloud/Alibaba的30.png)
+![](/assets/springcloud/Alibaba的30.jpg)
 
 
 
-![](/assets/springcloud/Alibaba的31.png)
+![](/assets/springcloud/Alibaba的31.jpg)
 
 
 
@@ -2947,15 +2947,15 @@ NameSpace默认有一个:public名称空间
 
 #### 1,配置不同DataId:
 
-![](/assets/springcloud/Alibaba的32.png)
+![](/assets/springcloud/Alibaba的32.jpg)
 
-![](/assets/springcloud/Alibaba的33.png)
+![](/assets/springcloud/Alibaba的33.jpg)
 
 
 
 ​   ==通过配置文件,实现多环境的读取:==
 
-![](/assets/springcloud/Alibaba的34.png)
+![](/assets/springcloud/Alibaba的34.jpg)
 
 ```java
 此时,改为dev,就会读取dev的配置文件,改为test,就会读取test的配置文件
@@ -2969,19 +2969,19 @@ NameSpace默认有一个:public名称空间
 
 直接在新建配置文件时指定组
 
-![](/assets/springcloud/Alibaba的35.png)
+![](/assets/springcloud/Alibaba的35.jpg)
 
-![](/assets/springcloud/Alibaba的36.png)
+![](/assets/springcloud/Alibaba的36.jpg)
 
 
 
 ==在客户端配置,使用指定组的配置文件:==
 
-![](/assets/springcloud/Alibaba的37.png)
+![](/assets/springcloud/Alibaba的37.jpg)
 
 **这两个配置文件都要修改**
 
-![](/assets/springcloud/Alibaba的38.png)
+![](/assets/springcloud/Alibaba的38.jpg)
 
 ​   
 
@@ -2995,13 +2995,13 @@ NameSpace默认有一个:public名称空间
 
 #### 配置不同的namespace:
 
-![](/assets/springcloud/Alibaba的39.png)
+![](/assets/springcloud/Alibaba的39.jpg)
 
-![](/assets/springcloud/Alibaba的42.png)
+![](/assets/springcloud/Alibaba的42.jpg)
 
 ==客户端配置使用不同名称空间:==
 
-![](/assets/springcloud/Alibaba的41.png)
+![](/assets/springcloud/Alibaba的41.jpg)
 
 **要通过命名空间id指定**
 
@@ -3017,13 +3017,13 @@ OK,测试
 
 ### Nacos集群和持久化配置:
 
-![](/assets/springcloud/Alibaba的45.png)
+![](/assets/springcloud/Alibaba的45.jpg)
 
 Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,就不能使用自己的数据库
 
 ​           不然每个节点一个数据库,那么数据就不统一了,需要使用外部的mysql
 
-![](/assets/springcloud/Alibaba的43.png)
+![](/assets/springcloud/Alibaba的43.jpg)
 
 
 
@@ -3037,7 +3037,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 **2,修改Nacos安装目录下的安排application.properties,添加:**
 
-![](/assets/springcloud/Alibaba的46.png)
+![](/assets/springcloud/Alibaba的46.jpg)
 
 
 
@@ -3055,7 +3055,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 ==官方架构图:==
 
-![](/assets/springcloud/Alibaba的45.png)
+![](/assets/springcloud/Alibaba的45.jpg)
 
 **需要一个Nginx作为VIP**
 
@@ -3075,15 +3075,15 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 ​           这里使用3333,4444,5555作为三个Nacos节点监听的端口
 
-![](/assets/springcloud/Alibaba的47.png)
+![](/assets/springcloud/Alibaba的47.jpg)
 
 5,我们这里就不配置在不同节点上了,就放在一个节点上
 
 ​           既然要在一个节点上启动不同Nacos实例,就要修改startup.sh,使其根据不同端口启动不同Nacos实例
 
-![](/assets/springcloud/Alibaba的48.png)
+![](/assets/springcloud/Alibaba的48.jpg)
 
-![](/assets/springcloud/Alibaba的49.png)
+![](/assets/springcloud/Alibaba的49.jpg)
 
 可以看到,这个脚本就是通过jvm启动nacos
 
@@ -3095,7 +3095,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 6,配置Nginx:
 
-​           ![](/assets/springcloud/Alibaba的50.png)
+​           ![](/assets/springcloud/Alibaba的50.jpg)
 
 7,启动Nacos:
             ./startup.sh -p 3333
@@ -3117,13 +3117,13 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 
 9,将微服务注册到Nacos集群:
-![](/assets/springcloud/Alibaba的51.png)
+![](/assets/springcloud/Alibaba的51.jpg)
 
 10,进入Nacos的web界面
 
 ​       可以看到,已经注册成功
 
-![](/assets/springcloud/Alibaba的52.png)
+![](/assets/springcloud/Alibaba的52.jpg)
 
 
 
@@ -3139,9 +3139,9 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 实现熔断与限流,就是Hystrix
 
-![](/assets/springcloud/Alibaba的53.png)
+![](/assets/springcloud/Alibaba的53.jpg)
 
-​   ![](/assets/springcloud/Alibaba的54.png)
+​   ![](/assets/springcloud/Alibaba的54.jpg)
 
 ### ==使用sentinel:==
 
@@ -3173,15 +3173,15 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 2.   配置文件
 
-    ![](/assets/springcloud/Alibaba的55.png)
+    ![](/assets/springcloud/Alibaba的55.jpg)
 
 3.   主启动类
 
-    ![](/assets/springcloud/Alibaba的56.png)
+    ![](/assets/springcloud/Alibaba的56.jpg)
 
 4.   controller\
 
-    ![](/assets/springcloud/sentinel的1.png)
+    ![](/assets/springcloud/sentinel的1.jpg)
 
 5.   到这里就可以启动8401
 
@@ -3191,7 +3191,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     ​   访问localhost/8401/testA
 
-    ![](/assets/springcloud/sentinel的2.png)
+    ![](/assets/springcloud/sentinel的2.jpg)
 
 6.   可以看到.已经开始监听了
 
@@ -3203,31 +3203,31 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 流量限制控制规则
 
-![](/assets/springcloud/sentinel的7.png)
+![](/assets/springcloud/sentinel的7.jpg)
 
-![](/assets/springcloud/sentinel的3.png)
+![](/assets/springcloud/sentinel的3.jpg)
 
 
 
-![](/assets/springcloud/sentinel的4.png)
+![](/assets/springcloud/sentinel的4.jpg)
 
 ==流控模式==:
 
 1.   直接快速失败
 
-    ![](/assets/springcloud/sentinel的9.png)
+    ![](/assets/springcloud/sentinel的9.jpg)
 
-    ![](/assets/springcloud/sentinel的5.png)
+    ![](/assets/springcloud/sentinel的5.jpg)
 
        ==直接失败的效果:==
 
-    ![](/assets/springcloud/sentinel的6.png)
+    ![](/assets/springcloud/sentinel的6.jpg)
 
 2.  线程数:
 
-    ​       ![](/assets/springcloud/sentinel的8.png)
+    ​       ![](/assets/springcloud/sentinel的8.jpg)
 
-    ​   ![](/assets/springcloud/sentinel的10.png)
+    ​   ![](/assets/springcloud/sentinel的10.jpg)
 
     ```
     比如a请求过来,处理很慢,在一直处理,此时b请求又过来了
@@ -3235,17 +3235,17 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
             那么就会报错
     ```
 
-    ![](/assets/springcloud/sentinel的11.png)
+    ![](/assets/springcloud/sentinel的11.jpg)
 
     
 
 3.   关联:
 
-     ![](/assets/springcloud/sentinel的12.png)
+     ![](/assets/springcloud/sentinel的12.jpg)
 
      ==应用场景:  比如**支付接口**达到阈值,就要限流下**订单的接口**,防止一直有订单==
 
-     ![](/assets/springcloud/sentinel的13.png)
+     ![](/assets/springcloud/sentinel的13.jpg)
 
      **当testA达到阈值,qps大于1,就让testB之后的请求直接失败**
 
@@ -3258,21 +3258,21 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 5.   预热Warm up:
 
-    ​    ![](/assets/springcloud/sentinel的14.png)
+    ​    ![](/assets/springcloud/sentinel的14.jpg)
 
-      ![](/assets/springcloud/sentinel的15.png)
+      ![](/assets/springcloud/sentinel的15.jpg)
 
-     ![](/assets/springcloud/sentinel的16.png)
+     ![](/assets/springcloud/sentinel的16.jpg)
 
      ==应用场景==
 
-     ![](/assets/springcloud/sentinel的17.png)
+     ![](/assets/springcloud/sentinel的17.jpg)
 
 6.   排队等待:
 
-    ![](/assets/springcloud/sentinel的18.png)
+    ![](/assets/springcloud/sentinel的18.jpg)
 
-    ![](/assets/springcloud/sentinel的19.png)
+    ![](/assets/springcloud/sentinel的19.jpg)
 
 
 
@@ -3286,17 +3286,17 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 **就是熔断降级**
 
-![](/assets/springcloud/sentinel的21.png)
+![](/assets/springcloud/sentinel的21.jpg)
 
-![](/assets/springcloud/sentinel的20.png)
-
-
+![](/assets/springcloud/sentinel的20.jpg)
 
 
 
-![](/assets/springcloud/sentinel的22.png)
 
-![](/assets/springcloud/sentinel的23.png)
+
+![](/assets/springcloud/sentinel的22.jpg)
+
+![](/assets/springcloud/sentinel的23.jpg)
 
 
 
@@ -3304,13 +3304,13 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 新增一个请求方法用于测试
 
-![](/assets/springcloud/sentinel的24.png)
+![](/assets/springcloud/sentinel的24.jpg)
 
 ==配置RT:==
 
 ​               这里配置的PT,默认是秒级的平均响应时间
 
-![](/assets/springcloud/sentinel的25.png)
+![](/assets/springcloud/sentinel的25.jpg)
 
 默认计算平均时间是: 1秒类进入5个请求,并且响应的平均值超过阈值(这里的200ms),就报错]
 
@@ -3318,9 +3318,9 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 ==测试==
 
-![](/assets/springcloud/sentinel的27.png)
+![](/assets/springcloud/sentinel的27.jpg)
 
-![](/assets/springcloud/sentinel的26.png)
+![](/assets/springcloud/sentinel的26.jpg)
 
 **默认熔断后.就直接抛出异常**
 
@@ -3332,25 +3332,25 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 #### 2,异常比例:
 
-![](/assets/springcloud/sentinel的28.png)
+![](/assets/springcloud/sentinel的28.jpg)
 
 修改请求方法
 
-![](/assets/springcloud/sentinel的29.png)
+![](/assets/springcloud/sentinel的29.jpg)
 
 配置:
 
-![](/assets/springcloud/sentinel的31.png)
+![](/assets/springcloud/sentinel的31.jpg)
 
 
 
 ==如果没触发熔断,这正常抛出异常==:
 
-![](/assets/springcloud/sentinel的32.png)
+![](/assets/springcloud/sentinel的32.jpg)
 
 ==触发熔断==:
 
-![](/assets/springcloud/sentinel的33.png)
+![](/assets/springcloud/sentinel的33.jpg)
 
 
 
@@ -3362,9 +3362,9 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 #### 3, 异常数:
 
-![](/assets/springcloud/sentinel的34.png)
+![](/assets/springcloud/sentinel的34.jpg)
 
-![](/assets/springcloud/sentinel的35.png)
+![](/assets/springcloud/sentinel的35.jpg)
 
 一分钟之内,有5个请求发送异常,进入熔断
 
@@ -3378,9 +3378,9 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 ### 热点规则:
 
-![](/assets/springcloud/sentinel的36.png)
+![](/assets/springcloud/sentinel的36.jpg)
 
-​   ![](/assets/springcloud/sentinel的37.png)
+​   ![](/assets/springcloud/sentinel的37.jpg)
 
 比如:
 
@@ -3394,35 +3394,35 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 ==如何自定义降级方法,而不是默认的抛出异常?==
 
-![](/assets/springcloud/sentinel的38.png)
+![](/assets/springcloud/sentinel的38.jpg)
 
 **使用@SentinelResource直接实现降级方法,它等同Hystrix的@HystrixCommand**
 
-![](/assets/springcloud/sentinel的39.png)
+![](/assets/springcloud/sentinel的39.jpg)
 
 
 
 ==定义热点规则:==
 
- ![](/assets/springcloud/sentinel的40.png)
+ ![](/assets/springcloud/sentinel的40.jpg)
 
-![](/assets/springcloud/sentinel的42.png)
+![](/assets/springcloud/sentinel的42.jpg)
 
 **此时我们访问/testHotkey并且带上才是p1**
 
 ​           如果qps大于1,就会触发我们定义的降级方法
 
-![](/assets/springcloud/sentinel的41.png)
+![](/assets/springcloud/sentinel的41.jpg)
 
 **但是我们的参数是P2,就没有问题**
 
-![](/assets/springcloud/sentinel的44.png)
+![](/assets/springcloud/sentinel的44.jpg)
 
 
 
 只有带了p1,才可能会触发热点限流
 
-![](/assets/springcloud/sentinel的43.png)
+![](/assets/springcloud/sentinel的43.jpg)
 
 
 
@@ -3430,21 +3430,21 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 #### 2,设置热点规则中的其他选项:
 
-![](/assets/springcloud/sentinel的45.png)
+![](/assets/springcloud/sentinel的45.jpg)
 
 **需求:**
 
-![](/assets/springcloud/sentinel的46.png)
+![](/assets/springcloud/sentinel的46.jpg)
 
 
 
-![](/assets/springcloud/sentinel的47.png)
+![](/assets/springcloud/sentinel的47.jpg)
 
 ==测试==
 
-![](/assets/springcloud/sentinel的48.png)
+![](/assets/springcloud/sentinel的48.jpg)
 
-![](/assets/springcloud/sentinel的49.png)
+![](/assets/springcloud/sentinel的49.jpg)
 
 
 
@@ -3464,7 +3464,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 只有触发热点规则才会降级
 
-![](/assets/springcloud/sentinel的50.png)
+![](/assets/springcloud/sentinel的50.jpg)
 
 
 
@@ -3481,16 +3481,16 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 对整体限流,比如设置qps到达100,这里限流会限制整个系统不可以
 
-*![](/assets/springcloud/sentinel的51.png)*
+*![](/assets/springcloud/sentinel的51.jpg)*
 
 
 
-![](/assets/springcloud/sentinel的52.png)
+![](/assets/springcloud/sentinel的52.jpg)
 
 ==测试==:
-![](/assets/springcloud/sentinel的53.png)
+![](/assets/springcloud/sentinel的53.jpg)
 
-![](/assets/springcloud/sentinel的54.png)
+![](/assets/springcloud/sentinel的54.jpg)
 
 
 
@@ -3512,11 +3512,11 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     添加我们自己的commone包的依赖
 
-    ![](/assets/springcloud/sentinel的55.png)
+    ![](/assets/springcloud/sentinel的55.jpg)
 
 2.   额外创建一个controller类
 
-    ​    ![](/assets/springcloud/sentinel的56.png)
+    ​    ![](/assets/springcloud/sentinel的56.jpg)
 
      
 
@@ -3526,19 +3526,19 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     **这样也是可以的,也就是不一定要指定访问路径**
 
-    ![](/assets/springcloud/sentinel的57.png)
+    ![](/assets/springcloud/sentinel的57.jpg)
 
 4.   测试.
 
     可以看到已经进入降级方法了
 
-    ![](/assets/springcloud/sentinel的58.png)
+    ![](/assets/springcloud/sentinel的58.jpg)
 
 5.   ==此时我们关闭8401服务==
 
     可以看到,这些定义的规则是临时的,关闭服务,规则就没有了
 
-    ![](/assets/springcloud/sentinel的59.png)
+    ![](/assets/springcloud/sentinel的59.jpg)
 
 
 
@@ -3552,27 +3552,27 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 1.  ==单独创建一个类,用于处理限流==
 
-    ![](/assets/springcloud/sentinel的的1.png)
+    ![](/assets/springcloud/sentinel的的1.jpg)
 
 2.  ==在controller中,指定使用自定义类中的方法作为降级方法==
 
-    ![](/assets/springcloud/sentinel的的2.png)
+    ![](/assets/springcloud/sentinel的的2.jpg)
 
 3.   ==Sentinel中定义流控规则==:
 
      这里资源名,是以url指定,也可以使用@SentinelResource注解value的值指定
 
-     ![](/assets/springcloud/sentinel的的5.png)
+     ![](/assets/springcloud/sentinel的的5.jpg)
 
      
 
 4.  ==测试==:
 
-    ![](/assets/springcloud/sentinel的的3.png)
+    ![](/assets/springcloud/sentinel的的3.jpg)
 
 5.  ==整体==:
 
-    ![](/assets/springcloud/sentinel的的4.png)
+    ![](/assets/springcloud/sentinel的的4.jpg)
 
 6.   
 
@@ -3584,9 +3584,9 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 
 
-![](/assets/springcloud/sentinel的的7.png)
+![](/assets/springcloud/sentinel的的7.jpg)
 
-![](/assets/springcloud/sentinel的的6.png)
+![](/assets/springcloud/sentinel的的6.jpg)
 
 
 
@@ -3610,7 +3610,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     2.   配置文件
 
-        ![](/assets/springcloud/sentinel的的8.png)*
+        ![](/assets/springcloud/sentinel的的8.jpg)*
 
     3.   主启动类 
 
@@ -3629,7 +3629,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     4.   controller
 
-        ![](/assets/springcloud/sentinel的的9.png)
+        ![](/assets/springcloud/sentinel的的9.jpg)
 
          **然后启动9003.9004**
 
@@ -3641,31 +3641,31 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     2.   配置文件
 
-        ![](/assets/springcloud/sentinel的的10.png)
+        ![](/assets/springcloud/sentinel的的10.jpg)
 
     3.   主启动类
 
-        ![](/assets/springcloud/sentinel的的11.png)
+        ![](/assets/springcloud/sentinel的的11.jpg)
 
     4.  配置类
 
-        ![](/assets/springcloud/sentinel的的12.png)
+        ![](/assets/springcloud/sentinel的的12.jpg)
 
     5.   controller
 
-        ![](/assets/springcloud/sentinel的的13.png)
+        ![](/assets/springcloud/sentinel的的13.jpg)
 
         
 
     6.   **==为业务方法添加fallback来指定降级方法==**:
 
-        ![](/assets/springcloud/sentinel的的14.png)
+        ![](/assets/springcloud/sentinel的的14.jpg)
 
         ​   ==重启order==
 
         测试:
 
-         ![](/assets/springcloud/sentinel的的15.png)
+         ![](/assets/springcloud/sentinel的的15.jpg)
 
          
 
@@ -3679,11 +3679,11 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     7.   **==为业务方法添加blockHandler,看看是什么效果==**
 
-         ![](/assets/springcloud/sentinel的的16.png)
+         ![](/assets/springcloud/sentinel的的16.jpg)
 
          **重启84,访问业务方法:**
 
-        ![](/assets/springcloud/sentinel的的17.png)
+        ![](/assets/springcloud/sentinel的的17.jpg)
 
          可以看到.,直接报错了,并没有降级
 
@@ -3693,15 +3693,15 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     8.   **==如果fallback和blockHandler都配置呢?==**]
 
-         ![](/assets/springcloud/sentinel的的18.png)
+         ![](/assets/springcloud/sentinel的的18.jpg)
 
          **设置qps规则,阈值1**
 
-         ![](/assets/springcloud/sentinel的的19.png)
+         ![](/assets/springcloud/sentinel的的19.jpg)
 
          ==测试:==
 
-        ![](/assets/springcloud/sentinel的的20.png)
+        ![](/assets/springcloud/sentinel的的20.jpg)
 
          
 
@@ -3709,13 +3709,13 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     9.  **==@SentinelResource还有一个属性,exceptionsToIgnore==**
 
-         ![](/assets/springcloud/sentinel的的21.png)
+         ![](/assets/springcloud/sentinel的的21.jpg)
 
          **exceptionsToIgnore指定一个异常类,**
 
         ​                   **表示如果当前方法抛出的是指定的异常,不降级,直接对用户抛出异常**
 
-         ![](/assets/springcloud/sentinel的的22.png)
+         ![](/assets/springcloud/sentinel的的22.jpg)
 
          
 
@@ -3733,31 +3733,31 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     1.  pom
 
-         ![](/assets/springcloud/sentinel的的23.png)
+         ![](/assets/springcloud/sentinel的的23.jpg)
 
     2.  配置文件
 
-         ![](/assets/springcloud/sentinel的的24.png)
+         ![](/assets/springcloud/sentinel的的24.jpg)
 
     3.  主启动类,也要修改
 
-         ![](/assets/springcloud/sentinel的的25.png)
+         ![](/assets/springcloud/sentinel的的25.jpg)
 
     4.  创建远程调用pay模块的接口
 
-         ![](/assets/springcloud/sentinel的的26.png)
+         ![](/assets/springcloud/sentinel的的26.jpg)
 
     5.  创建这个接口的实现类,用于降级
 
-         ![](/assets/springcloud/sentinel的的27.png)
+         ![](/assets/springcloud/sentinel的的27.jpg)
 
     6.   再次修改接口,指定降级类
 
-         ![](/assets/springcloud/sentinel的的28.png)
+         ![](/assets/springcloud/sentinel的的28.jpg)
 
     7.   controller添加远程调用
 
-         ![](/assets/springcloud/sentinel的的29.png)
+         ![](/assets/springcloud/sentinel的的29.jpg)
 
     8.  测试
 
@@ -3765,7 +3765,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     9.   测试,如果关闭9003.看看84会不会降级
 
-         ![](/assets/springcloud/sentinel的的30.png)
+         ![](/assets/springcloud/sentinel的的30.jpg)
 
         **可以看到,正常降级了**
 
@@ -3773,7 +3773,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 **熔断框架比较**
 
-![](/assets/springcloud/sentinel的的31.png)
+![](/assets/springcloud/sentinel的的31.jpg)
 
 
 
@@ -3787,7 +3787,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 默认规则是临时存储的,重启sentinel就会消失
 
-![](/assets/springcloud/sentinel的的32.png)
+![](/assets/springcloud/sentinel的的32.jpg)
 
 **这里以之前的8401为案例进行修改:**
 
@@ -3809,7 +3809,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     添加:
 
-     ![](/assets/springcloud/sentinel的的33.png)
+     ![](/assets/springcloud/sentinel的的33.jpg)
 
      **实际上就是指定,我们的规则要保证在哪个名称空间的哪个分组下**
 
@@ -3819,11 +3819,11 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 3.   **在nacos中创建一个配置文件,dataId就是上面配置文件中指定的**
 
-     ![](/assets/springcloud/sentinel的的34.png)
+     ![](/assets/springcloud/sentinel的的34.jpg)
 
      ==json中,这些属性的含义:==
 
-    ​   ![](/assets/springcloud/sentinel的的35.png)
+    ​   ![](/assets/springcloud/sentinel的的35.jpg)
 
      
 
@@ -3831,19 +3831,19 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 4.   启动8401:
 
-     ![](/assets/springcloud/sentinel的的36.png)
+     ![](/assets/springcloud/sentinel的的36.jpg)
 
      可以看到,直接读取到了规则
 
 5.   关闭8401
 
-    ![](/assets/springcloud/sentinel的的37.png)
+    ![](/assets/springcloud/sentinel的的37.jpg)
 
 6.   此时重启8401,如果sentinel又可以正常读取到规则,那么证明持久化成功
 
     可以看到,又重新出现了
 
-     ![](/assets/springcloud/sentinel的的38.png)
+     ![](/assets/springcloud/sentinel的的38.jpg)
 
     
 
@@ -3875,11 +3875,11 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 **分布式事务中的一些概念,也是seata中的概念:**
 
-​       ![](/assets/springcloud/seala.png)
+​       ![](/assets/springcloud/seala.jpg)
 
-![](/assets/springcloud/seala的2.png)
+![](/assets/springcloud/seala的2.jpg)
 
-![](/assets/springcloud/seala的3.png)
+![](/assets/springcloud/seala的3.jpg)
 
 
 
@@ -3891,11 +3891,11 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 2.  **修改file.conf**
 
-     ![](/assets/springcloud/seala的4.png)
+     ![](/assets/springcloud/seala的4.jpg)
 
-     ![](/assets/springcloud/seala的5.png)
+     ![](/assets/springcloud/seala的5.jpg)
 
-     ![](/assets/springcloud/seala的6.png)
+     ![](/assets/springcloud/seala的6.jpg)
 
 3.   **mysql建库建表**
 
@@ -3907,7 +3907,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
     配置seata作为微服务,指定注册中心
 
-    ![](/assets/springcloud/seala的7.png)
+    ![](/assets/springcloud/seala的7.jpg)
 
 5.   启动
 
@@ -3919,7 +3919,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 **业务说明**
 
-![](/assets/springcloud/seala的8.png)
+![](/assets/springcloud/seala的8.jpg)
 
 下单--->库存--->账号余额
 
@@ -3927,15 +3927,15 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 1.  创建三个数据库
 
-    ![](/assets/springcloud/seala的9.png)
+    ![](/assets/springcloud/seala的9.jpg)
 
 2.   创建对应的表
 
-    ![](/assets/springcloud/seala的10.png)
+    ![](/assets/springcloud/seala的10.jpg)
 
 3.   创建回滚日志表,方便查看
 
-    ![](/assets/springcloud/seala的11.png)
+    ![](/assets/springcloud/seala的11.jpg)
 
     **注意==每个库都要执行一次==这个sql,生成回滚日志表**
 
@@ -4423,7 +4423,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
          
         ```
 
-        ![](/assets/springcloud/seala的12.png)
+        ![](/assets/springcloud/seala的12.jpg)
 
          
 
@@ -4522,11 +4522,11 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 5.   **全局创建完成后,首先测试不加seata**
 
-     ![](/assets/springcloud/seala的14.png)
+     ![](/assets/springcloud/seala的14.jpg)
 
      
 
-     ![](/assets/springcloud/seala的13.png)
+     ![](/assets/springcloud/seala的13.jpg)
 
 ​    
 
@@ -4582,25 +4582,25 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 ### setat原理:
 
-![](/assets/springcloud/seala的15.png)
+![](/assets/springcloud/seala的15.jpg)
 
-![](/assets/springcloud/seala的16.png)
+![](/assets/springcloud/seala的16.jpg)
 
 
 
 **seata提供了四个模式:**
 
-![](/assets/springcloud/seala的17.png)
+![](/assets/springcloud/seala的17.jpg)
 
 
 
-![](/assets/springcloud/seala的18.png)
+![](/assets/springcloud/seala的18.jpg)
 
 ==第一阶段:==
 
-![](/assets/springcloud/seala的20.png)
+![](/assets/springcloud/seala的20.jpg)
 
-​   ![](/assets/springcloud/seala的19.png)
+​   ![](/assets/springcloud/seala的19.jpg)
 
 
 
@@ -4608,15 +4608,15 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 ==二阶段之提交==:
 
-![](/assets/springcloud/seala的21.png)
+![](/assets/springcloud/seala的21.jpg)
 
 
 
 ==二阶段之回滚:==
 
-![](/assets/springcloud/seala的22.png)
+![](/assets/springcloud/seala的22.jpg)
 
-![](/assets/springcloud/seala的23.png)
+![](/assets/springcloud/seala的23.jpg)
 
 
 
@@ -4626,7 +4626,7 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 ==断点==:
 
-![](/assets/springcloud/seala的24.png)
+![](/assets/springcloud/seala的24.jpg)
 
 **可以看到,他们的xid全局事务id是一样的,证明他们在一个事务下**
 
@@ -4634,11 +4634,11 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 
 
-![](/assets/springcloud/seala的25.png)
+![](/assets/springcloud/seala的25.jpg)
 
 **before 和 after的原理就是**
 
-![](/assets/springcloud/seala的26.png)
+![](/assets/springcloud/seala的26.jpg)
 
 **在更新数据之前,先解析这个更新sql,然后查询要更新的数据,进行保存**
 
