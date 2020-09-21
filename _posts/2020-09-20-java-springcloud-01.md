@@ -33,12 +33,9 @@ tags: springcloud
 
 ## 2.创建子模块,pay模块
 ![](/assets/springcloud/sc的3.jpg)
-### 1.子模块名字:
-​   cloud_pay_8001
-
-### 2.pom依赖
-
-### 3.创建application.yml
+1. 子模块名字:cloud_pay_8001
+2. pom依赖
+3. 创建application.yml
 
 ```yml
 server:
@@ -61,43 +58,33 @@ mybatis:
             它一般对应我们的实体类所在的包，这个时候会自动取对应包中不包括包名的简单类名作为包括包名的别名。多个package之间可以用逗号或者分号等来进行分隔（value的值一定要是包的全）
 ```
 
-### 4.主启动类    
+4. 主启动类    
+5. 业务类
+    1. sql
+    ![](/assets/springcloud/sc的4.jpg)
 
-### 5.业务类
+    2. 实体类
+    ![](/assets/springcloud/sc的5.jpg)
 
-#### 1.sql
+    3. entity类
+    ![](/assets/springcloud/sc的6.jpg)
 
-![](/assets/springcloud/sc的4.jpg)
+    4. dao层:
+    ![](/assets/springcloud/sc的7.jpg)
 
-#### 2.实体类
+    5. mapper配置文件类,**在resource下,创建mapper/PayMapper.xml**
+    ![](/assets/springcloud/sc的8.jpg)
 
-![](/assets/springcloud/sc的5.jpg)
+    6. 写service和serviceImpl
+    ![](/assets/springcloud/sc的9.jpg)
 
-#### 3.entity类
+    ![sc的9](/assets/springcloud/sc的10.jpg)
 
-![](/assets/springcloud/sc的6.jpg)
+    7. controller
 
-#### 4.dao层:
+    ![](/assets/springcloud/sc的11.jpg)
 
-![](/assets/springcloud/sc的7.jpg)
-
-#### 5.mapper配置文件类
-
-​   **在resource下,创建mapper/PayMapper.xml**
-
-![](/assets/springcloud/sc的8.jpg)
-
-#### 6.写service和serviceImpl
-
-![](/assets/springcloud/sc的9.jpg)
-
-![sc的9](/assets/springcloud/sc的10.jpg)
-
-#### 7.controller
-
-![](/assets/springcloud/sc的11.jpg)
-
-![](/assets/springcloud/sc的12.jpg)
+    ![](/assets/springcloud/sc的12.jpg)
 
 
 ## 3.热部署:
@@ -109,48 +96,31 @@ mybatis:
 ## 4.order模块
 
 ![](/assets/springcloud/sc的3.jpg)
-
-### **1.pom**       
-
-### **2.yml配置文件**
-
+1. pom       
+2. yml配置文件
 ![](/assets/springcloud/order模块1.jpg)
+3. 主启动类
+4. 复制pay模块的实体类,entity类
+5. 写controller类
+    1. 因为这里是消费者类,主要是消费,那么就没有service和dao,需要调用pay模块的方法,并且这里还没有微服务的远程调用,那么如果要调用另外一个模块,则需要使用基本的api调用
+    2. 使用RestTemplate调用pay模块,
+    ​![](/assets/springcloud/order模块2.jpg)
 
-### **3.主启动类**
+    ![](/assets/springcloud/order模块3.jpg)
 
-### **4.复制pay模块的实体类,entity类**
+    3. 将restTemplate注入到容器
+    ![](/assets/springcloud/order模块4.jpg)
 
-### **5.写controller类**
-
-1. 因为这里是消费者类,主要是消费,那么就没有service和dao,需要调用pay模块的方法,并且这里还没有微服务的远程调用,那么如果要调用另外一个模块,则需要使用基本的api调用
-2. 使用RestTemplate调用pay模块,
-
-​![](/assets/springcloud/order模块2.jpg)
-
-![](/assets/springcloud/order模块3.jpg)
-
-3. 将restTemplate注入到容器
-
-![](/assets/springcloud/order模块4.jpg)
-
-4. 编写controller:
-
-![](/assets/springcloud/order模块5.jpg)
-
-
+    4. 编写controller:
+    ![](/assets/springcloud/order模块5.jpg)
 
 ## 5.重构,
-
-新建一个模块,将重复代码抽取到一个公共模块中
-
-### 1.创建commons模块
-
-### 2.抽取公共pom
-
+1. 新建一个模块,将重复代码抽取到一个公共模块中
+2. 创建commons模块
+3. 抽取公共pom
 ![](/assets/springcloud/commons模块.jpg)
 
-### 3.entity和实体类放入commons中
-
+4. entity和实体类放入commons中
 ![](/assets/springcloud/commons模块2.jpg)
 
-### 4.使用mavne,将commone模块打包(install),其他模块引入commons
+5. 使用mavne,将commone模块打包(install),其他模块引入commons

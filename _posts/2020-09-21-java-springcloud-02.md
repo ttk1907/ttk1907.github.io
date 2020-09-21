@@ -9,11 +9,13 @@ tags: springcloud
 * content
 {:toc}
 
-2. 单机版eureka
-3. 集群版eureka
-4. 修改服务主机名和ip在eureka的web上显示
-5. eureka服务发现
-6. Eureka自我保护
+1. 单机版eureka
+2. 集群版eureka
+3. 修改服务主机名和ip在eureka的web上显示
+4. eureka服务发现
+5. Eureka自我保护
+
+
 
 
 # 服务注册与发现
