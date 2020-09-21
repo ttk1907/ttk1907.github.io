@@ -77,13 +77,11 @@ mybatis:
 
     6. 写service和serviceImpl
     ![](/assets/springcloud/sc的9.jpg)
-
     ![sc的9](/assets/springcloud/sc的10.jpg)
 
     7. controller
 
     ![](/assets/springcloud/sc的11.jpg)
-
     ![](/assets/springcloud/sc的12.jpg)
 
 
@@ -105,7 +103,6 @@ mybatis:
     1. 因为这里是消费者类,主要是消费,那么就没有service和dao,需要调用pay模块的方法,并且这里还没有微服务的远程调用,那么如果要调用另外一个模块,则需要使用基本的api调用
     2. 使用RestTemplate调用pay模块,
     ​![](/assets/springcloud/order模块2.jpg)
-
     ![](/assets/springcloud/order模块3.jpg)
 
     3. 将restTemplate注入到容器
@@ -114,7 +111,7 @@ mybatis:
     4. 编写controller:
     ![](/assets/springcloud/order模块5.jpg)
 
-## 5.重构,
+## 5.重构
 1. 新建一个模块,将重复代码抽取到一个公共模块中
 2. 创建commons模块
 3. 抽取公共pom
