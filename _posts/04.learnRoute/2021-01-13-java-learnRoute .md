@@ -27,8 +27,8 @@ tags: study
 4. mysql基础和高级
 5. nosql的学习(Redis、mongodb)
 6. spring-springMVC-Mybatis查缺补漏 + Mybatis Plus
-7. ZooKeeper
-8. Dubbo
+7. ZooKeeper+Dubbo
+8. Nginx
 9. 消息中间件ActiveMQ、RabbitMQ、Kafka
 10. springBoot复习
 11. spring Cloud和spring Cloud ALiBaBa各种组件的学习
