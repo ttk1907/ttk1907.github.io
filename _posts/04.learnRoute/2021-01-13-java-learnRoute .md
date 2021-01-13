@@ -25,7 +25,7 @@ tags: study
 2. 然后是对java基础查缺补漏+高并发多线程
 3. jvm的学习
 4. mysql基础和高级
-5. nosql的学习(Redis、mongodb)
+5. nosql的学习(Redis、MongoDB)
 6. spring-springMVC-Mybatis查缺补漏 + Mybatis Plus
 7. ZooKeeper+Dubbo
 8. Nginx
@@ -40,7 +40,7 @@ tags: study
 
 # 二、笔记
 
-## 一、数据结构与算法
+## 一、数据结构与算法(1.13-?)
 ## 二、Java基础查缺补漏+高并发多线程
 ## 三、Jvm
 ## 四、Mysql基础和高级
