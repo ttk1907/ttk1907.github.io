@@ -41,6 +41,16 @@ tags: study
 # 二、笔记
 
 ## 一、数据结构与算法(1.13-?)
+
+1. [数据结构与算法01-常用数据结构](https://ttk1907.github.io/2021/01/13/java-DataStructureAndAlgorithm01/) : 
+    1. 线性结构与非线性结构
+    2. 稀疏数组
+    3. 队列和数组模拟环形队列
+    4. 链表
+    5. 栈
+2. [数据结构与算法02-常用算法](https://ttk1907.github.io/2021/01/19/java-DataStructureAndAlgorithm02/) : 
+    1. 递归
+
 ## 二、Java基础查缺补漏+高并发多线程
 ## 三、Jvm
 ## 四、Mysql基础和高级
