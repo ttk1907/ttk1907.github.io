@@ -22,9 +22,9 @@ tags: study
 
 ## 学习路线
 1. 数据结构与算法
-2. 然后是对java基础查缺补漏+高并发多线程
-3. jvm的学习
-4. mysql基础和高级
+2. mysql基础和高级
+3. 然后是对java基础查缺补漏+高并发多线程
+4. jvm的学习
 5. nosql的学习(Redis、MongoDB)
 6. spring-springMVC-Mybatis查缺补漏 + Mybatis Plus
 7. Nginx+Netty
@@ -51,9 +51,9 @@ tags: study
 2. [数据结构与算法02-常用算法](https://ttk1907.github.io/2021/01/19/java-DataStructureAndAlgorithm02/) : 
     1. 递归
 
-## 二、Java基础查缺补漏+高并发多线程
-## 三、Jvm
-## 四、Mysql基础和高级
+## 二、Mysql基础和高级
+## 三、Java基础查缺补漏+高并发多线程
+## 四、Jvm
 ## 五、Nosql(Redis、mongodb)
 ## 六、Spring-SpringMVC-Mybatis查缺补漏+MybatisPlus
 ## 七、Nginx+Netty
