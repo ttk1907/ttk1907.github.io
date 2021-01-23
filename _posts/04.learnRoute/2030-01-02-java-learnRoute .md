@@ -42,16 +42,28 @@ tags: study
 
 ## 一、数据结构与算法(1.13-?)
 
-1. [数据结构与算法01-常用数据结构](https://ttk1907.github.io/2021/01/13/java-DataStructureAndAlgorithm01/) : 
+1. [数据结构与算法01-基础数据结构](https://ttk1907.github.io/2021/01/13/java-DataStructureAndAlgorithm01/) : 
     1. 线性结构与非线性结构
     2. 稀疏数组
     3. 队列和数组模拟环形队列
     4. 链表
     5. 栈
-2. [数据结构与算法02-常用算法](https://ttk1907.github.io/2021/01/19/java-DataStructureAndAlgorithm02/) : 
+2. [数据结构与算法02-基础算法](https://ttk1907.github.io/2021/01/19/java-DataStructureAndAlgorithm02/) : 
     1. 递归
     2. 常用排序算法
     3. 查找算法
+3. [数据结构与算法03-高级数据结构](https://ttk1907.github.io/2021/01/30/java-DataStructureAndAlgorithm03/) : 
+    1. 树
+    2. 图
+3. [数据结构与算法04-高级算法](https://ttk1907.github.io/2021/02/06/java-DataStructureAndAlgorithm04/) : 
+    1. 动态规划
+    2. KMP算法
+    3. 贪心算法
+    4. 普利姆算法(Prim)
+    5. 克鲁斯卡尔算法(Kruskal)
+    6. 迪杰斯特拉算法(Dijkstra)
+    7. 弗洛伊德算法(Floyd)
+
 
 ## 二、Mysql基础和高级
 ## 三、Java基础查缺补漏+高并发多线程
