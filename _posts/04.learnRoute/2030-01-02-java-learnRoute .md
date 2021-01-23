@@ -50,6 +50,8 @@ tags: study
     5. 栈
 2. [数据结构与算法02-常用算法](https://ttk1907.github.io/2021/01/19/java-DataStructureAndAlgorithm02/) : 
     1. 递归
+    2. 常用排序算法
+    3. 查找算法
 
 ## 二、Mysql基础和高级
 ## 三、Java基础查缺补漏+高并发多线程
