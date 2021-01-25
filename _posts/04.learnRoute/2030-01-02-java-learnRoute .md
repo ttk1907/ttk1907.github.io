@@ -52,9 +52,10 @@ tags: study
     1. 递归
     2. 常用排序算法
     3. 查找算法
-3. [数据结构与算法03-高级数据结构](https://ttk1907.github.io/2021/01/30/java-DataStructureAndAlgorithm03/) : 
-    1. 树
-    2. 图
+3. [数据结构与算法03-高级数据结构](https://ttk1907.github.io/2021/01/25/java-DataStructureAndAlgorithm03/) : 
+    1. 哈希表
+    2. 树
+    3. 图
 3. [数据结构与算法04-高级算法](https://ttk1907.github.io/2021/02/06/java-DataStructureAndAlgorithm04/) : 
     1. 动态规划
     2. KMP算法
