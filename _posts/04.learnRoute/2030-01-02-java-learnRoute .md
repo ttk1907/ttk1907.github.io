@@ -23,9 +23,9 @@ tags: study
 ## 学习路线
 1. 数据结构与算法
 2. Mybatis + Mybatis Plus
-3. mysql基础和高级
-4. 然后是对java基础查缺补漏+高并发多线程
-5. jvm的学习
+3. jvm的学习
+4. mysql基础和高级
+5. 然后是对java基础查缺补漏+高并发多线程
 6. nosql的学习(Redis、MongoDB)
 7. spring-springMVC
 8. Nginx+Netty
@@ -71,9 +71,9 @@ tags: study
 
 
 ## 二、Mybatis+MybatisPlus
-## 三、Mysql基础和高级
+## 三、Jvm
 ## 四、Java基础查缺补漏+高并发多线程
-## 五、Jvm
+## 五、Mysql基础和高级
 ## 六、Nosql(Redis、mongodb)
 ## 七、Spring-SpringMVC
 ## 八、Nginx+Netty
