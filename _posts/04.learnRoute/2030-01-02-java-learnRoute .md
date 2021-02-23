@@ -57,7 +57,7 @@ tags: study
     1. 哈希表
     2. 树
     3. 图
-3. [数据结构与算法04-高级算法](https://ttk1907.github.io/2021/02/22/java-DataStructureAndAlgorithm04/) : 
+4. [数据结构与算法04-高级算法](https://ttk1907.github.io/2021/02/22/java-DataStructureAndAlgorithm04/) : 
     1. 二分查找算法(非递归)
     2. 分治算法
     3. 动态规划
