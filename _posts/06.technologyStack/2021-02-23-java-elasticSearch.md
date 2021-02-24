@@ -343,12 +343,12 @@ public void deleteIndex() throws IOException {
 ### 4.3 Java操作文档
 1. 添加文档
     1. 这里需要操作json,因此引入jackson
-    ```code
-<dependency>
+    ```
+< dependency>
     < groupId>com.fasterxml.jackson.core< /groupId>
     < artifactId>jackson-databind< /artifactId>
     < version>2.11.3< /version>
-</dependency>
+< /dependency>
     ```
     2. 准备一个实体类,因为，es的`id`是在路径上的，因此不需要存储**@JsonIgnore**注解忽略这个属性，然后将Data类型转为es的这种类型**@JsonFormat(pattern = "yyyy-MM-dd")**注解
     ```java
