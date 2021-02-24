@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ElasticSearch学习笔记"
+title:  "ElasticSearch(v6.5.4)学习笔记"
 date:   2021-02-23
 categories: technologyStack
 tags: technologyStack note
@@ -214,7 +214,7 @@ PUT /book/novel/1
   "on-sale": "1935-01-01",
   "descr": "给文明以岁月"
 }
-    ```    
+    ```   
     2. doc修改   
     ```json
 POST /book/novel/1/_update
@@ -230,7 +230,7 @@ POST /book/novel/1/_update
 ## 4.java操作ElasticSearch
 ### 4.1 Java连接ES
 1. 创建Maven工程
-2. 导入依赖   
+2. 导入依赖
 ```xml
 <dependencies>
     <dependency>
@@ -256,7 +256,7 @@ POST /book/novel/1/_update
     </dependency>
 </dependencies>
 ```   
-3. 连接测试   
+3. 连接测试
 ```java
 public static RestHighLevelClient  getClient(){
     // 指定es服务器的ip,端口
@@ -268,7 +268,7 @@ public static RestHighLevelClient  getClient(){
 ```   
 
 ### 4.2 Java创建索引
-1. 创建索引   
+1. 创建索引
 ```java
 public class Demo2 {
     private RestHighLevelClient client = ESClient.getClient();
@@ -306,8 +306,8 @@ public class Demo2 {
         System.out.println(res.toString());
     }
 }
-```     
-2. 检查索引是否存在   
+```   
+2. 检查索引是否存在
 ```java
 // 检查索引是否存在
 @Test
@@ -321,8 +321,8 @@ public void exists() throws IOException {
     // 输出,
     System.out.println(exists);
 }
-```     
-3. 删除索引    
+```   
+3. 删除索引
 这里结果拿不拿到无所谓，因为删除失败直接就抛异常了
 ```java
 // 删除索引
@@ -342,7 +342,7 @@ public void deleteIndex() throws IOException {
 
 ### 4.3 Java操作文档
 1. 添加文档
-    1. 这里需要操作json,因此引入jackson    
+    1. 这里需要操作json,因此引入jackson
     ```xml
 <!--jackson-->
 <dependency>
@@ -351,7 +351,7 @@ public void deleteIndex() throws IOException {
     <version>2.11.3</version>
 </dependency>
     ```   
-    2. 准备一个实体类,因为，es的`id`是在路径上的，因此不需要存储**@JsonIgnore**注解忽略这个属性，然后将Data类型转为es的这种类型**@JsonFormat(pattern = "yyyy-MM-dd")**注解    
+    2. 准备一个实体类,因为，es的`id`是在路径上的，因此不需要存储**@JsonIgnore**注解忽略这个属性，然后将Data类型转为es的这种类型**@JsonFormat(pattern = "yyyy-MM-dd")**注解
     ```java
 public class Person {
     @JsonIgnore
@@ -362,7 +362,7 @@ public class Person {
     private Date birthday;
 }
     ```   
-    3. doc创建    
+    3. doc创建
     ```java
 private RestHighLevelClient client = ESClient.getClient();
 private String index = "person";
@@ -385,7 +385,7 @@ public void createDoc() throws IOException {
     System.out.println(result); // 成功会返回 CREATED
 }
     ```   
-2. 修改文档   
+2. 修改文档
 ```java
 // 文档修改
 @Test
@@ -405,7 +405,7 @@ public void updateDoc() throws IOException {
     System.out.println(result); // 返回结果为 UPDATE
 }
 ```   
-3. 删除文档   
+3. 删除文档
 ```java
 // 删除文档
 @Test
@@ -421,7 +421,7 @@ public void deleteDoc() throws IOException {
 ```   
 
 ### 4.4 Java批量操作文档
-1. 批量添加   
+1. 批量添加
 ```java
 // 创建批量操作
 @Test
@@ -444,8 +444,8 @@ public void bulkCreateDoc() throws IOException {
     BulkResponse response = client.bulk(request, RequestOptions.DEFAULT);
 
 }
-```    
-2. 批量删除   
+```   
+2. 批量删除
 ```java
 // 批量删除
 @Test
@@ -458,13 +458,13 @@ public void bulkDeleteDoc() throws IOException {
     // client执行
     client.bulk(request,RequestOptions.DEFAULT);
 }
-```     
+```   
 
 ## 5.ElasticSearch练习的准备数据
 1. 索引名称:sms-logs-index
 2. 索引类型:sms-logs-type   
 ![准备数据索引](/assets/technologyStack/elasticSearch/准备数据索引.jpg)
-3. 实体类    
+3. 实体类
 ```java
 public class SmsLogs {
     @JsonIgnore
@@ -488,7 +488,7 @@ public class SmsLogs {
     private Integer fee; // 费用
 }
 ```   
-4. 创建索引   
+4. 创建索引
 ```java
  // 创建索引
 @Test
@@ -551,7 +551,7 @@ public void CreateIndexForSms() throws IOException {
     System.out.println(res.toString());
 }
 ```   
-5. 创建测试数据   
+5. 创建测试数据
 ```java
 // 测试数据
 @Test
