@@ -421,9 +421,8 @@ public void deleteDoc() throws IOException {
 ```   
 
 ### 4.4 Java批量操作文档
-
-1. 批量添加   
-```java   
+1. 批量添加
+```java
 // 创建批量操作
 @Test
 public void bulkCreateDoc() throws IOException {
@@ -445,9 +444,9 @@ public void bulkCreateDoc() throws IOException {
     BulkResponse response = client.bulk(request, RequestOptions.DEFAULT);
 
 }
-```   
-2. 批量删除   
-```java   
+```
+2. 批量删除
+```java
 // 批量删除
 @Test
 public void bulkDeleteDoc() throws IOException {
@@ -459,7 +458,7 @@ public void bulkDeleteDoc() throws IOException {
     // client执行
     client.bulk(request,RequestOptions.DEFAULT);
 }
-```   
+```
 
 ## 5.ElasticSearch练习的准备数据
 1. 索引名称:sms-logs-index
