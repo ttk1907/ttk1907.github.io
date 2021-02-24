@@ -231,6 +231,7 @@ POST /book/novel/1/_update
 ### 4.1 Java连接ES
 1. 创建Maven工程
 2. 导入依赖
+
 ```XML
 <dependencies>
     <dependency>
@@ -256,6 +257,7 @@ POST /book/novel/1/_update
     </dependency>
 </dependencies>
 ```
+
 3. 连接测试
 ```java
 public static RestHighLevelClient  getClient(){
@@ -343,7 +345,8 @@ public void deleteIndex() throws IOException {
 ### 4.3 Java操作文档
 1. 添加文档
     1. 这里需要操作json,因此引入jackson
-    ```java
+
+    ```XML
 <!--jackson-->
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
@@ -361,7 +364,7 @@ public class Person {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 }
-    ```   
+    ```
     3. doc创建
     ```java
 private RestHighLevelClient client = ESClient.getClient();
@@ -384,7 +387,7 @@ public void createDoc() throws IOException {
     String result = response.getResult().toString();
     System.out.println(result); // 成功会返回 CREATED
 }
-    ```   
+    ```
 2. 修改文档
 ```java
 // 文档修改
@@ -404,7 +407,7 @@ public void updateDoc() throws IOException {
     String result = update.getResult().toString();
     System.out.println(result); // 返回结果为 UPDATE
 }
-```   
+```
 3. 删除文档
 ```java
 // 删除文档
@@ -418,13 +421,12 @@ public void deleteDoc() throws IOException {
     String result = delete.getResult().toString();
     System.out.println(result); // 返回结果为 DELETED
 }
-```   
+```
 
 ### 4.4 Java批量操作文档
 1. 批量添加
 ```java
-// 创建批量操作
-@Test
+@Test//创建批量操作
 public void bulkCreateDoc() throws IOException {
     // 准备多个json数据
     Person p1 = new Person(1,"张三",22,new Date());
@@ -442,13 +444,11 @@ public void bulkCreateDoc() throws IOException {
     request.add(new IndexRequest(index,type,p3.getId().toString()).source(json3,XContentType.JSON));
     // client执行
     BulkResponse response = client.bulk(request, RequestOptions.DEFAULT);
-
 }
 ```
 2. 批量删除
 ```java
-// 批量删除
-@Test
+@Test// 批量删除
 public void bulkDeleteDoc() throws IOException {
     BulkRequest request = new BulkRequest();
     // 将要删除的doc的id添加到request
@@ -487,7 +487,7 @@ public class SmsLogs {
     private Integer replyTotal; // 短信状态报告返回时长（秒）
     private Integer fee; // 费用
 }
-```   
+```
 4. 创建索引
 ```java
  // 创建索引
@@ -550,7 +550,7 @@ public void CreateIndexForSms() throws IOException {
     CreateIndexResponse res = client.indices().create(request, RequestOptions.DEFAULT);
     System.out.println(res.toString());
 }
-```   
+```
 5. 创建测试数据
 ```java
 // 测试数据
@@ -581,7 +581,7 @@ public void CreateTestData() throws IOException {
     BulkResponse response = client.bulk(request, RequestOptions.DEFAULT);
     System.out.println(response);
 }
-```   
+```
 
 ## 6.ElasticSearch的各种查询
 
