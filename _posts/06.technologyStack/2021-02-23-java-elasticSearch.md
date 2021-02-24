@@ -121,7 +121,7 @@ PUT /parson
     7. half_float: 精度比float小一半，float是32位，这个是16位
     8. scaled_float: 根据long类型的结果和你指定的secled来表达浮点类型：long:123 ,secled:100，结果：1.23
 3. date时间类型:
-    1. date: 可以指定具体的格式 ,"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+    1. date: 可以指定具体的格式 ,"format": "yyyy-MM-dd HH:mm:ss\|\|yyyy-MM-dd\|\|epoch_millis"
 4. boolean布尔类型
     1. boolean: 表达true或false 
 5. binary二进制类型
@@ -219,18 +219,18 @@ PUT /book/novel/1
     ```json
 POST /book/novel/1/_update
 {
-  "doc": {   // 里面指定要修改的键值
-    "name": "西游记"
-  }
+    "doc": {   // 里面指定要修改的键值
+        "name": "西游记"
+    }
 }
     ```   
 3. 删除文档
-    1. `Delete /book/novel/\_id`
+    1. `Delete /book/novel/_id`
 
 ## 4.java操作ElasticSearch
 ### 4.1 Java连接ES
 1. 创建Maven工程
-2. 导入依赖    
+2. 导入依赖   
 ```xml
 <dependencies>
     <dependency>
@@ -256,7 +256,7 @@ POST /book/novel/1/_update
     </dependency>
 </dependencies>
 ```   
-3. 连接测试
+3. 连接测试   
 ```java
 public static RestHighLevelClient  getClient(){
     // 指定es服务器的ip,端口
@@ -265,7 +265,7 @@ public static RestHighLevelClient  getClient(){
     RestHighLevelClient client = new RestHighLevelClient(builder);  // 如果连接失败会报错，
     return client;
 }
-```
+```   
 
 ### 4.2 Java创建索引
 1. 创建索引   
@@ -321,7 +321,7 @@ public void exists() throws IOException {
     // 输出,
     System.out.println(exists);
 }
-```   
+```     
 3. 删除索引    
 这里结果拿不拿到无所谓，因为删除失败直接就抛异常了
 ```java
@@ -343,7 +343,7 @@ public void deleteIndex() throws IOException {
 ### 4.3 Java操作文档
 1. 添加文档
     1. 这里需要操作json,因此引入jackson    
-    ```xml   
+    ```xml
 <!--jackson-->
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
@@ -386,7 +386,7 @@ public void createDoc() throws IOException {
 }
     ```   
 2. 修改文档   
-```java   
+```java
 // 文档修改
 @Test
 public void updateDoc() throws IOException {
@@ -406,7 +406,7 @@ public void updateDoc() throws IOException {
 }
 ```   
 3. 删除文档   
-```java   
+```java
 // 删除文档
 @Test
 public void deleteDoc() throws IOException {
@@ -422,7 +422,7 @@ public void deleteDoc() throws IOException {
 
 ### 4.4 Java批量操作文档
 1. 批量添加   
-```java   
+```java
 // 创建批量操作
 @Test
 public void bulkCreateDoc() throws IOException {
@@ -446,7 +446,7 @@ public void bulkCreateDoc() throws IOException {
 }
 ```    
 2. 批量删除   
-```java   
+```java
 // 批量删除
 @Test
 public void bulkDeleteDoc() throws IOException {
