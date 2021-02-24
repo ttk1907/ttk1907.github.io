@@ -229,9 +229,9 @@ POST /book/novel/1/_update
 
 ## 4.java操作ElasticSearch
 ### 4.1 Java连接ES
-1. 创建Maven工程
-2. 导入依赖   
-```java
+1. 创建Maven工程  
+2. 导入依赖  
+```xml
 <dependencies>
     <dependency>
         <groupId>org.elasticsearch</groupId>
@@ -255,8 +255,8 @@ POST /book/novel/1/_update
         <version>1.16.10</version>
     </dependency>
 </dependencies>
-```   
-3. 连接测试   
+```  
+3. 连接测试
 ```java
 public static RestHighLevelClient  getClient(){
     // 指定es服务器的ip,端口
@@ -265,7 +265,7 @@ public static RestHighLevelClient  getClient(){
     RestHighLevelClient client = new RestHighLevelClient(builder);  // 如果连接失败会报错，
     return client;
 }
-```   
+```
 
 ### 4.2 Java创建索引
 1. 创建索引
@@ -350,7 +350,7 @@ public void deleteIndex() throws IOException {
     <artifactId>jackson-databind</artifactId>
     <version>2.11.3</version>
 </dependency>
-    ```   
+    ```
     2. 准备一个实体类,因为，es的`id`是在路径上的，因此不需要存储**@JsonIgnore**注解忽略这个属性，然后将Data类型转为es的这种类型**@JsonFormat(pattern = "yyyy-MM-dd")**注解
     ```java
 public class Person {
