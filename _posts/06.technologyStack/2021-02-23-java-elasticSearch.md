@@ -230,7 +230,7 @@ POST /book/novel/1/_update
 ## 4.java操作ElasticSearch
 ### 4.1 Java连接ES
 1. 创建Maven工程
-2. 导入依赖
+2. 导入依赖  
 
 ```xml
 <dependencies>
@@ -426,6 +426,7 @@ public void deleteDoc() throws IOException {
 
 ### 4.4 Java批量操作文档
 1. 批量添加   
+
 ```java
 // 创建批量操作
 @Test
@@ -448,7 +449,8 @@ public void bulkCreateDoc() throws IOException {
     BulkResponse response = client.bulk(request, RequestOptions.DEFAULT);
 
 }
-```   
+``` 
+  
 2. 批量删除   
 ```java
 // 批量删除
