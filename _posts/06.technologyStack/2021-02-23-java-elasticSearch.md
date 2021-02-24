@@ -228,10 +228,9 @@ POST /book/novel/1/_update
     1. `Delete /book/novel/_id`
 
 ## 4.java操作ElasticSearch
-
 ### 4.1 Java连接ES
 1. 创建Maven工程
-2. 导入依赖1
+2. 导入依赖
 ```xml
 <dependencies>
     <dependency>
@@ -256,16 +255,6 @@ POST /book/novel/1/_update
         <version>1.16.10</version>
     </dependency>
 </dependencies>
-```  
-3. 连接测试
-```java
-public static RestHighLevelClient  getClient(){
-    // 指定es服务器的ip,端口
-    HttpHost httpHost = new HttpHost("192.168.10.106",9200);
-    RestClientBuilder builder = RestClient.builder(httpHost);
-    RestHighLevelClient client = new RestHighLevelClient(builder);  // 如果连接失败会报错，
-    return client;
-}
 ```
 
 ### 4.2 Java创建索引
