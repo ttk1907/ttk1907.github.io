@@ -232,29 +232,29 @@ POST /book/novel/1/_update
 1. 创建Maven工程
 2. 导入依赖
 ```
-<dependencies>
-    <dependency>
-        <groupId>org.elasticsearch</groupId>
-        <artifactId>elasticsearch</artifactId>
-        <version>6.5.4</version>
-    </dependency>
-    <!--es的高级api-->
-    <dependency>
-        <groupId>org.elasticsearch.client</groupId>
-        <artifactId>elasticsearch-rest-high-level-client</artifactId>
-        <version>6.5.4</version>
-    </dependency>
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.12</version>
-    </dependency>
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.16.10</version>
-    </dependency>
-</dependencies>
+< dependencies>
+    < dependency>
+        < groupId>org.elasticsearch< /groupId>
+        < artifactId>elasticsearch< /artifactId>
+        < version>6.5.4< /version>
+    < /dependency>
+    < !--es的高级api-->
+    < dependency>
+        < groupId>org.elasticsearch.client< /groupId>
+        < artifactId>elasticsearch-rest-high-level-client< /artifactId>
+        < version>6.5.4< /version>
+    < /dependency>
+    < dependency>
+        < groupId>junit< /groupId>
+        < artifactId>junit< /artifactId>
+        < version>4.12< /version>
+    < /dependency>
+    < dependency>
+        < groupId>org.projectlombok< /groupId>
+        < artifactId>lombok< /artifactId>
+        < version>1.16.10< /version>
+    < /dependency>
+< /dependencies>
 ```
 3. 连接测试
 ```java
@@ -344,11 +344,11 @@ public void deleteIndex() throws IOException {
 1. 添加文档
     1. 这里需要操作json,因此引入jackson
     ```
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.11.3</version>
-</dependency>
+< dependency>
+    < groupId>com.fasterxml.jackson.core< /groupId>
+    < artifactId>jackson-databind< /artifactId>
+    < version>2.11.3< /version>
+< /dependency>
     ```
     2. 准备一个实体类,因为，es的`id`是在路径上的，因此不需要存储**@JsonIgnore**注解忽略这个属性，然后将Data类型转为es的这种类型**@JsonFormat(pattern = "yyyy-MM-dd")**注解
     ```java
@@ -390,7 +390,7 @@ public void createDoc() throws IOException {
 @Test
 public void updateDoc() throws IOException {
     // 1 创建一个map
-    Map<String,Object> doc = new HashMap<>();
+    Map< String,Object> doc = new HashMap< >();
     doc.put("name","李四");
     String docId = "1";
     // 2 创建一个request对象，指定要修改哪个，这里指定了index，type和doc的Id,也就是确定唯一的doc
