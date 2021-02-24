@@ -231,6 +231,7 @@ POST /book/novel/1/_update
 ### 4.1 Java连接ES
 1. 创建Maven工程
 2. 导入依赖
+
 ```xml
 <dependencies>
     <dependency>
@@ -256,6 +257,7 @@ POST /book/novel/1/_update
     </dependency>
 </dependencies>
 ```   
+
 3. 连接测试
 ```java
 public static RestHighLevelClient  getClient(){
@@ -343,6 +345,7 @@ public void deleteIndex() throws IOException {
 ### 4.3 Java操作文档
 1. 添加文档
     1. 这里需要操作json,因此引入jackson
+
     ```xml
 <!--jackson-->
 <dependency>
@@ -351,6 +354,7 @@ public void deleteIndex() throws IOException {
     <version>2.11.3</version>
 </dependency>
     ```   
+
     2. 准备一个实体类,因为，es的`id`是在路径上的，因此不需要存储**@JsonIgnore**注解忽略这个属性，然后将Data类型转为es的这种类型**@JsonFormat(pattern = "yyyy-MM-dd")**注解
     ```java
 public class Person {
@@ -421,7 +425,7 @@ public void deleteDoc() throws IOException {
 ```   
 
 ### 4.4 Java批量操作文档
-1. 批量添加
+1. 批量添加   
 ```java
 // 创建批量操作
 @Test
@@ -445,7 +449,7 @@ public void bulkCreateDoc() throws IOException {
 
 }
 ```   
-2. 批量删除
+2. 批量删除   
 ```java
 // 批量删除
 @Test
