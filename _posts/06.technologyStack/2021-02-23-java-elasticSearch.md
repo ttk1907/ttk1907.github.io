@@ -228,9 +228,10 @@ POST /book/novel/1/_update
     1. `Delete /book/novel/_id`
 
 ## 4.java操作ElasticSearch
+
 ### 4.1 Java连接ES
-1. 创建Maven工程  
-2. 导入依赖  
+1. 创建Maven工程
+2. 导入依赖1
 ```xml
 <dependencies>
     <dependency>
@@ -306,7 +307,7 @@ public class Demo2 {
         System.out.println(res.toString());
     }
 }
-```   
+```
 2. 检查索引是否存在
 ```java
 // 检查索引是否存在
@@ -321,7 +322,7 @@ public void exists() throws IOException {
     // 输出,
     System.out.println(exists);
 }
-```   
+```
 3. 删除索引
 这里结果拿不拿到无所谓，因为删除失败直接就抛异常了
 ```java
@@ -338,7 +339,7 @@ public void deleteIndex() throws IOException {
     // 拿的是否删除成功的结果,是个布尔类型的值
     System.out.println(delete.isAcknowledged());
 }
-```   
+```
 
 ### 4.3 Java操作文档
 1. 添加文档
