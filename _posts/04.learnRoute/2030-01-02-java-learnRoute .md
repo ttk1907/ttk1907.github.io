@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Java自我提升路线"
+title:  "Java技能提升路线"
 date:   2030-01-02
 categories: study
 tags: study
