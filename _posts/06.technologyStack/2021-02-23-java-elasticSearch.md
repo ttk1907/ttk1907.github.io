@@ -231,8 +231,7 @@ POST /book/novel/1/_update
 ### 4.1 Java连接ES
 1. 创建Maven工程
 2. 导入依赖
-
-```XML
+```
 <dependencies>
     <dependency>
         <groupId>org.elasticsearch</groupId>
@@ -257,7 +256,6 @@ POST /book/novel/1/_update
     </dependency>
 </dependencies>
 ```
-
 3. 连接测试
 ```java
 public static RestHighLevelClient  getClient(){
@@ -345,9 +343,7 @@ public void deleteIndex() throws IOException {
 ### 4.3 Java操作文档
 1. 添加文档
     1. 这里需要操作json,因此引入jackson
-
-    ```XML
-<!--jackson-->
+    ```
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
