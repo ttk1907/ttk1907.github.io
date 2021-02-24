@@ -421,7 +421,8 @@ public void deleteDoc() throws IOException {
 ```   
 
 ### 4.4 Java批量操作文档
-1. 批量添加
+
+1. 批量添加   
 ```java
 // 创建批量操作
 @Test
@@ -445,7 +446,7 @@ public void bulkCreateDoc() throws IOException {
 
 }
 ```   
-2. 批量删除
+2. 批量删除   
 ```java
 // 批量删除
 @Test
