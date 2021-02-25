@@ -580,8 +580,1022 @@ public void CreateTestData() throws IOException {
 ```
 
 ## 6.ElasticSearch的各种查询
+### 6.1 term&terms查询
+#### 6.1.1 term查询
+term查询是完全匹配的，搜索之前不会对搜索的关键字进行分词，比如要搜河南省
+```json
+POST /sms-logs-index/sms-logs-type/_search
+{
+    "from": 0,   // 类似limit，指定查询第一页
+    "size": 5,   // 指定一页查询几条
+    "query": {
+        "term": {
+            "province": {
+                "value": "上海"
+            }
+        }
+    }
+}
+```
 
+```java
+private String index = "sms-logs-index";
+private String type = "sms-logs-type";
+// client对象
+private RestHighLevelClient client = ESClient.getClient();
+// term查询
+@Test
+public void termQuery() throws IOException {
+    //1  request
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    //2 指定查询条件
+        // 指定form ,size
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.from(0);
+    builder.size(5);
+         // 指定查询条件,province字段，内容为北京
+    builder.query(QueryBuilders.termQuery("province","上海"));
+    request.source(builder);
+    //3执行查询
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    //4 获取到数据
+    for (SearchHit hit : response.getHits().getHits()) {
+        Map<String, Object> result = hit.getSourceAsMap();
+        System.out.println(result);
+    }
+}
+```
 
+#### 6.1.2 terms查询
+> terms查询，也是不会对条件进行分词，但是这个可以指定多条件，比如查询地点为上海的或者河南的
+> * trem:where province = '北京'
+> * terms:where province = '北京' or province = '上海'
+```json
+POST /sms-logs-index/sms-logs-type/_search
+{
+    "from": 0,   // 类似limit，指定查询第一页
+    "size": 5,   // 指定一页查询几条
+    "query": {
+        "terms": {
+            "province": [
+                "上海",
+                "北京"
+            ]
+        }
+    }
+}
+```
 
+```java
+@Test
+public void termsQuery() throws IOException {
+    // request
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.query(QueryBuilders.termsQuery("province","上海","河南"));
+    request.source(builder);
+    // 执行查询
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 获取数据
+    for (SearchHit hit : response.getHits().getHits()) {
+        Map<String, Object> result = hit.getSourceAsMap();
+        System.out.println(result);
+    }
+}
+```
 
+### 6.2 match查询
+> match查询会根据不同的情况切换不同的策略
+>
+> * 如果查询date类型和数字，就会将查询的结果自动的转换为数字或者日期
+> * 如果是不能被分词的内容(keyword)，就不会进行分词查询
+> * 如果是text这种，就会根据分词的方式进行查询
+>
+> match的底层就是多个term查询，加了条件判断等
+#### 6.2.1 match_all查询
+会将全部的doc查询出来
+```json
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
 
+```java
+// match_all查询
+@Test
+public void matchAllQuery() throws IOException {
+    // request
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.query(QueryBuilders.matchAllQuery());
+    //es默认只查询10条数据,如果想查询更多,指定size
+    builder.size(20);
+    request.source(builder);
+    // 执行查询
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 获取数据
+    for (SearchHit hit : response.getHits().getHits()) {
+        Map<String, Object> result = hit.getSourceAsMap();
+        System.out.println(result);
+    }
+}
+```
+
+#### 6.2.2 match查询
+match查询会针对不同的类型执行不同的策略,查询text类型的数据会对条件进行分词
+```json
+POST /sms-logs-index/sms-logs-type/_search
+{
+    "query": {
+        "match": {
+            "smsContent": "电话"
+        }
+    }
+}
+```
+
+```java
+// match查询
+builder.query(QueryBuilders.matchQuery("smsContent","电话号码"));
+```
+
+### 6.3 其他查询
+#### 6.3.1 布尔match查询
+可以查询既包含条件1，又包含条件2的内容，也就是and的效果，也可以实现or的效果
+```json
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "match": {
+      "smsContent": {
+        "query": "电话 快递", 
+        "operator": "and" // or
+```
+
+```java
+// 布尔match查询
+builder.query(QueryBuilders.matchQuery("smsContent","电话 快递").operator(Operator.AND));
+```
+
+#### 6.3.2 multi_match查询
+1. 针对多个key对应一个value进行查询, 比如下面就是查询地区带中国，或者内容带中国
+```json
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "中国",
+      "fields": ["province","smsContent"]
+```
+
+java查询简单写，其余的部分均一样
+```java
+builder.query(QueryBuilders.multiMatchQuery("中国","smsContent","province"));
+```
+
+#### 6.3.3 id&ids查询
+1. id查询
+```json
+GET /sms-logs-index/sms-logs-type/1
+```
+
+```java
+// id查询
+@Test
+public void idMatchQuery() throws IOException {
+    // 使用getRequest
+    GetRequest request = new GetRequest(index,type,"1");
+    // 执行查询
+    GetResponse response = client.get(request, RequestOptions.DEFAULT);
+    // 输出结果
+    Map<String, Object> result = response.getSourceAsMap();
+    System.out.println(result);
+}
+```
+
+2. ids查询:给以多个id，查询多个结果，类似mysql的where id in(1,2,3.....)
+
+```json
+# ids查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "ids": {
+      "values": ["1","2","3"]
+```
+
+```java
+// ids查询
+@Test
+public void idsQuery() throws IOException {
+    // 这个属于复杂查询需要使用searchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 查询
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.query(QueryBuilders.idsQuery().addIds("1","2","3"));
+
+    request.source(builder);
+    // 执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 输出结果
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+#### 6.3.4 prefix查询
+1. 听名字就是前缀查询，查询字首的，可以指定指定字段的前缀，从而查询到指定的文档，可以实现类似百度输入后弹出提示的效果
+```json
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "prefix": {
+      "corpName": {
+        "value": "滴滴"  // 这样就能搜到所有关于滴滴开头的公司名称了
+```
+
+```java
+// prefix查询
+@Test
+public void prefixQuery() throws IOException {
+    // 依然使用SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 查询
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.query(QueryBuilders.prefixQuery("corpName","滴滴"));
+    request.source(builder);
+    // 执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 获取结果
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+#### 6.3.5 kuzzy查询
+模糊查询，根据输入的内容大概的搜索，可以输入错别字，不是很稳定，比如输入`网一`来搜索`网易`就搜不到
+```json
+# fuzzy查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "fuzzy": {
+      "corpName": {
+        "value": "中国移不动",
+         "prefix_length": 2  // 可选项，可以指定前几个字符是不能错的
+```
+
+```java
+// fuzzy查询
+@Test
+public void fuzzyQuery() throws IOException {
+    // 依然使用SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 查询
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.query(QueryBuilders.fuzzyQuery("corpName","中国移不动"));
+    //builder.query(QueryBuilders.fuzzyQuery("corpName","中国移不动").prefixLength(2));
+    request.source(builder);
+    // 执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 获取结果
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+#### 6.3.6 wildcard查询
+通配查询，和mysql的`like`是一个套路，可以在搜索的时候设置占位符，通配符等实现模糊匹配
+
+```json
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "wildcard": {
+      "corpName": {
+        "value": "中国*" // *代表通配符,?代表占位符 ，比如:中国? 就是搜中国开头的三个字的内容
+```
+
+```java
+// wildcard查询
+@Test
+public void wildcardQuery() throws IOException {
+    // 依然使用SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 查询
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.query(QueryBuilders.wildcardQuery("corpName","中国??"));
+    request.source(builder);
+    // 执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 获取结果
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+#### 6.3.7 range查询
+> 范围查询，只针对数值类型
+
+这里的范围是`带等号`的，这里能查询到fee等于5，或者10的,如果想要`<`或者`>`的效果可以看注释
+
+```json
+# range查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "range": {
+      "fee": {
+        "gte": 5,  //gt
+        "lte": 10  //lt
+```
+
+这里的范围，指定字符串的5或者int类型的5都是可以的，es会自动的进行转换
+
+```java
+// range查询
+@Test
+public void rangeQuery() throws IOException {
+    // 依然使用SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 查询
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.query(QueryBuilders.rangeQuery("fee").gte("5").lte("10"));
+    request.source(builder);
+    // 执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 获取结果
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+#### 6.3.8 regexp查询
+> 正则查询，通过编写的正则表达式匹配内容
+>
+> * PS：prefix，fuzzy，wildcard，regexp，查询的效率相对比较低，要求效率高的时候，不要使用这个
+
+```json
+# regexp查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "regexp": {
+      "mobile": "15[0-9]{8}" // 这里查询电话号码15开头的，后面的数字8位任意
+```
+
+```java
+// regexp查询
+@Test
+public void regexpQuery() throws IOException {
+    // 依然使用SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 查询
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.query(QueryBuilders.regexpQuery("mobile","15[0-9]{8}"));
+    request.source(builder);
+    // 执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 获取结果
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+### 6.4 解决深分页的方案sroll
+> 针对term查询的from和size的大小有限制，from+size的总和不能大于1万
+>
+> from+size查询的步骤:
+> * 第一步:先进行分词
+> * 第二步:然后把词汇去分词库检索，得到文档的id
+> * 第三步:然后去分片中把数据拿出来
+> * 第四步:然后根据score进行排序
+> * 第五步:然后根据from和size`舍弃一部分`
+> * 第六步:最后将结果返回
+>
+> scroll+size查询的步骤:
+> * 第一步:先进行分词
+> * 第二步:然后把词汇去分词库检索，得到文档的id
+> * 第三步:将文档的id存放唉es的上下文中(内存中)
+> * 第四步:根据指定的size去es中拿指定数量的数据，拿完数据的docId会从上下文移除
+> * 第五步:如果需要下一页数据，会去es的上下文中找
+>
+> **scroll也有缺点，不适合实时查询，因为是从内存中找以前查询的，拿到的数据不是最新的，这个查询适合做后台管理**
+
+```json
+POST /sms-logs-index/sms-logs-type/_search?scroll=1m  // 这里指定在内存中保存的时间，1m就是1分钟
+{
+  "query": {
+    "match_all": {}
+  },
+  "size": 2,
+  "sort": [   // 这里指定排序规则
+    {
+      "fee": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+```
+查询下一页的数据
+```json
+POST /_search/scroll
+{
+  "scroll_id":"这里写id", // 这里写上第一次查询的_scroll_id
+  "scroll":"1m"   // 重新指定存在时间，否则直接从内存删除了
+}
+```
+如果看完第二页不想看下去了，想直接删除掉内存中的数据：
+```json
+DELETE /_search/scroll/scroll的id
+```
+
+```java
+// scroll查询
+@Test
+public void scrollQuery() throws IOException {
+    // SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 指定scroll的信息，存在内存1分钟
+    request.scroll(TimeValue.timeValueMinutes(1L));
+    // 指定查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.size(1);
+    builder.sort("fee", SortOrder.ASC);
+    builder.query(QueryBuilders.matchAllQuery());
+    request.source(builder);
+    // 执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 获取第一页的结果结果，以及scrollId
+    String scrollId = response.getScrollId();
+    System.out.println("------第一页------");
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+
+    // 循环遍历其余页
+    while (true){
+        // SearchScrollRequest,指定生存时间,scrollId
+        SearchScrollRequest scrollRequest = new SearchScrollRequest(scrollId);
+        scrollRequest.scroll(TimeValue.timeValueMinutes(1L));
+        // 执行查询
+        SearchResponse scrollResponse = client.scroll(scrollRequest, RequestOptions.DEFAULT);
+
+        // 如果查询到了数据
+        SearchHit[] hits = scrollResponse.getHits().getHits();
+        if (hits !=null && hits.length>0){
+            System.out.println("------下一页------");
+            for (SearchHit hit : hits) {
+                System.out.println(hit.getSourceAsMap());
+            }
+        }else {
+            System.out.println("-----最后一页-----");
+            break;
+        }
+    }
+    // ClearScrollRequest
+    ClearScrollRequest clearScrollRequest = new ClearScrollRequest();
+    clearScrollRequest.addScrollId(scrollId);
+    // 删除ScoreId
+    ClearScrollResponse scrollResponse = client.clearScroll(clearScrollRequest, RequestOptions.DEFAULT);
+
+    System.out.println("删除scroll成功了吗？"+scrollResponse.isSucceeded());
+}
+```
+
+### 6.5 delete-by-query
+> 根据term,match等查询方式删除大量的文档
+>
+> [如果是大量的删除，不推荐这个方式，太耗时了，因为是根据查询的id一个一个删除，而查询本身也很消耗性能，推荐新建一个index，把保留的部分保留到新的index]( )
+
+```json
+POST /sms-logs-index/sms-logs-type/_delete_by_query   // 把查询出来的结果删除
+{
+  "query":{
+    "range":{
+      "fee":{
+        "lt":4
+```
+
+```java
+// deleteByQuery查询
+@Test
+public void deleteByQuery() throws IOException {
+    // DeleteByQueryRequest
+    DeleteByQueryRequest request = new DeleteByQueryRequest(index);
+    request.types(type);
+
+    // 指定检索条件
+    request.setQuery(QueryBuilders.rangeQuery("fee").lt(4));
+
+    // 执行删除
+    BulkByScrollResponse response = client.deleteByQuery(request, RequestOptions.DEFAULT);
+
+    System.out.println(response);
+}
+```
+
+### 6.6 复合查询
+#### 6.6.1 bool查询
+> 将多个查询条件以一定的逻辑组合在一起
+>
+> * must：表示and的意思，所有的条件都符合才能找到
+> * must_not：把满足条件的都去掉的结果
+> * should：表示or的意思
+
+```json
+// 查询省份是上海或者河南
+// 运营商不是联通
+// smsContent中包含中国和移动
+// bool查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": { 
+    "bool":{
+      "should": [ // or
+        {
+          "term": {
+            "province": {
+              "value": "上海"
+            }
+          }
+        },
+        {
+          "term": {
+            "province": {
+              "value": "河南"
+            }
+          }
+        }
+      ],
+      "must_not": [ // 不包括
+        {
+          "term": {
+            "operatorId": {
+              "value": "2"
+            }
+          }
+        }
+      ],
+      "must": [ // and
+        {
+          "match": {
+            "smsContent": "中国"
+          }
+        },
+        {
+          "match": {
+            "smsContent": "移动"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+```java
+// boolQuery查询
+@Test
+public void boolQuery() throws IOException {
+    // SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 指定查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    BoolQueryBuilder boolQuery = QueryBuilders.boolQuery();
+    // 上海或者河南
+    boolQuery.should(QueryBuilders.termQuery("province","武汉"));
+    boolQuery.should(QueryBuilders.termQuery("province","河南"));
+    // 运营商不是联通
+    boolQuery.mustNot(QueryBuilders.termQuery("operatorId",2));
+    // 包含中国和移动
+    boolQuery.must(QueryBuilders.matchQuery("smsContent","中国"));
+    boolQuery.must(QueryBuilders.matchQuery("smsContent","移动"));
+    // 指定使用bool查询
+    builder.query(boolQuery);
+    request.source(builder);
+
+    // client执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+
+    // 获取结果
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+#### 6.6.2 boolsting
+> 分数查询，查询的结果都是有匹配度一个分数，可以针对内容，让其分数大，或者小，达到排前，排后的效果
+>
+> * `positive`： 只有匹配到positive的内容，才会放到结果集，也就是放查询条件的地方
+> * `negative`：如果匹配到的positive和negative，就会降低文档的分数source
+> * `negative_boost`：指定降低分数的系数，必须小于1.0，比如：10分 这个系数为0.5就会变为5分
+>
+> 关于分数的计算：
+>
+> * 关键字在文档出现的频次越高，分数越高
+> * 文档的内容越短，分数越高
+> * 搜索时候，指定的关键字会被分词，分词内容匹配分词库，匹配的个数越多，分数就越高
+
+```json
+# boosting查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "boosting": {
+      "positive": {
+        "match": {
+          "smsContent": "亲爱的"
+        }
+      },
+      "negative": {
+        "match": {
+          "smsContent": "网易"
+        }
+      },
+      "negative_boost": 0.5
+    }
+  }
+}
+```
+
+```java
+// boostingQuery查询
+@Test
+public void boostingQuery() throws IOException {
+    // SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 指定查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    BoostingQueryBuilder boostingQueryBuilder = QueryBuilders.boostingQuery(
+        QueryBuilders.matchQuery("smsContent", "亲爱的"),
+        QueryBuilders.matchQuery("smsContent", "网易")
+    ).negativeBoost(0.5f);
+    builder.query(boostingQueryBuilder);
+    request.source(builder);
+    // client执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+    // 获取结果
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+### 6.7 filter查询
+> 过滤器查询：根据条件去查询文档，不会计算分数，而且filter会对经常查询的内容进行缓存
+>
+> 前面的query查询：根据条件进行查询，计算分数，根据分数进行排序，不会进行缓存
+
+```json
+//filter查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "bool":{
+      "filter": [  // 过滤器可以指定多个
+        {
+          "term":{
+            "corpName": "中国移动"
+            }
+        },
+        {
+          "range":{
+            "fee": {
+              "lte": 5
+            }
+          }
+        }]
+    }
+  }
+}
+
+```
+
+```java
+// filterQuery查询
+@Test
+public void filterQuery() throws IOException {
+    // SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+    // 指定查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    BoolQueryBuilder boolQuery = QueryBuilders.boolQuery();
+    boolQuery.filter(QueryBuilders.termQuery("corpName","中国移动"));
+    boolQuery.filter(QueryBuilders.rangeQuery("fee").lte(5));
+
+    builder.query(boolQuery);
+    request.source(builder);
+    // client执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+
+    // 获取结果
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+### 6.8 高亮查询
+> 将用户输入的内容，以高亮的样式展示出来，查询的结果会附带在hits下面以单独的形式返回，不会影响查询的结果
+>
+> ES提供了一个`hightlight`的属性，和`query`同级别，其属性如下：
+>
+> * `fragment_size`：指定要展示多少内容，可以看到百度的内容后面有...还有很长，默认`100个`
+> * `pre_tags`：指定前缀标签  比如：<font color="red">就是红色
+> * `post_tags`：指定后缀标签：</font>
+> * `fields`：指定哪几个field以高亮形式返回
+
+```json
+# hight查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "query": {
+    "match": {   // 查询
+      "smsContent": "亲爱的"
+    }
+  },
+  "highlight": {   // 高亮显示
+    "fields": {
+      "smsContent": {}  // 要高亮展示的内容
+    },
+    "pre_tags": "<font color=red>", 
+    "post_tags": "</font>",
+    "fragment_size": 10
+  }
+}
+```
+
+```java
+// highlightQuery查询
+@Test
+public void highlightQuery() throws IOException {
+    // SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+
+    // 指定查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.query(QueryBuilders.matchQuery("smsContent", "亲爱的"));
+    // 高亮显示
+    HighlightBuilder highlightBuilder = new HighlightBuilder();
+    highlightBuilder.field("smsContent",10) // 只显示10个字
+        .preTags("<font color='read'>").postTags("</font>");    // 红色展示
+
+    builder.highlighter(highlightBuilder);
+    request.source(builder);
+    // client执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+
+    // 获取结果,拿高亮的内容
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getHighlightFields());
+    }
+}
+```
+
+### 6.9 聚合查询
+> 也就是类似mysql的count，max，avg等查询，但要更为强大
+聚合查询有新的语法
+
+```json
+POST /index/type/_search
+{
+    "aggs":{
+        "名字(agg)":{
+            "agg_type":{
+                "属性":"值"
+            }
+        }
+    }
+}
+```
+
+#### 6.9.1 去重计数查询
+> 去掉重复的数据，然后算出总数，也就是`Cardinality`
+
+```json
+// 去重记数查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "aggs": {
+    "agg": { // 这个名字任意，不过会影响查询结果的键
+      "cardinality": {   // 去重查询
+        "field": "province"
+```
+
+可以看到我命名的是`agg`，这里查询的键也是`agg`
+
+```java
+// 去重记数查询
+@Test
+public void cardinalityQuery() throws IOException {
+    // SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+
+    // 指定查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.aggregation(AggregationBuilders.cardinality("agg").field("province"));
+    request.source(builder);
+    // client执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+
+    // 获取结果,拿到总数,因为Aggregation是一个接口，我们需要向下转型，使用实现类的方法才能拿的value
+    Cardinality agg = response.getAggregations().get("agg");
+    long value = agg.getValue();
+    System.out.println("省份总数为："+value);
+
+    // 拿到查询的内容
+    for (SearchHit hit : response.getHits().getHits()) {
+        System.out.println(hit.getSourceAsMap());
+    }
+}
+```
+
+#### 6.9.2 范围统计
+
+> 根据某个属性的范围，统计文档的个数，
+>
+> 针对不同的类型指定不同的方法，
+>
+> `数值`：range
+>
+> `时间`：date_range
+>
+> `ip`：ip_range
+
+数值范围查询：
+```json
+# 范围统计查询，小于号是不带等号的
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "aggs": {
+    "agg": {
+      "range": {
+        "field": "fee",
+        "ranges": [       
+          {
+            "to": 5  // 小于5
+          },
+          {
+            "from": 6,  // 大于等于6，小于10
+            "to": 10
+          },
+          {
+            "from":10  // 大于等于10 
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+时间范围查询
+
+```json
+# 时间范围统计查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "aggs": {
+    "agg": {
+      "date_range": {
+        "field": "createDate",
+        "format": "yyyy",   // 指定查询条件，这里是以年为条件
+        "ranges": [
+          {
+            "to": "2000"  // 小于2000年
+          },
+          {
+            "from": "2000"  // 大于等于2000年
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+ip范围查询
+
+```json
+# ip范围统计查询
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "aggs": {
+    "agg": {
+      "ip_range": {
+        "field": "ipAddr",
+        "ranges": [
+          {
+            "from": "10.126.2.7",  // 查询这个范围的ip
+            "to": "10.126.2.10"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+```java
+// 范围统计查询
+@Test
+public void range() throws IOException {
+    // SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+
+    // 指定查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.aggregation(AggregationBuilders.range("agg").field("fee")
+                        .addUnboundedTo(5)   // 指定范围
+                        .addRange(5,10)
+                        .addUnboundedFrom(10));
+
+    request.source(builder);
+    // client执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+
+    // 获取结果
+    Range agg = response.getAggregations().get("agg");
+    for (Range.Bucket bucket : agg.getBuckets()) {
+        String key = bucket.getKeyAsString();
+        Object from = bucket.getFrom();
+        Object to = bucket.getTo();
+        long docCount = bucket.getDocCount();
+        System.out.println(String.format("key：%s，from：%s，to：%s，docCount：%s",key,from,to,docCount));
+    }
+}
+```
+
+#### 6.9.3 统计聚合查询
+> 可以查询属性(`field`)的最大值，最小值，平均值，平方和.......
+
+```json
+POST /sms-logs-index/sms-logs-type/_search
+{
+  "aggs": {
+    "agg": {
+      "extended_stats": {
+        "field": "fee"
+      }
+    }
+  }
+}
+```
+
+```java
+// 聚合查询
+@Test
+public void extendedStats() throws IOException {
+    // SearchRequest
+    SearchRequest request = new SearchRequest(index);
+    request.types(type);
+
+    // 指定查询条件
+    SearchSourceBuilder builder = new SearchSourceBuilder();
+    builder.aggregation(AggregationBuilders.extendedStats("agg").field("fee"));
+
+    request.source(builder);
+    // client执行
+    SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+
+    // 获取结果
+    ExtendedStats agg = response.getAggregations().get("agg");
+    double max = agg.getMax();
+    double min = agg.getMin();
+
+    System.out.println("fee的最大值为"+max);
+    System.out.println("fee的最小值为"+min);
+}
+```
+
+[其余的详情访问官网非常全面](https://www.elastic.co/guide/en/elasticsearch/reference/6.5/getting-started.html)
