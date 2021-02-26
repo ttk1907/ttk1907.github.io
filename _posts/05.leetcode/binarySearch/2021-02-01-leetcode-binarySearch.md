@@ -18,8 +18,7 @@ tags: leetcode
 ## 一、简单题练手
 ### No35.搜索插入位置(简单)
 1. 难度:<font color=green>简单<font color=green>
-2. [题目:No35.搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)
-
+2. [题目:No35.搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)  
 >给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
 >你可以假设数组中无重复元素。
 
@@ -44,8 +43,7 @@ tags: leetcode
 输入: [1,3,5,6], 0
 输出: 0
     ```
-4. 思路:
-
+4. 思路:  
 > 正常二分查找即可,如果找不到,left指针正好就是待插入的位置
 
 5. 题解:
@@ -54,14 +52,14 @@ public int searchInsert(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
         while(left <= right) { //说明继续查找
-                int mid = (left + right) / 2;
-                if(nums[mid] == target) {
-                        return mid;
-                } else if ( nums[mid] > target) {
-                        right = mid - 1;//需要向左边查找
-                } else {
-                        left = mid + 1; //需要向右边查找
-                }
+            int mid = (left + right) / 2;
+            if(nums[mid] == target) {
+                return mid;
+            } else if ( nums[mid] > target) {
+                right = mid - 1;//需要向左边查找
+            } else {
+                left = mid + 1; //需要向右边查找
+            }
         }
         return left;
 }
@@ -100,13 +98,13 @@ public int searchInsert(int[] nums, int target) {
 public int mySqrt(int x) {
         int l = 0, r = x, ans = -1;
         while (l <= r) {
-                int mid = l + (r - l) / 2;
-                if ((long) mid * mid <= x) {
-                        ans = mid;
-                        l = mid + 1;
-                } else {
-                        r = mid - 1;
-                }
+            int mid = l + (r - l) / 2;
+            if ((long) mid * mid <= x) {
+                ans = mid;
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
         }
         return ans;
 }
