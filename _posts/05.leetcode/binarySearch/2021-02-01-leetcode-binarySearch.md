@@ -219,11 +219,55 @@ public class Solution extends VersionControl {
 }
 ```
 
+### No349.两个数组的交集(简单)
+1. 难度:<font color=green>简单<font color=green>
+2. [题目:No349.两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays/)  
+>给定两个数组，编写一个函数来计算它们的交集。
 
+3. 示例:
+    1. 示例1:
+    ```
+输入：nums1 = [1,2,2,1], nums2 = [2,2]
+输出：[2]
+    ```
+    2. 示例2:
+    ```
+输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+输出：[9,4]
+    ```
+4. 说明:
+* 输出结果中的每个元素一定是唯一的。
+* 我们可以不考虑输出结果的顺序。
+5. 思路:  
+>现将nums1放进map中去重,然后向map2放入nums2和nums1的交集数据,然后取出放入数组中返回
 
+6. 题解:
 
-
-
+```java
+public int[] intersection(int[] nums1, int[] nums2) {
+        if (nums1 == null || nums2 == null) {
+            return null;
+        }
+        Map<Integer,Integer> map1 = new HashMap<>();
+        for (int value : nums1) {
+            map1.put(value, 0);
+        }
+        Map<Integer,Integer> map2 = new HashMap<>();
+        for (int value : nums2) {
+            if (map1.get(value) !=null && map2.get(value) == null) {
+                map2.put(value, 0);
+            }
+        }
+        Set<Integer> set = map2.keySet();
+        int[] res = new int[set.size()];
+        int i =0;
+        for(Integer v : set){
+            res[i] = v;
+            i++;
+        }
+        return res;
+}
+```
 
 
 
