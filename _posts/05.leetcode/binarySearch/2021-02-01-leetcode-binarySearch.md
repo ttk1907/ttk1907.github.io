@@ -159,7 +159,6 @@ private static int[] twoSum(int[] numbers, int target) {
         }
         return res;
 }
-
 private static int binarySearch(int l, int[] numbers, int target){
         int r = numbers.length-1;
         int mid;
