@@ -47,22 +47,23 @@ tags: leetcode
 4. 思路:
 
 > 正常二分查找即可,如果找不到,left指针正好就是待插入的位置
+
 5. 题解:
 ```java
 public int searchInsert(int[] nums, int target) {
-    int left = 0;
-    int right = nums.length - 1;
-    while(left <= right) { //说明继续查找
-        int mid = (left + right) / 2;
-        if(nums[mid] == target) {
-            return mid;
-        } else if ( nums[mid] > target) {
-            right = mid - 1;//需要向左边查找
-        } else {
-            left = mid + 1; //需要向右边查找
+        int left = 0;
+        int right = nums.length - 1;
+        while(left <= right) { //说明继续查找
+                int mid = (left + right) / 2;
+                if(nums[mid] == target) {
+                        return mid;
+                } else if ( nums[mid] > target) {
+                        right = mid - 1;//需要向左边查找
+                } else {
+                        left = mid + 1; //需要向右边查找
+                }
         }
-    }
-    return left;
+        return left;
 }
 ```
 
@@ -93,20 +94,21 @@ public int searchInsert(int[] nums, int target) {
 >下限l设为0,上限r设为x,每次取中间的数mid平方后和x比较
 >   * 小于<=x的话,l=mid+1
 >   * 大于x的话,r=mid-1
+
 5. 题解:
 ```java
 public int mySqrt(int x) {
-    int l = 0, r = x, ans = -1;
-    while (l <= r) {
-        int mid = l + (r - l) / 2;
-        if ((long) mid * mid <= x) {
-            ans = mid;
-            l = mid + 1;
-        } else {
-            r = mid - 1;
+        int l = 0, r = x, ans = -1;
+        while (l <= r) {
+                int mid = l + (r - l) / 2;
+                if ((long) mid * mid <= x) {
+                        ans = mid;
+                        l = mid + 1;
+                } else {
+                        r = mid - 1;
+                }
         }
-    }
-    return ans;
+        return ans;
 }
 ```
 
@@ -141,3 +143,42 @@ public int mySqrt(int x) {
 * numbers 按 递增顺序 排列
 * -1000 <= target <= 1000
 * 仅存在一个有效答案
+
+5. 思路:
+
+>循环每一个数,然后用二分法找出另一个数字
+>这道题也可以使用双指针,l=0,r=length-1,通过加和判断与目标的大小求出答案
+
+6. 题解:
+```java
+private static int[] twoSum(int[] numbers, int target) {
+        int[] res = new int[2];
+        int t;
+        for (int i=0;i<numbers.length;i++){
+                res[0] = i+1;
+                //二分查找成功
+                t = binarySearch(res[0],numbers,target-numbers[i]);
+                if (t!=-1){
+                        res[1] = t+1;
+                        break;
+                }
+        }
+        return res;
+}
+
+private static int binarySearch(int l, int[] numbers, int target){
+        int r = numbers.length-1;
+        int mid;
+        while (l<=r){
+                mid = l+(r-l)/2;
+                if (numbers[mid] == target) {
+                        return mid;
+                } else if (numbers[mid]>target){
+                        r = mid-1;
+                } else {
+                        l = mid+1;
+                }
+        }
+        return -1;
+}
+```
