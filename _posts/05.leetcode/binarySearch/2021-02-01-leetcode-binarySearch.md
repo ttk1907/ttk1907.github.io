@@ -19,7 +19,7 @@ tags: leetcode
 ### No35.搜索插入位置(简单)
 1. 难度:<font color=green>简单<font color=green>
 2. [题目:No35.搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)  
->给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。  
 >你可以假设数组中无重复元素。
 
 3. 示例:
@@ -68,8 +68,8 @@ public int searchInsert(int[] nums, int target) {
 ### No69.X的平方根(简单)
 1. 难度:<font color=green>简单<font color=green>
 2. [题目:No69.X的平方根](https://leetcode-cn.com/problems/sqrtx/)  
->实现 `int sqrt(int x)` 函数。
->计算并返回 x 的平方根，其中 x 是非负整数。
+>实现 `int sqrt(int x)` 函数。  
+>计算并返回 x 的平方根，其中 x 是非负整数。  
 >由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
 
 3. 示例:
