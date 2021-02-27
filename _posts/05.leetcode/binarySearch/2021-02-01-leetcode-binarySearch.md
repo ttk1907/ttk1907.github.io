@@ -268,10 +268,101 @@ public int[] intersection(int[] nums1, int[] nums2) {
 }
 ```
 
+## 二、中等题
+### No74.搜索二维矩阵(中等)
+1. 难度:<font color=orange>简单<font color=orange>
+2. [题目:No74.搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/)  
+>编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
+> * 每行中的整数从左到右按升序排列。
+> * 每行的第一个整数大于前一行的最后一个整数。
 
+3. 示例:
+    1. 示例1:
+    ```
+1 ,3 ,5 ,7
+10,11,16,20
+23,30,34,60
+输入：matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+输出：true
+    ```
+    2. 示例2:
+    ```
+1 ,3 ,5 ,7
+10,11,16,20
+23,30,34,60
+输入：matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13
+输出：false
+    ```
+4. 提示：  
+* m == matrix.length
+* n == matrix[i].length
+* 1 <= m, n <= 100
+* -104 <= matrix\[i\]\[j\], target <= 104
+5. 思路:  
+> 注意到输入的 m x n 矩阵可以视为长度为 m x n的有序数组。    
+> 由于该虚数组的序号可以由下式方便地转化为原矩阵中的行和列 (我们当然不会真的创建一个新数组) ，该有序数组非常适合二分查找。  
+> row = idx / n ， col = idx % n。
 
+6. 题解:
+```java
+public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length;
+        if (m == 0) return false;
+        int n = matrix[0].length;
 
+        // 二分查找
+        int left = 0, right = m * n - 1;
+        int pivotIdx, pivotElement;
+        while (left <= right) {
+          pivotIdx = (left + right) / 2;
+          pivotElement = matrix[pivotIdx / n][pivotIdx % n];
+          if (target == pivotElement) return true;
+          else {
+            if (target < pivotElement) right = pivotIdx - 1;
+            else left = pivotIdx + 1;
+          }
+        }
+        return false;
+}
+```
 
+### No275.H指数II(中等)
+1. 难度:<font color=orange>简单<font color=orange>
+2. [题目:No275.H指数II](https://leetcode-cn.com/problems/h-index-ii/)  
+>给定一位研究者论文被引用次数的数组（被引用次数是非负整数），数组已经按照 升序排列 。编写一个方法，计算出研究者的 h 指数。  
+> h 指数的定义: “h 代表“高引用次数”（high citations），一名科研人员的 h 指数是指他（她）的 （N 篇论文中）总共有 h 篇论文分别被引用了至少 h 次。（其余的 N - h 篇论文每篇被引用次数不多于 h 次。）"  
+3. 示例:
+    ```
+示例:
+输入: citations = [0,1,3,5,6]
+输出: 3 
+解释: 给定数组表示研究者总共有 5 篇论文，每篇论文相应的被引用了 0, 1, 3, 5, 6 次。由于研究者有 3 篇论文每篇至少被引用了 3 次，其余两篇论文每篇被引用不多于 3 次，所以她的 h 指数是 3。
+    ```
+4. 说明:如果 h 有多有种可能的值 ，h 指数是其中最大的那个。
+5. 进阶：
+* 这是 H 指数 的延伸题目，本题中的 citations 数组是保证有序的。
+* 你可以优化你的算法到对数时间复杂度吗？
+6. 思路:  
+>二分法开始查找,如果找到值和length-下标对应上的,那么这个length-mid必是答案  
+>如果没对应上,继续查找直到退出循环,length-l就是答案
 
-
-
+7. 题解:
+```java
+private static int hIndex(int[] citations) {
+        int l=0;
+        int length=citations.length;
+        int r=length-1;
+        int mid;
+        while (l<=r){
+            mid = l+(r-l)/2;
+            if (citations[mid]==length-mid) {
+                return length-mid;
+            } else if (citations[mid]>length-mid){
+                r = mid-1;
+            } else {
+                l = mid+1;
+            }
+        }
+        return length-l;
+}
+```
