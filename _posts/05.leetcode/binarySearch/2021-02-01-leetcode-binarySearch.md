@@ -239,10 +239,9 @@ public class Solution extends VersionControl {
 * 输出结果中的每个元素一定是唯一的。
 * 我们可以不考虑输出结果的顺序。
 5. 思路:  
->现将nums1放进map中去重,然后向map2放入nums2和nums1的交集数据,然后取出放入数组中返回
+>先将nums1放进map中去重,然后向map2放入nums2和nums1的交集数据,然后取出放入数组中返回
 
 6. 题解:
-
 ```java
 public int[] intersection(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null) {
