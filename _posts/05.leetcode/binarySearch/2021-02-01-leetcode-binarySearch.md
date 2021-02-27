@@ -270,7 +270,7 @@ public int[] intersection(int[] nums1, int[] nums2) {
 
 ## 二、中等题
 ### No74.搜索二维矩阵(中等)
-1. 难度:<font color=orange>简单<font color=orange>
+1. 难度:<font color=orange>中等<font color=orange>
 2. [题目:No74.搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/)  
 >编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
 > * 每行中的整数从左到右按升序排列。
@@ -314,20 +314,20 @@ public boolean searchMatrix(int[][] matrix, int target) {
         int left = 0, right = m * n - 1;
         int pivotIdx, pivotElement;
         while (left <= right) {
-          pivotIdx = (left + right) / 2;
-          pivotElement = matrix[pivotIdx / n][pivotIdx % n];
-          if (target == pivotElement) return true;
-          else {
+            pivotIdx = (left + right) / 2;
+            pivotElement = matrix[pivotIdx / n][pivotIdx % n];
+            if (target == pivotElement) return true;
+            else {
             if (target < pivotElement) right = pivotIdx - 1;
             else left = pivotIdx + 1;
-          }
+            }
         }
         return false;
 }
 ```
 
 ### No275.H指数II(中等)
-1. 难度:<font color=orange>简单<font color=orange>
+1. 难度:<font color=orange>中等<font color=orange>
 2. [题目:No275.H指数II](https://leetcode-cn.com/problems/h-index-ii/)  
 >给定一位研究者论文被引用次数的数组（被引用次数是非负整数），数组已经按照 升序排列 。编写一个方法，计算出研究者的 h 指数。  
 > h 指数的定义: “h 代表“高引用次数”（high citations），一名科研人员的 h 指数是指他（她）的 （N 篇论文中）总共有 h 篇论文分别被引用了至少 h 次。（其余的 N - h 篇论文每篇被引用次数不多于 h 次。）"  
@@ -364,5 +364,46 @@ private static int hIndex(int[] citations) {
             }
         }
         return length-l;
+}
+```
+
+### No540.有序数组中的单一元素(中等)
+1. 难度:<font color=orange>中等<font color=orange>
+2. [题目:No540.有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/)  
+>给定一个只包含整数的有序数组，每个元素都会出现两次，唯有一个数只会出现一次，找出这个数。  
+3. 示例:
+    1. 示例1:
+    ```
+输入: [1,1,2,3,3,4,4,8,8]
+输出: 2
+    ```
+4. 注意: 您的方案应该在 O(log n)时间复杂度和 O(1)空间复杂度中运行。
+5. 思路:  
+>每次寻找中位数后判断前后是否有相同的数字,有的话排除这两个数字,根据左右两边剩余长度的奇偶来判断单个数字在左边还是右边  
+6. 题解:
+```java
+public int singleNonDuplicate(int[] nums) {
+    int lo = 0;
+    int hi = nums.length - 1;
+    while (lo < hi) {
+        int mid = lo + (hi - lo) / 2;
+        boolean halvesAreEven = (hi - mid) % 2 == 0;//判断右边是奇数还是偶数 true为右边奇数,false为右边偶数
+        if (nums[mid + 1] == nums[mid]) {
+            if (halvesAreEven) {
+                lo = mid + 2;
+            } else {
+                hi = mid - 1;
+            }
+        } else if (nums[mid - 1] == nums[mid]) {
+            if (halvesAreEven) {
+                hi = mid - 2;
+            } else {
+                lo = mid + 1;
+            }
+        } else {
+            return nums[mid];//没找到相同的数字,该数字就是单个的数字
+        }
+    }
+    return nums[lo];
 }
 ```
