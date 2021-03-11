@@ -20,4 +20,7 @@ tags: leetcode
 ## 1.二分查找
 1. [二分查找](https://ttk1907.github.io/2021/02/01/leetcode-binarySearch/)
 
+## 2.分治算法
+1. [分治算法](https://ttk1907.github.io/2021/02/27/leetcode-divideAndConquer/)
+
 

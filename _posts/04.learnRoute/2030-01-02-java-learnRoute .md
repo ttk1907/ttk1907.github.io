@@ -22,17 +22,17 @@ tags: study
 
 ## 学习路线
 1. 数据结构与算法
-2. Mybatis + Mybatis Plus
-3. jvm的学习
-4. mysql基础和高级
-5. 然后是对java基础查缺补漏+高并发多线程
-6. nosql的学习(Redis、MongoDB)
-7. spring-springMVC
-8. Nginx+Netty
-9. ZooKeeper+Dubbo
-10. 消息中间件ActiveMQ、RabbitMQ、Kafka
-11. springBoot复习
-12. spring Cloud和spring Cloud ALiBaBa各种组件的学习
+2. jvm的学习
+3. 消息中间件ActiveMQ、RabbitMQ、Kafka
+4. nosql的学习(Redis、MongoDB)
+5. Nginx+Netty
+6. ZooKeeper+Dubbo
+7. spring Cloud和spring Cloud ALiBaBa各种组件的学习
+8. Mybatis + Mybatis Plus
+9. mysql基础和高级
+10. 然后是对java基础查缺补漏+高并发多线程
+11. spring-springMVC
+12. springBoot复习
 13. 面试题以及面经
 
 ## 时间要求
@@ -70,15 +70,15 @@ tags: study
     10. 马踏棋盘算法
 
 
-## 二、Mybatis+MybatisPlus
-## 三、Jvm
+## 二、Jvm
+## 三、消息中间件ActiveMQ、RabbitMQ、Kafka
 ## 四、Java基础查缺补漏+高并发多线程
 ## 五、Mysql基础和高级
 ## 六、Nosql(Redis、mongodb)
 ## 七、Spring-SpringMVC
 ## 八、Nginx+Netty
 ## 九、ZooKeeper+Dubbo
-## 十、消息中间件ActiveMQ、RabbitMQ、Kafka
+## 十、Mybatis+MybatisPlus
 ## 十一、springBoot复习
 ## 十二、springCloud和springCloud ALiBaBa各种组件的学习
 ## 十三、面试题以及面经
