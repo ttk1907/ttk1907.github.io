@@ -35,10 +35,6 @@ tags: study
 12. springBoot复习
 13. 面试题以及面经
 
-## 时间要求
-1. 上面每一项暂定时间一个月,根据具体学习时长变化
-2. 最后,一定要勤记笔记,勤练
-
 # 二、笔记
 
 ## 一、数据结构与算法(1.13-?)
@@ -69,13 +65,17 @@ tags: study
     9. 弗洛伊德算法(Floyd)
     10. 马踏棋盘算法
 
-
 ## 二、Jvm
+1. [Jvm01-内存与垃圾回收篇](https://ttk1907.github.io/2021/03/25/java-Jvm01/) :
+2. [Jvm02-字节码与类的加载篇](https://ttk1907.github.io/2021/03/25/java-Jvm01/) :
+3. [Jvm03-性能监控与调优篇](https://ttk1907.github.io/2021/03/25/java-Jvm01/) :
+4. [Jvm04-大厂面试篇](https://ttk1907.github.io/2021/03/25/java-Jvm01/) :
+
 ## 三、消息中间件ActiveMQ、RabbitMQ、Kafka
 ## 四、Java基础查缺补漏+高并发多线程
 ## 五、Mysql基础和高级
 ## 六、Nosql(Redis、mongodb)
-## 七、Spring-SpringMVC
+## 七、Spring-SpringMVC复习及源码学习
 ## 八、Nginx+Netty
 ## 九、ZooKeeper+Dubbo
 ## 十、Mybatis+MybatisPlus

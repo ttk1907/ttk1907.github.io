@@ -1,0 +1,17 @@
+java 运行命令：
+nohup java -jar /zngtest/zng-module-0.0.1-SNAPSHOT.jar >> /zngtest/rizhi.log 2>&1&
+
+日志命令：
+tail -f rizhi.log
+
+结束进程：
+kill -9 进程号
+
+查看进程：
+netstat -anp
+
+nacos启动命令：
+bash startup.sh -m standalone
+
+nacos 关闭命令:
+sh shutdown.sh
