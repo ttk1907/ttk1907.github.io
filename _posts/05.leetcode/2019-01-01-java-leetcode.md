@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "leetcode刷题笔记"
-date:   2030-01-02
+date:   2019-01-01
 categories: leetcode
 tags: leetcode
 ---
