@@ -16,8 +16,8 @@ tags: study
 
 
 # 拉钩高薪训练营笔记目录
-## 一、第一阶段
-### 1.第一模块
+## 一、第一阶段:开源框架源码解析
+### 1.第一模块:持久层框架设计及MyBatis源码分析
 1. [01.任务一：自定义持久层框架](https://ttk1907.github.io/2021/05/16/lagou-java-01-01-01/)  
 2. [02.任务二：MyBatis基础回顾及高级应用](https://ttk1907.github.io/2021/05/20/lagou-java-01-01-02/)  
 3. [03.任务三：MyBatis源码剖析](https://ttk1907.github.io/2021/05/25/lagou-java-01-01-03/)  
