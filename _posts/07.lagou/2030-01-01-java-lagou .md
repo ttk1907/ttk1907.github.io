@@ -36,9 +36,9 @@ tags: study
 5. [05.玩转SpringMVC必备设计模式](https://ttk1907.github.io/2021/06/05/lagou-java-01-03-05/)  
 
 ### 4.第四模块:约定优于配置设计范式及SpringBoot源码剖析、SpringBoot缓存管理之自定义RedisCache
-1. [01.SpringBoot基础回顾](https://ttk1907.github.io/2021/06/15/lagou-java-01-04-01/)  
-2. [02.SpringBoot源码剖析](https://ttk1907.github.io/2021/06/16/lagou-java-01-04-02/)  
-3. [03.SpringBoot高级进阶](https://ttk1907.github.io/2021/06/17/lagou-java-01-04-03/)  
+1. [01.SpringBoot基础回顾](https://ttk1907.github.io/2021/06/05/lagou-java-01-04-01/)  
+2. [02.SpringBoot源码剖析](https://ttk1907.github.io/2021/06/06/lagou-java-01-04-02/)  
+3. [03.SpringBoot高级进阶](https://ttk1907.github.io/2021/06/06/lagou-java-01-04-03/)  
 
 ## 二、第二阶段:Web服务器深度应用及调优
 ### 1.第一模块:Tomcat深度剖析及性能调优、Nginx深度剖析及性能调优
