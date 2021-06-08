@@ -42,9 +42,9 @@ tags: study
 
 ## 二、第二阶段:Web服务器深度应用及调优
 ### 1.第一模块:Tomcat深度剖析及性能调优、Nginx深度剖析及性能调优
-1. [01.Tomcat高级使用及其原理剖析](https://ttk1907.github.io/2021/06/19/lagou-java-02-01-01/)  
-2. [02.Tomcat源码剖析及调优](https://ttk1907.github.io/2021/06/20/lagou-java-02-01-02/)  
-3. [03.Nginx原理深入剖析](https://ttk1907.github.io/2021/06/21/lagou-java-02-01-03/)  
+1. [01.Tomcat高级使用及其原理剖析](https://ttk1907.github.io/2021/06/07/lagou-java-02-01-01/)  
+2. [02.Tomcat源码剖析及调优](https://ttk1907.github.io/2021/06/08/lagou-java-02-01-02/)  
+3. [03.Nginx原理深入剖析](https://ttk1907.github.io/2021/06/09/lagou-java-02-01-03/)  
 
 ### 2.第二模块:Cluster模式潜在问题及解决方案、Web服务综合解决方案
 1. [01.一致性Hash问题及解决方案](https://ttk1907.github.io/2021/06/23/lagou-java-02-02-01/)  
