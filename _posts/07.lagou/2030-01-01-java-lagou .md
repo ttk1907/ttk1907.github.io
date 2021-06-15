@@ -50,7 +50,7 @@ tags: study
 2. [02.分布式集群时钟同步问题及解决方案](https://ttk1907.github.io/2021/06/10/lagou-java-02-02-01/#第部分-集群时钟同步问题)  
 3. [03.分布式ID问题及解决方案](https://ttk1907.github.io/2021/06/10/lagou-java-02-02-01/#第三部分-分布式id解决案)  
 4. [04.分布式调度问题及解决方案](https://ttk1907.github.io/2021/06/11/lagou-java-02-02-02/)  
-5. [05.Session一致性问题及解决方案](https://ttk1907.github.io/2021/06/11/lagou-java-02-02-02/)  
+5. [05.Session一致性问题及解决方案](https://ttk1907.github.io/2021/06/11/lagou-java-02-02-02/#第五部分-session共享问题)  
 
 # 三、第三阶段:分布式架构设计&微服务深入剖析
 ## 1.第一模块:分布式理论、架构设计（自定义RPC）
