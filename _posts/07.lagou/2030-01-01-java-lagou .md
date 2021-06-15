@@ -47,8 +47,8 @@ tags: study
 
 ## 2.第二模块:Cluster模式潜在问题及解决方案、Web服务综合解决方案
 1. [01.一致性Hash问题及解决方案](https://ttk1907.github.io/2021/06/10/lagou-java-02-02-01/)  
-2. [02.分布式集群时钟同步问题及解决方案](https://ttk1907.github.io/2021/06/10/lagou-java-02-02-01/)  
-3. [03.分布式ID问题及解决方案](https://ttk1907.github.io/2021/06/10/lagou-java-02-02-01/)  
+2. [02.分布式集群时钟同步问题及解决方案](https://ttk1907.github.io/2021/06/10/lagou-java-02-02-01/#第部分-集群时钟同步问题)  
+3. [03.分布式ID问题及解决方案](https://ttk1907.github.io/2021/06/10/lagou-java-02-02-01/#第三部分-分布式id解决案)  
 4. [04.分布式调度问题及解决方案](https://ttk1907.github.io/2021/06/11/lagou-java-02-02-02/)  
 5. [05.Session一致性问题及解决方案](https://ttk1907.github.io/2021/06/11/lagou-java-02-02-02/)  
 
